@@ -1,5 +1,5 @@
 # Chapter 1
-<ins>CIA Triad<ins>
+### CIA Triad
 
 _Main goals of Cybersecurity_
 
@@ -17,7 +17,7 @@ _Main goals of Cybersecurity_
 
 ##
 
-<ins>DAD Triad<ins>
+### DAD Triad
 
 _Key Threats to Cybersecurity_
 
@@ -35,26 +35,26 @@ _Key Threats to Cybersecurity_
 
 ##
 
-<ins>Breach Impact<ins>
+### Breach Impact
 
 **_Security incidents_** occur when an organization experiences a breach of the confidentiality, integrity, and/or availability of information or information systems. Security professionals are responsible for understanding these risks and implementing controls designed to manage those risks to an acceptable level. They must understand the effects that a breach might have on the organization and the impact it might have on an ongoing basis
 
 **Financial Risk** - the risk of monetary damage to the organization as the result of a data breach
 
-**Reputational Risk** - occurs when the negative publicity surrounding a security breach casues the loss of goodwill amoung customers, employees, suplliers, and other stakeholders
+**Reputational Risk** - occurs when the negative publicity surrounding a security breach causes the loss of goodwill among customers, employees, suppliers, and other stakeholders
 
-**Strategic Risk** - the risk that an organization will become less efective in meeting its major goals and objectives as a result of the breach
+**Strategic Risk** - the risk that an organization will become less effective in meeting its major goals and objectives as a result of the breach
 
 **Operational Risk** - risk to the organization's ability to carry out its day-to-day functions
 
-**Compliance Risk** - occurs when a security breach causes an organiztion to run afoul of legal or regulatory requirments
+**Compliance Risk** - occurs when a security breach causes an organization to run afoul of legal or regulatory requirements
 
 >[!NOTE]
 Risks can often cross categories
 
 ##
 
-<ins>Security Control Categories<ins>
+### Security Control Categories
 
 **Technical Controls** - enforce confidentiality, integrity, and availability in the digital space
 
@@ -70,7 +70,7 @@ Risks can often cross categories
 
 ##
 
-<ins>Security Control Types<ins>
+### Security Control Types
 
 **Preventitive Controls** - intend to stop a security issue before it occurs 
 
@@ -104,4 +104,54 @@ Risks can often cross categories
 
 **Data in processing** - data that is actively in use by a computer system. includes the data stored in memory while processing takes place
 
-Data Encryption
+<ins>Data Encryption<ins>
+
+**Encryption** technology uses mathematical algorithms to protect information from prying eyes, both while it is in transit over a network and while it resides in systems
+
+##
+
+### Data Loss Prevention
+
+Data loss prevention (DLP) systems help organizations enforce information handling policies and procedures to prevent data loss and theft. They search systems for stores of sensitive information that might be unsecured and monitor network traffic for potential attempts to remove sensitive information from the organization. They can act quickly to block the transmission before damage is done and alert administrators to the attempted breach
+
+**Host-based DLP** - uses software agents installed on systems that search those systems for the presence of sensitive information. Detecting the presence of stored sensitive information allows security professionals to take prompt action to either remove it or secure it with encryption
+
+can also monitor system configuration and user actions, blocking undesirable actions
+
+**Network DLP** - dedicated devices that sit on the network and monitor outbound network traffic, watching for any transmissions that contain unencrypted sensitive information. They can then block those transmissions, preventing the unsecured loss of sensitive information
+
+DLP systems may simply block traffic that violates the organization's policy, or in some cases, they may automatically apply encryption to the content
+
+DLP systems also have two mechanisms of action:
+
+- **Pattern matching** - they watch for the telltale signs of sensitive information
+
+&emsp;&emsp;i.e. a number that is formatted like a credit card or Social Security number
+
+- **Watermarking** - systems or administrators apply electronic tags to sensitive documents and then the DLP system can monitor systems and networks for unencrypted content containing those tags
+
+&emsp;&emsp;i.e. used in digital rights management (DRM) solutions that enforce copyright and data ownership restrictions
+
+##
+
+### Data Minimization
+
+Seeks to reduce risk by reducing the amount of sensitive information that we maintain on a regular basis
+
+The best way to achieve data minimization is to simply destroy data when it is no longer necessary to meet our original business purpose
+
+If we can't completely remove data from a dataset, we can often transform it into a format where the original sensitive information is de-identified. The **de-identification** process removes the ability to link data back to an individual, reducing its sensitivity
+
+**Data Obfuscation**
+
+- **Hashing** - uses a hash function to transform a value in our dataset to a corresponding hash value
+
+If someone has a list of possible values for a field, they can conduct something called a **rainbow table attack**. In this attack, the attacker computes the hashes of those candidate values and then checks to see if those hashes exist in our data file
+
+- **Tokenization** - replaces sensitive value with a unique identifier using a lookup table
+
+i.e. replace a widely known value, such as a student ID, with a randomly generated 10-digit number. We'd then maintain a lookup table that allows us to convert those back to student IDs if we need to determine someone's identity. Need to keep the lookup table secure
+
+- **Masking** - partially redacts sensitive information by replacing some or all sensitive fields with blank characters
+
+i.e. might replace all but the last four digits of a credit card number with X's or *'s to render the card number unreadable
