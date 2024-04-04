@@ -41,9 +41,67 @@ _Key Threats to Cybersecurity_
 
 **Financial Risk** - the risk of monetary damage to the organization as the result of a data breach
 
-**Reputational Risk** - occurs when the negative publicity surrounding a security breach casuwes the loss of goodwill amoung customers, employees, suplliers, and other stakeholders
+**Reputational Risk** - occurs when the negative publicity surrounding a security breach casues the loss of goodwill amoung customers, employees, suplliers, and other stakeholders
 
-**Strategic Risk** - the risk that an organization will become less efective in meeting its major goals  anf objectives as a result of the breach
+**Strategic Risk** - the risk that an organization will become less efective in meeting its major goals and objectives as a result of the breach
+
+**Operational Risk** - risk to the organization's ability to carry out its day-to-day functions
+
+**Compliance Risk** - occurs when a security breach causes an organiztion to run afoul of legal or regulatory requirments
+
+>[!NOTE]
+Risks can often cross categories
 
 ##
 
+<ins>Security Control Categories<ins>
+
+**Technical Controls** - enforce confidentiality, integrity, and availability in the digital space
+
+&emsp;&emsp;i.e. firewall rules, access control lists, intrusion prevention systems, and encryption
+
+**Operational Controls** - the processes that we put in place to manage technology in a secure manner
+
+&emsp;&emsp;i.e. access reviews, log monitoring, and vulnerability management
+
+**Managerial controls** - procedural mechanisms that focus on the mechanics of the risk management process
+
+&emsp;&emsp;i.e. periodic risk assessments, security planning exercises, and the incorporation of security into the organization's change management, service acquisition, and project management practices
+
+##
+
+<ins>Security Control Types<ins>
+
+**Preventitive Controls** - intend to stop a security issue before it occurs 
+
+&emsp;&emsp;i.e. firewalls and encryption
+
+**Detective Controls** - identify security events that have already occurred
+
+&emsp;&emsp;i.e. intrusion detection systems (ids)
+
+**Corrective controls** - remediate security issues that have already occurred
+
+&emsp;&emsp;i.e. restoring backups after a ransomware attack
+
+**Deterrent controls** - seek to prevent an attacker from attempting to violate security policies
+
+&emsp;&emsp;i.e. vicious guard dogs and barbed wire fences
+
+**Physical controls** - security controls that impact the physical world
+
+&emsp;&emsp;i.e. fences, perimeter lighting, locks, fire suppression systems, and burglar alarms
+
+**Compensating controls** - controls designed to mitigate the risk associated with exceptions made to a security policy
+
+##
+
+### Data Protection
+
+**Data at rest** - stored data that resides on hard drives, tapes, in the cloud, or on other storage media
+
+**Data in motion** - data that is in transit over a network
+
+**Data in processing** - data that is actively in use by a computer system. includes the data stored in memory while processing takes place
+
+Data Encryption
