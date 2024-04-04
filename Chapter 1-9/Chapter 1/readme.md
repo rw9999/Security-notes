@@ -39,4 +39,11 @@ _Key Threats to Cybersecurity_
 
 **_Security incidents_** occur when an organization experiences a breach of the confidentiality, integrity, and/or availability of information or information systems. Security professionals are responsible for understanding these risks and implementing controls designed to manage those risks to an acceptable level. They must understand the effects that a breach might have on the organization and the impact it might have on an ongoing basis
 
+**Financial Risk** - the risk of monetary damage to the organization as the result of a data breach
+
+**Reputational Risk** - occurs when the negative publicity surrounding a security breach casuwes the loss of goodwill amoung customers, employees, suplliers, and other stakeholders
+
+**Strategic Risk** - the risk that an organization will become less efective in meeting its major goals  anf objectives as a result of the breach
+
 ##
+
