@@ -94,7 +94,8 @@ May engage in corporate espionage designed to steal sensitive information from y
 means that threat actors use to obtain that access
 
 **Email and Social Media**
-- most commonly exploited threat vectors
+
+Most commonly exploited threat vectors
 
 Phishing messages, spam messages, and other email-borne attacks are a simple way to gain access to an organization's network
 
@@ -120,15 +121,15 @@ Vulnerabilities facing organizations operating in cloud environments bear simila
 
 ### Threat Data and Intelligence
 
-the set of activities and resources available to cybersecurity professionals seeking to learn about changes in the threat environment
+The set of activities and resources available to cybersecurity professionals seeking to learn about changes in the threat environment
 
 Threat intelligence information can also be used for **predictive analysis** to identify likely risks to the organization
 
-Many sources of threat intelligence, ranging from open-source intelligence (OSINT) that you can gather from publicly available sources, to commercial services that provide proprietary or closed-source intelligence information
+Many sources of threat intelligence, ranging from open-source intelligence (OSINT) that you can gather from publicly available sources to commercial services that provide proprietary or closed-source intelligence information
 
 Threat feeds often include technical details about threats, such as IP addresses, hostnames and domains, email addresses, URLs, file hashes, file paths, CVE numbers, and other details about a threat.
 
-**Vulnerability databases** are also an essential part of an organization's threat intelligence program. Reports of vulnerabilities certainly help direct an organization's defensive efforts, but they also provide valuable insight into the types of exploit being discovered by researchers.
+**Vulnerability databases** are also an essential part of an organization's threat intelligence program. Reports of vulnerabilities certainly help direct an organization's defensive efforts, but they also provide valuable insight into the types of exploits being discovered by researchers.
 
 Threat intelligence sources may also provide **indicators of compromise (IoCs)**. These are the telltale signs that an attack has taken place and may include file signatures, log patterns, and other evidence left behind by attackers. IoCs may also be found in file and code repositories that offer threat intelligence information.
 
