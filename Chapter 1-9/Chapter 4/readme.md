@@ -21,6 +21,8 @@ i.e. A consensus-based social engineering attack might point out that everyone e
 - **Familiarity-based** attacks rely on you liking the individual or even the organization the individual is claiming to represent.
 
 - **Trust** much like familiarity, relies on a connection with the individual they are targeting. Unlike with familiarity, which relies on targets thinking that something is normal and thus familiar
+
+i.e. social engineers who use this technique work to build a connection with their targets so that they will take the actions that they want them to take
   
 - **Urgency** relies on creating a feeling that the action must be taken quickly due to some reason or reasons.
   
