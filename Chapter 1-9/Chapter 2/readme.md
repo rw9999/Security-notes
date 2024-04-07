@@ -123,3 +123,66 @@ Vulnerabilities facing organizations operating in cloud environments bear simila
 the set of activities and resources available to cybersecurity professionals seeking to learn about changes in the threat environment
 
 Threat intelligence information can also be used for **predictive analysis** to identify likely risks to the organization
+
+Many sources of threat intelligence, ranging from open-source intelligence (OSINT) that you can gather from publicly available sources, to commercial services that provide proprietary or closed-source intelligence information
+
+Threat feeds often include technical details about threats, such as IP addresses, hostnames and domains, email addresses, URLs, file hashes, file paths, CVE numbers, and other details about a threat.
+
+**Vulnerability databases** are also an essential part of an organization's threat intelligence program. Reports of vulnerabilities certainly help direct an organization's defensive efforts, but they also provide valuable insight into the types of exploit being discovered by researchers.
+
+Threat intelligence sources may also provide **indicators of compromise (IoCs)**. These are the telltale signs that an attack has taken place and may include file signatures, log patterns, and other evidence left behind by attackers. IoCs may also be found in file and code repositories that offer threat intelligence information.
+
+**Open Source Intelligence** - threat intelligence that is acquired from publicly available sources
+
+Many government and public sources of threat intelligence data
+
+**Dark Web ** - a network run over standard Internet connections but using multiple layers of encryption to provide anonymous communication
+
+**Closed-source intelligence** -  Commercial security vendors, government organizations, and other security-centric organizations do their own information gathering and research, and they may use custom tools, analysis models, or other proprietary methods to gather, curate, and maintain their threat feeds.
+
+Threat maps provide a geographic view of threat intelligence
+
+##
+
+### Assessing Threat Intelligence
+
+1. Is it timely? A feed that is operating on delay can cause you to miss a threat, or to react after the threat is no longer relevant.
+	
+2. Is the information accurate? Can you rely on what it says, and how likely is it that the assessment is valid? Does it rely on a single source or multiple sources? How often are those sources correct? 
+	
+3. Is the information relevant? If it describes the wrong platform, software, or reason for the organization to be targeted, the data may be very timely, very accurate, and completely irrelevant to your organization
+   
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/ad2f215a-1f95-49dd-b434-d170ae6554d4)
+
+##
+
+### Threat Indicator Management and Exchange
+
+Managing threat information at any scale requires standardization and tooling to allow the threat information to be processed and used in automated ways
+
+**Structured Threat Information eXpression (STIX)** -  an XML language originally sponsored by the U.S. Department of Homeland Security
+
+STIX 2.0 defines 12 STIX domain objects, including things like attack patterns, identities, malware, threat actors, and tools. These objects are then related to each other by one of two STIX relationship object models: either as a relationship or a sighting. STIX has been handed off to the Organization for the Advancement of Structured Information Standards (OASIS)
+
+A companion to STIX is the **Trusted Automated eXchange of Indicator Information (TAXII)** protocol. TAXII is intended to allow cyber threat information to be communicated at the application layer via HTTPS. TAXII is specifically designed to support STIX data exchange
+
+**Open Indicators of Compromise (OpenIOC)** is an XML-based framework that was developed by Mandiant, and it uses Mandiant's indicators for its base framework. A typical IOC includes metadata like the author, the name of the IOC, and a description of the indicator
+
+**Information Sharing and Analysis Centers (ISACs)** help infrastructure owners and operators share threat information and provide tools and assistance to their members
+
+##
+
+### Conducting Your Own Research
+
+- Vendor security information websites
+	
+- Vulnerability and threat feeds from vendors, government agencies, and private organizations
+	
+- Academic journals and technical publications, such as Internet Request for Comments (RFC) documents. RFC documents are particularly informative because they contain the detailed technical specifications for Internet protocol
+	
+- Professional conferences and local industry group meetings
+	
+- Social media accounts of prominent security professionals
+
+Keep a particular eye out for information on adversary tactics, techniques, and procedures (TTPs)
+
