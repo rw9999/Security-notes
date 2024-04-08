@@ -53,3 +53,32 @@ Many different factors influence how often an organization decides to conduct vu
  - **Licensing limitations** may curtail the bandwidth consumed by the scanner or the number of scans that may be conducted simultaneously.
 
 ## Configuring Vulnerability Scans
+
+Vulnerability management solutions provide administrators with the ability to configure many different parameters related to scans.
+
+In addition to scheduling automated scans and producing reports, administrators may customize the types of checks performed by the scanner, provide credentials to access target servers, install scanning agents on target servers, and conduct scans from a variety of network perspectives.
+
+It is important to conduct regular **configuration reviews** of vulnerability scanners to ensure that scan settings match current requirements.
+
+### Scan Sensitivity Levels
+
+Cybersecurity professionals configuring vulnerability scans should pay careful attention to the configuration settings related to the scan sensitivity level.
+
+These settings determine the types of checks that the scanner will perform and should be customized to ensure that the scan meets its objectives while minimizing the possibility of disrupting the target environment.
+
+Typically, administrators create a new scan by beginning with a template. As administrators create their own scan configurations, they should consider saving common configuration settings in templates to allow efficient reuse of their work, saving time and reducing errors when configuring future scans.
+
+Administrators may also improve the efficiency of their scans by configuring the specific plug-ins that will run during each scan. Eachplug-in performs a check for a specific vulnerability, and these plugins are often grouped into families based on the operating system, application, or device that they involve.
+
+Disabling unnecessary plugins improves the speed of the scan by bypassing unnecessary checks and also may reduce the number of false positive results detected bythe scanner.
+
+**Intrusive plug-ins** perform tests that may actually disrupt activity on a production system or, in the worst case, damage content on those systems.
+
+Administrators want to run these scans because they may identify problems that could be exploited by a malicious source.
+
+At thesame time, cybersecurity professionals clearly don't want to cause problems on the organization's network and, as a result, may limit their scans to **nonintrusive plug-ins**.
+
+One way around this problem is to maintain a test environment containing copies of the same systems running on the production network and running scans against those test systems first.
+
+### Supplementing Newtwork Scans
+
