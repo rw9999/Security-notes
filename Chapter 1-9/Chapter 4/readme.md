@@ -173,3 +173,53 @@ More complex than just using a list of passwords and often involve word lists th
 Can be particularly effective if you know that a target uses a specific default password or a set of passwords.
 
 **Dictionary Attacks** - another form of brute-force attack that uses a list of words for their attempts
+
+An important differentiator between attack methods is whether they occur online, and thus against a live system that may have defenses in place, or if they are offline against a compromised or captured password store
+
+**Rainbow tables** are an easily searchable database of precomputed hashes using the same hashing methodology as the captured password file.
+
+A **hash** is a one-way cryptographic function that takes an input and generates a unique and repeatable output from that input. No two inputs should ever generate the same hash, and a hash should not be reversible so that the original input can be derived from the hash.
+
+If you have captured a password file, you can also use a **password cracker** against it. 
+
+Password cracking tools like John the Ripper can also be used as password assessment tools. Some organizations continue to periodically test for weak and easily cracked passwords by using a password cracker on their password stores.
+
+In many cases, use of MFA paired with password complexity requirements have largely replaced this assessment process, and that trend is likely to continue.
+
+A penetration tester or attacker's favorite opportunity is finding **plain-text** or **unencrypted passwords** to acquire.
+
+Using a strong password hashing mechanism, as well as techniques like using a salt and a pepper (additional data added to passwords before they are hashed, making it harder to use tools like rainbow tables) can help protect passwords. 
+
+Best practices for password storage don't rely on encryption; they rely on passwords never being stored and instead using a well-constructed password hash to verify passwords at login.
+
+##
+
+### Physical Attacks
+
+**Malicious flash drive** attacks largely fall into two categories
+
+Penetration testers (and potentially attackers) may drop drives in locations where they are likely to be picked up and plugged in by unwitting victims at their target organization.
+
+Sometimes accomplished by labeling the drives with compelling text that will make them more likely to be plugged in: performance reviews, financial planning, or other key words that will tempt victims.
+
+Malicious flash drives and other devices are also sometimes effectively a Trojan, as when devices have shipped or been delivered with malware included either from the factory or through modifications made in the supply chain.
+
+**Malicious USB cables** also exist, although they're less common since they require dedicated engineering to build, rather than simply buying commodity flash drives.
+
+The advantage of a malicious USB cable is that it can be effectively invisible when it replaces an existing cable and will not be noticed in the same way that a flash drive might be.
+
+Malicious cables are often configured to show up as a human interface device (e.g., a keyboard) and may be able to interface with the computer to send keystrokes or capture data in addition to deploying malware.
+
+**Card Cloning** attacks focus on capturing information from cards like RFID and magnetic stripe cards often used for entry access.
+
+Attackers may also conduct **skimming** attacks that use hidden or fake readers or social engineering and hand-held readers to capture (skim) cards, and then employ cloning tools to use credit cards andentry access cards for their own purposes.
+
+Card cloning can be difficult to detect if the cards do not have additional built-in protection such as cryptographic certificates and smart chips that make them hard to clone.
+
+Magnetic stripe and RFID-based cards that can be easily cloned can often be detected only by visual inspection to verify that they are not the original card.
+
+**Supply chain attacks** attempt to compromise devices, systems, or software before it even reaches the organization.
+
+The Trusted Foundry program ensures that the supply chain for classified and unclassified integrated circuits, devices, and other critical elements are secure and that manufacturers stay in business and are protected appropriately to ensure that trusted devices remain trusted.
+
+For individual organizations, supply chain security is much harder, but buying from trusted vendors rather than secondary market providers, as well as ensuring that devices are not modified by third parties by using physical security measures like tamper-evident holographic seal stickers, can help ensure that supply chain attacks are less likely to occur.
