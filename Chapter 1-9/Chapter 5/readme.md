@@ -383,3 +383,86 @@ Valuable information sources for this process include the following:
 - **Log reviews** from servers, applications, network devices, and other sources that might contain information about possible attempts to exploit detected vulnerabilities
 - **Security information and event management (SIEM)** systems that correlate log entries from multiple sources and provide actionable intelligence
 - **Configuration management systems** that provide information on the operating system and applications installed on a system
+
+## Security Vulnerabilities
+
+Each vulnerability scanning system contains plug-ins able to detect thousands of possible vulnerabilities, ranging from major SQL injection flaws in web applications to more mundane information disclosure issues with network devices
+
+Applying security patches to systems should be one of the core practices of any information security program, but this routine task is often neglected due to a lack of resources for preventive maintenance
+
+One of the most common alerts from a vulnerability scan is that one or more systems on the network are running an outdated version of an operating system or application and require security patches
+
+the importance of operating a **patch management** program that routinely patches security issues
+
+##
+
+### Patch Management
+
+Applying security patches to systems should be one of the core practices of any information security program, but this routine task is often neglected due to a lack of resources for preventive maintenance.
+
+One of the most common alerts from a vulnerability scan is that one or more systems on the network are running an outdated version of an operating system or application and require security patches.
+
+##
+
+### Legacy Platforms
+
+Once they announce the final end of support for a product, organizations that continue running the outdated software put themselves at a significant risk of attack.
+
+The vendor simply will not investigate or correct security flaws that arise in the product afterthat date. Organizations continuing to run the unsupported product are on their own from a security perspective, and unless you happen to maintain a team of operating system developers, that's not a good situation to find yourself in. 
+
+The solution for organizations running unsupported operating systems is simple in its phrasing but complex in implementation.
+
+In cases where the organization simply must continue using an unsupported operating system, best practice dictates isolating the system as much as possible, preferably not connecting it to any network, and applying as many compensating security controls as possible, such as increased monitoring and implementing strict network firewall rules.
+
+## 
+
+### Weak Configurations
+
+-The use of default settings that pose a security risk, such as administrative setup pages that are meant to be disabled before moving a system to production.
+
+- The presence of unsecured accounts, including both normal user account and unsecured root accounts with administrative privileges. Accounts may be considered unsecured when they either lack strong authentication or use default passwords.
+
+- Open ports and services that are not necessary to support normal system operations. This will vary based on the function of a server or device but, in general, a system should expose only the minimum number of services necessary to carry out its function.
+
+- Open permissions that allow users access that violates the principle of least privilege.
+
+##
+
+### Error Messages
+
+Many application development platforms support debug modes that give developers crucial error information needed to troubleshoot applications in the development process.
+
+Debug mode typically provides detailed information on the inner workings of an application and server, as well as supporting databases.
+
+It can inadvertently assist an attacker seeking to gain information about the structure of a database, authentication mechanisms used by an application, or other details.
+
+Vulnerability scans do alert on the presence of debug mode on scanned servers.
+
+Solving this issue requires the cooperation of developers and disabling debug modes on systems with public exposure.
+
+Software development should always take place in a dedicated development environment that is only accessible from private networks.
+
+## 
+
+### Insecure Protocols
+
+Many of the older protocols used on networks in the early days of the Internet were designed without security in mind. 
+
+They often failed to use encryption to protect usernames, passwords, and the content sent over an open network, exposing the users of the protocol to eavesdropping attacks
+
+The solution for this issue is to simply switch to a more secure protocol
+
+##
+
+### Weak Encryption
+
+Encryption is a crucial security control used in every cybersecurity program to protect stored data and data in transit over networks.
+
+When you implement encryption, you have two important choices to make:
+
+- The algorithm to use to perform encryption and decryption
+- The encryption key to use with that algorithm
+
+  ## Penetration Testing
+
+  
