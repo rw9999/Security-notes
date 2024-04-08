@@ -1,4 +1,4 @@
-# Chapter 4 Social Engineering, Physical, and Password Attacks
+# Social Engineering, Physical, and Password Attacks
 
 ### Social Engineering
 
