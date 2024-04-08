@@ -418,7 +418,7 @@ In cases where the organization simply must continue using an unsupported operat
 
 ### Weak Configurations
 
--The use of default settings that pose a security risk, such as administrative setup pages that are meant to be disabled before moving a system to production.
+- The use of default settings that pose a security risk, such as administrative setup pages that are meant to be disabled before moving a system to production.
 
 - The presence of unsecured accounts, including both normal user account and unsecured root accounts with administrative privileges. Accounts may be considered unsecured when they either lack strong authentication or use default passwords.
 
@@ -463,6 +463,193 @@ When you implement encryption, you have two important choices to make:
 - The algorithm to use to perform encryption and decryption
 - The encryption key to use with that algorithm
 
-  ## Penetration Testing
+## Penetration Testing
 
-  
+Seeks to bridge the gap between the rote use of technical tools to test an organization's security and the power of those tools when placed in the hands of a skilled and determined attacker
+
+Authorized, legal attempts to defeat an organization's security controls and perform unauthorized activities
+
+Time-consuming and require staff who are equally skilled and determined as the real-world attackers that will attempt to compromise the organization
+
+Most effective way for an organization to gain a complete picture of their security vulnerability
+
+Penetration testing provides us with knowledge that we can't obtain elsewhere
+
+We learn whether an attacker with the same knowledge, skills, and information as our testers would likely be able to penetrate our defenses
+
+In the event that attackers are successful, penetration testing provides us with an important blueprint for remediation
+
+Cybersecurity professionals can trace the actions of the testers as they progressed through the different stages of the attack and close the series of open doors that the testers passed through
+
+Penetration tests can provide us with essential, focused information on specific attack targets
+
+These focused tests can drill into the defenses around a specific target and provide actionable insight that can prevent a vulnerability from initial exposure
+
+##
+
+### Adopting the Hacker Mindset
+
+Think like the adversary who might attack the system in the real world
+
+You might build a system of security controls that seeks to prevent those threats from materializing. 
+
+These controls might include the following:
+
+- Security cameras in high-risk areas
+- Auditing of cash register receipts
+- Theft detectors at the main entrance/exit to the store
+- Exit alarms on emergency exits
+- Burglar alarm wired to detect the opening of doors outside business hours
+
+Examine each one of these security controls and assess its ability to prevent each of the threats identified in your initial risk assessment. You'd also look for gaps in the existing security controls that might require supplementation
+
+Cybersecurity professionals need to win every time; attackers need to win only once
+
+##
+
+### Reasons for Penetration Testing
+
+Provides us with visibility into the organization's security posture that simply isn't available by other means.
+
+Penetration testers bring their unique skills and perspective to the table and can take the output of security tools and place them within the attacker's mindset, asking the question, “If I were an attacker, how could I use this information to my advantage?”
+
+##
+
+### Benefits of Penetration Testing
+
+Penetration testing provides us with knowledge that we can't obtain elsewhere. By conducting thorough penetration tests, we learn whether an attacker with the same knowledge, skills,and information as our testers would likely be able to penetrate our defenses.
+
+If they can't gain a foothold, we can then be reasonably confident that our networks are secure against attack by an equivalently talented attacker under the present circumstances.
+
+In the event that attackers are successful, penetration testing provides us with an important blueprint for remediation.
+
+penetration tests can provide us with essential, focused information on specific attack targets.
+
+Focused tests can drill into the defenses around a specific target and provide actionable insight that can prevent a vulnerability from initial exposure.
+
+##
+
+### Threat Hunting 
+
+Search the organization's technology infrastructure for the artifacts of a successful attack
+
+“Presumption of compromise” - assumes that attackers have already successfully breached an organization and searches out the evidence of successful attacks
+
+When threat hunters discover a potential compromise, incident handling mode, seeking to contain, eradicate, and recover from the compromise.
+
+Conduct a postmortem analysis of the factors that contributed to the compromise in an effort to remediate deficiencies. This post-event remediation is another similarity between penetration testing and threat hunting: organizations leverage the output of both processes in similar ways
+
+Threat hunters work with a variety of intelligence sources, using the concept of intelligence fusion to combine information from threat feeds, security advisories and bulletins, and other sources
+
+##
+
+### Penetration Test Types
+
+Three typical classifications are used to describe this:
+
+- White-Box Tests, known environment tests, tests performed with full knowledge of the underlying technology, configurations, and settings that make up the target
+
+Testers will typically have such information as network diagrams, lists of systems and IP network ranges, and even credentials to the systems they are testing 
+
+Allow for effective testing of systems without requiring testers to spend time identifying targets and determining which may be a way in often more complete, since testers can get to every system, service, or other target that is in scope, and will have credentials and other materials that will allow them to be tested
+	
+May not provide an accurate view of what an external attacker would see, and controls that would have been effective against most attackers may be bypassed
+
+- Black-Box Tests, unknown environment tests, intended to replicate what an attacker would encounter
+
+Testers are not provided with access to or information about an environment, and instead, they must gather information, discover vulnerabilities, and make their way through an infrastructure or systems like an attacker would can be time-consuming, but it can help provide a reasonably accurate assessment of how secure the target is against an attacker of similar or lesser skill. If the threat actor you expect to target your organization is more capable, a black-box tester can't provide you with a realistic view of what they could do
+	
+- Gray-box tests, partially known environment, test may provide some information about the environment to the penetration testers without giving full access, credentials, or configuration detail.
+
+Can help focus penetration testers time and effort while also providing a more accurate view of what an attacker would actually encounter
+
+##
+
+### Rules of Engagement
+
+Key elements include the following:
+
+- The timeline for the engagement and when testing can be conducted
+
+Some assessments will intentionally be scheduled for noncritical timeframes to minimize the impact of potential service outages, whereas others may be scheduled during normal business hours to help test the organization's reaction to attacks
+	
+- What locations, systems, applications, or other potential targets are included or excluded
+
+includes discussions about third-party service providers that may be impacted by the test, such as Internet services providers, software-as-a-service or other cloud service providers, or outsourced security monitoring services
+	
+- Data handling requirements for information gathered during the penetration test
+
+Important when engagements cover sensitive organizational data or systems. Requirements for handling often include confidentiality requirements for the findings, such as encrypting data during and after the test, and contractual requirements for disposing of the penetration test data and results after the engagement is over
+	
+- What behaviors to expect from the target. Defensive behaviors like shunning, blacklisting, or other active defenses may limit the value of a penetration test
+
+If the test is meant to evaluate defenses, this may be useful. If the test is meant to test a complete infrastructure, shunning or blocking the penetration testing team's efforts can waste time and resources
+	
+- What resources are committed to the test
+
+In white- and gray-box testing scenarios, time commitments from the administrators, developers, and other experts on the targets of the test are not only useful, they can be necessary for an effective test
+	
+- Legal concerns should also be addressed, including a review of the laws that cover the target organization, any remote locations, and any service providers who will be in scope
+	
+- When and how communications will occur
+
+Should the engagement include daily or weekly updates regardless of progress, or will the penetration testers simply report when they are done with their work? How should the testers respond if they discover evidence of a current compromise?
+	
+Problem handling and resolution is another key element of the rules of engagement
+
+Having a clearly defined communication, notification, and escalation path on both sides of the engagement can help minimize downtime and other issues for the target organization
+
+Penetration testers should carefully document their responsibilities and limitations of liability, and ensure that clients know what could go wrong and that both sides agree on how it should be handled
+
+## 
+
+### Reconnaissance
+
+Passive reconnaissance techniques seek to gather information without directly engaging with the target.
+
+Active reconnaissance techniques directly engage the target in intelligence gathering. These techniques include the use of port scanning to identify open ports on systems, **footprinting** to identify the operating systems and applications in use, and vulnerability scanning to identify exploitable vulnerabilities.
+
+Testers use a technique called **war driving**, where they drive by facilities in a car equipped with high-end antennas and attempt to eavesdrop on or connect to wireless networks
+
+Recently, testers have expanded this approach to the use of drones and unmanned aerial vehicles (UAVs) in a technique known as **war flying**
+
+##
+
+### Running the Test
+
+Initial access occurs when the attacker exploits a vulnerability to gain access to the organization's network.
+
+Privilege escalation uses hacking techniques to shift from the initial access gained by the attacker to more advanced privileges, such as root access on the same system.
+
+Pivoting, or lateral movement, occurs as the attacker uses the initial system compromise to gain access to other systems on the target network.
+
+Attackers establish persistence on compromised networks by installing backdoors and using other mechanisms that will allow them to regain access to the network, even if the initial vulnerability is patched.
+
+Exploitation frameworks, such as Metasploit, simplify the use of vulnerabilities by providing a modular approach to configuring and deploying vulnerability exploits.
+
+##
+
+### Cleaning Up
+
+The testers conduct close-out activities that include presenting their results to management and cleaning up the traces of their work. 
+
+Testers should remove any tools that they installed on systems as well as any persistence mechanisms that they put in place. 
+
+The close-out report should provide the target with details on the vulnerabilities discovered during the test and advice on improving the organization's cybersecurity posture.
+
+##
+
+### Training and Exercises
+
+When conducting an exercise, participants are often divided into
+three teams:
+
+- Red team members are the attackers who attempt to gain access to systems.
+
+- Blue team members are the defenders who must secure systems and networks from attack. The blue team also monitors the environment during the exercise, conducting active defense techniques. The blue team commonly gets a head start with some time to secure systems before the attack phase of the exercise begins.
+
+- White team members are the observers and judges. They serve as referees to settle disputes over the rules and watch the exercise to document lessons learned from the test. The white team is able to observe the activities of both the red and blueteams and is also responsible for ensuring that the exercise does not cause production issues.
+
+- Purple Teaming is combining of knowledge from the red and blue teams. bring the red and the blue teams together to share information about tactics and lessons learned. Each team walks the other through their role in the exercise, helping everyone learn from the process.
+
+**Tabletop exercises** simply gather participants in the same room to walk through their response to a fictitious exercise scenario.
