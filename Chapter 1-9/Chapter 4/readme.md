@@ -138,7 +138,38 @@ Come in a variety of forms ranging from virus hoaxes to fake news. Social media 
 
 **Invoice scams** - involve sending fake invoices to organizations in the hopes of receiving payment. Invoice scams can be either physical or electronic, and they rely on the recipient not checking to see if the invoice is legitimate.
 
-##
-
 ### Reconnaissance and Impersonation
 
+Reconnaissance means the gathering of information about a target, whether that is an organization, individual, or something else.
+
+Social engineering is a great way to gather information and thus is often used as part of reconnaissance efforts. 
+
+Social engineering can be used during phone calls, email, and other means of contact to elicit more information about a target than is publicly available. 
+
+At the same time, on-site and in-person reconnaissance efforts use social engineering techniques to gain access, gather information, and bypass security systems and processes.
+
+##
+
+### Influence Campaigns
+
+Traditionally focused on social media, email, and other online-centric mediums, have become part of what has come to be called **hybrid warfare**
+
+The formal definition of hybrid warfare is evolving, it is generally accepted to include competition short of conflict, which may include active measures like cyberwarfare as well as propaganda and information warfare. 
+
+Individuals and organizations conduct influence campaigns to turn public opinion in directions of their choosing.
+
+Even advertising campaigns can be considered a form of influence campaign, but in general, most influence campaigns are associated with disinformation campaigns.
+
+##
+
+### Password Attacks
+
+**Brute-force attacks** - iterate through passwords until they find one that works
+
+More complex than just using a list of passwords and often involve word lists that use common passwords, words specifically picked as likely to be used by the target, and modification rules to help account for complexity rules
+
+**Password spraying** - a form of brute-force attack that attempts to use a single password or small set of passwords against many accounts.
+
+Can be particularly effective if you know that a target uses a specific default password or a set of passwords.
+
+**Dictionary Attacks** - another form of brute-force attack that uses a list of words for their attempts
