@@ -408,7 +408,7 @@ One of the most common alerts from a vulnerability scan is that one or more syst
 
 Once they announce the final end of support for a product, organizations that continue running the outdated software put themselves at a significant risk of attack.
 
-The vendor simply will not investigate or correct security flaws that arise in the product afterthat date. Organizations continuing to run the unsupported product are on their own from a security perspective, and unless you happen to maintain a team of operating system developers, that's not a good situation to find yourself in. 
+The vendor simply will not investigate or correct security flaws that arise in the product after that date. Organizations continuing to run the unsupported product are on their own from a security perspective, and unless you happen to maintain a team of operating system developers, that's not a good situation to find yourself in. 
 
 The solution for organizations running unsupported operating systems is simple in its phrasing but complex in implementation.
 
@@ -648,8 +648,8 @@ three teams:
 
 - Blue team members are the defenders who must secure systems and networks from attack. The blue team also monitors the environment during the exercise, conducting active defense techniques. The blue team commonly gets a head start with some time to secure systems before the attack phase of the exercise begins.
 
-- White team members are the observers and judges. They serve as referees to settle disputes over the rules and watch the exercise to document lessons learned from the test. The white team is able to observe the activities of both the red and blueteams and is also responsible for ensuring that the exercise does not cause production issues.
+- White team members are the observers and judges. They serve as referees to settle disputes over the rules and watch the exercise to document lessons learned from the test. The white team is able to observe the activities of both the red and blue teams and is also responsible for ensuring that the exercise does not cause production issues.
 
-- Purple Teaming is combining of knowledge from the red and blue teams. bring the red and the blue teams together to share information about tactics and lessons learned. Each team walks the other through their role in the exercise, helping everyone learn from the process.
+- Purple Teaming is a combination of knowledge from the red and blue teams. bring the red and the blue teams together to share information about tactics and lessons learned. Each team walks the other through their role in the exercise, helping everyone learn from the process.
 
 **Tabletop exercises** simply gather participants in the same room to walk through their response to a fictitious exercise scenario.
