@@ -82,6 +82,7 @@ This provides accountability and oversight and may be required for audit or comp
 
 Formal SDLC models can be very detailed, with specific practices, procedures, and documentation, but many organizations choose the elements of one or more models that best fit their organizational style, workflow, and requirements
 
+
 ### Waterfall
 
 The Waterfall methodology is a sequential model in which each phase is followed by the next phase. Phases do not overlap, and each logically leads to the next.
@@ -91,6 +92,8 @@ Waterfall has been replaced in many organizations because it is seen as relative
 Relatively inflexible, but it remains in use for complex systems. Since Waterfall is not highly responsive to changes and does not account for internal iterative work, it is typically recommended for development efforts that involve a fixed scope and a known timeframe for delivery and that are using a stable, well-understood technology platform
 
 ![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/d497eb12-518b-4425-b2ce-a8c909b669da)
+
+##
 
 ### Spiral
 
@@ -117,6 +120,8 @@ Allows the software development life cycle to start earlier in the process than 
 It is possible for this model to result in rework or to identify design requirements later in the process that require a significant design change due to more detailed requirements coming to light
 
 ![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/561472b4-bfd6-4916-aacb-dfa939ea47b5)
+
+##
 
 ### Agile
 
