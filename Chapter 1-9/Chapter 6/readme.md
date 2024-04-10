@@ -125,7 +125,7 @@ It is possible for this model to result in rework or to identify design requirem
 
 ### Agile
 
-an iterative and incremental process, rather than the linear processes that Waterfall and Spiral use. 
+An iterative and incremental process, rather than the linear processes that Waterfall and Spiral use. 
 
 Agile is rooted in the Manifesto for Agile Software Development, a document that has four basic premises: 
 
@@ -267,6 +267,48 @@ Ensures that multiple members of a team are aware of what the code is supposed t
 ##
 
 ### Pair Programming
+
+An Agile software development technique that places two developers at one workstation.
+
+One developer writes code, while the other developer reviews their code as they write it.
+
+Intended to provide real-time code review, and it ensures that multiple developers are familiar with the code that is written.
+
+The developers are expected to change roles frequently, allowing both of them to spend time thinking about the code while at the keyboard and to think about the design and any issues in the code while reviewing it.
+
+Adds additional cost to development since it requires two full-time developers.
+
+Provides additional opportunities for review and analysis of the code and directly applies more experience to coding problems, potentially increasing the quality of the code.
+
+##
+
+### Over-the-Shoulder
+
+Relies on a pair of developers, but rather than requiring constant interaction and hand-offs
+
+requires the developer who wrote the code to explain the code to the other developer
+
+Allows peer review of code and can also assist developers in understanding how the code works, without the relatively high cost of pair programming
+
+##
+
+### Pass-Around Code Reviews
+
+Known as email pass-around code review, is a form of manual peer review done by sending completed code to reviewers who check the code for issues
+
+May involve more than one reviewer, allowing reviewers with different expertise and experience to contribute
+
+Allow more flexibility in when they occur than an over-the-shoulder review
+
+They don’t provide the same easy opportunity to learn about the code from the developer who wrote it that over-the-shoulder and pair programming offer, making documentation more important
+
+##
+
+### Tool-Assisted Reviews
+
+
+
+
 
 
 
