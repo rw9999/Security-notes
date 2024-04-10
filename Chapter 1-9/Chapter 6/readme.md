@@ -206,6 +206,67 @@ This means that logging, reporting, and **continuous monitoring** must all be de
 
 ## Designing and Coding for Security
 
+The first chance to help with software security is in the requirements gathering and design phases when security can be built in as part of the requirements and then designed based on those requirements
+
+Later, during the development process, secure coding techniques, code review, and testing can improve the quality and security of the code that is developed
+
+During the testing phase, fully integrated software can be tested using tools like web application security scanners or penetration testing techniques.
+
+ This also provides the foundation for ongoing security operations by building the baseline for future security scans and regression testing during patching and updates. 
+
+Throughout these steps, it helps to understand the common security issues that developers face, create, and discover
+
+##
+
+### Secure Coding Practices
+
+One of the best resources for secure coding practices is the Open Web Application Security Project (OWASP).
+
+Here are OWASP’s top proactive controls for 2018 with brief descriptions:
+
+**Define Security Requirements** - Implement security throughout the development process. 
+
+**Leverage Security Frameworks and Libraries** - Preexisting security capabilities can make securing applications easier. 
+
+**Secure Database Access** - Prebuild SQL queries to prevent injection and configure databases for secure access. 
+
+**Encode and Escape Data** - Remove special characters. Validate All Inputs Treat user input as untrusted and filter appropriately. 
+
+**Implement Digital Identity** - Use multifactor authentication, secure password storage and recovery, and session handling. 
+
+**Enforce Access Controls** - Require all requests to go through access control checks, deny by default, and apply the principle of least privilege. 
+
+**Protect Data Everywhere** - Use encryption in transit and at rest. 
+
+**Implement Security Logging and Monitoring** - This helps detect problems and allows investigation after the fact. 
+
+**Handle all Errors and Exceptions** - Errors should not provide sensitive data, and applications should be tested to ensure that they handle problems gracefully.
+
+##
+
+### API Security 
+
+**Application programming interfaces (APIs)** - interfaces between clients and servers or applications and operating systems that define how the client should ask for information from the server and how the server will respond
+
+Programs written in any language can implement the API and make requests
+
+API security relies on authentication, authorization, proper data scoping to ensure that too much data isn’t released, rate limiting, input filtering, and appropriate monitoring and logging to remain secure. 
+
+Of course, securing the underlying systems, configuring the API endpoint server or service, and providing normal network layer security to protect the service are also important.
+
+##
+
+### Code Review Models
+
+Helps to share knowledge of the code, and the experience gained in writing is better than simple documentation alone would be since it provides a personal understanding of the code and its functions
+
+Helps detect problems while enforcing coding best practices and standards by exposing the code to review during its development cycle
+
+Ensures that multiple members of a team are aware of what the code is supposed to do and how it accomplishes its task
+
+##
+
+### Pair Programming
 
 
 
