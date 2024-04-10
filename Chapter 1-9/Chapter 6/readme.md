@@ -99,9 +99,9 @@ Relatively inflexible, but it remains in use for complex systems. Since Waterfal
 
 Uses the linear development concepts from the Waterfall model and adds an iterative process that revisits four phases multiple times during the development life cycle to gather more detailed requirements, design functionality guided by the requirements, and build based on the design
 
-puts significant emphasis on risk assessment as part of the SDLC, reviewing risks multiple times during the development process
+Puts significant emphasis on risk assessment as part of the SDLC, reviewing risks multiple times during the development process
 
-The Spiral model shown in Figure 6.3 uses four phases, which it repeatedly visits throughout the development life cycle:
+The Spiral model shown in uses four phases, which it repeatedly visits throughout the development life cycle:
 
 1. Identification, or requirements gathering, which initially gathers business requirements, system requirements, and more detailed requirements for subsystems or modules as the process continues
 	
