@@ -168,3 +168,44 @@ It can react more nimbly to problems and will typically allow faster customer fe
 
 ### DevSecOps and DevOps
 
+**DevOps** - combines software development and IT operations with the goal of optimizing the SDLC
+
+Uses collections of tools called **toolchains** to improve the coding, building and test, packaging, release, configuration and configuration management, and monitoring elements of a software development life cycle
+
+**DevSecOps** - describes security as part of the DevOps model
+
+Security is a shared responsibility that is part of the entire development and operations cycle
+
+Integrating security into the design, development, testing, and operational work done to produce applications and services
+
+The role of security practitioners in a DevSecOps model includes threat analysis and communications, planning, testing, providing feedback, and of course ongoing improvement and awareness responsibilities
+
+Requires a strong understanding of the organization’s risk tolerance, as well as awareness of what the others involved in the DevSecOps environment are doing and when they are doing it
+
+DevOps and DevSecOps are often combined with continuous integration and continuous deployment methodologies, where they can rely on automated security testing, and integrated security tooling, including scanning, updates, and configuration management tools, to help ensure security
+
+##
+
+### Continuous Integration and Continuous Deployment
+
+**Continuous integration (CI)** - a development practice that checks code into a shared repository on a consistent ongoing basis
+
+this can range from a few times a day to a very frequent process of check-ins and automated builds. 
+
+The main goal of this approach is to enable the use of automation and scripting to implement automated courses of action that result in continuous delivery of code
+
+It also requires automated testing. It is also often paired with **continuous deployment** (CD) (sometimes called continuous delivery), which rolls out tested changes into production automatically as soon as they have been tested.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/870ecc30-6dcf-4404-b5cf-c24de2e2ba03)
+
+Requires building **continuous validation** and automated security testing into the pipeline testing process
+
+It can result in new vulnerabilities being deployed into production and could allow an untrusted or rogue developer to insert flaws into code that is deployed and then remove the code as part of a deployment in the next cycle. 
+
+This means that logging, reporting, and **continuous monitoring** must all be designed to fit the CI/CD process
+
+## Designing and Coding for Security
+
+
+
+
