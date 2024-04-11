@@ -306,9 +306,40 @@ They don’t provide the same easy opportunity to learn about the code from the 
 
 ### Tool-Assisted Reviews
 
+Rely on formal or informal software-based tools to conduct code reviews
 
+##
 
+### Choosing a Review Method
 
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/5d42e8de-5789-4bdb-bf69-70820f06ce23)
 
+When code requires more in-depth review than the relatively lightweight, Agile processes like pass-around and over-the-shoulder reviews, formal code review processes are sometimes used.
 
+##
+
+### Fagan Inspection
+
+The primary form of formal code review
+
+Fagan inspection is a form of structured, formal code review intended to find a variety of problems during the development process.
+
+Specifies entry and exit criteria for processes, ensuring that a process is not started before appropriate diligence has been performed, and also making sure that there are known criteria for moving to the next phase.
+
+The Fagan inspection process has six phases of a typical process:
+
+1. Planning, including preparation of materials, attendees, and location
+2. Overview, which prepares the team by reviewing the materials and assigning roles such as coder, reader, reviewer, and moderator
+3. Preparation, which involves reviewing the code or other item being inspected and documents any issues or questions they may have
+4. Meeting to identify defects based on the notes from the preparation phase
+5. Rework to resolve issues
+6. Follow-up by the moderator to ensure that all issues identified have been found and that no new defects were created during the resolution process
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/827ac2f4-01dd-4574-81fa-32bc751891ff)
+
+Formal methods for verification of software like Fagan inspection and similar formal review processes can sound very expensive, but catching problems early can result in significant savings in time and cost.
+
+Fagan code reviews remain relatively rare since many of the “lightweight” review options are easier to implement, offer many of the same benefits, and are far less costly.
+
+## Software Security Testing
 
