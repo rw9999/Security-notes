@@ -343,3 +343,21 @@ Fagan code reviews remain relatively rare since many of the “lightweight” re
 
 ## Software Security Testing
 
+Veracode’s 2019 metrics for applications based on their testing showed that 83 percent of the applications they scanned exhibited at least one security issue during the testing process
+
+##
+
+### Analyzing and Testing Code
+
+The source code that is the basis of every application and program can contain a variety of bugs and flaws, from programming and syntax errors to problems with business logic, error handling, and integration with other services and systems.
+
+It is important to be able to analyze the code to understand what the code does, how it performs that task, and where flaws may occur in the program itself.
+
+This is often done via static or dynamic code analysis along with testing methods like fuzzing. Once changes are made to code and it is deployed, it must be regression tested to ensure that the fixes put in place didn’t create new security issues.
+
+##
+
+### Static Code Analysis
+
+
+
