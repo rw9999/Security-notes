@@ -390,4 +390,74 @@ Unfortunately, fuzzing tends to only identify simple problems—it does not acco
 
 ## Injection Vulnerabilities
 
+The primary mechanisms that attackers use to break through a web application and gain access to the systems supporting that application
+
+These vulnerabilities allow an attacker to supply some type of code to the web application as input and trick the web server into either executing that code or supplying it to another server to execute
+
+##
+
+### SQL Injection Attacks 
+
+Web applications often receive input from users and use it to compose a database query that provides results that are sent back to a user.
+
+The attacker is able to provide input to the web application and then monitor the output of that application to see the result
+
+### Blind Content-Based SQL Injection 
+
+the perpetrator sends input to the web application that tests whether the application is interpreting injected code before attempting to carry out an attack.
+
+### Blind Timing-Based SQL Injection 
+
+Penetration testers may use the amount of time required to process a query as a channel for retrieving information from a database.
+
+These attacks depend on delay mechanisms provided by different database platforms
+
+##
+
+### Code Injection Attacks
+
+These attacks seek to insert attacker-written code into the legitimate code created by a web application developer.
+
+Any environment that inserts user-supplied input into code written by an application developer may be vulnerable to a code injection attack.
+
+Attackers might embed commands in text being sent as part of a **Lightweight Directory Access Protocol** (LDAP) query, conducting an LDAP injection attack.
+
+They might also attempt to embed code in **Extensible Markup Language** (XML) documents, conducting an XML injection attack.
+
+Commands may even attempt to load dynamically linked libraries (DLLs) containing malicious code in a **DLL injection attack**.
+
+Cross-site scripting is an example of a code injection attack that inserts HTML code written by an attacker into the web pages created by a developer.
+
+##
+
+### Command Injection Attacks
+
+Application code may reach back to the operating system to execute a command
+
+## Exploiting Authentication Vulnerabilities
+
+Applications, like servers and networks, rely on authentication mechanisms to confirm the identity of users and devices and verify that they are authorized to perform specific actions
+
+## 
+
+### Password Authentication
+
+Passwords are the most common form of authentication in use today and most easily defeated
+
+There are many ways that an attacker may learn a user’s password, ranging from technical to social
+
+- Conducting social engineering attacks that trick the user into revealing a password, either directly or through a false authentication mechanism
+
+- Eavesdropping on unencrypted network traffic 
+
+- Obtaining a dump of passwords from previously compromised sites and assuming that a significant proportion of users reuse their passwords from that site on other sites
+
+Attackers may be able to conduct credential brute-forcing attacks, in which they obtain a set of weakly hashed passwords from a target system and then conduct an exhaustive search to crack those passwords and obtain access to the system
+
+Systems often ship with default administrative accounts that may remain unchanged
+
+##
+
+### Session Attacks
+
 
