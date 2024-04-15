@@ -359,5 +359,35 @@ This is often done via static or dynamic code analysis along with testing method
 
 ### Static Code Analysis
 
+(Sometimes called source code analysis) is conducted by reviewing the code for an application
+
+Can be seen as a type of white-box testing with full visibility to the testers. This can allow testers to find problems that other tests might miss, either because the logic is not exposed to other testing methods or because of internal business logic problems
+
+Static analysis does not run the program; instead, it focuses on understanding how the program is written and what the code is intended to do.
+
+Static code analysis can be conducted using automated tools or manually by reviewing the code—a process sometimes called “code understanding.” Automated static code analysis can be very effective at finding known issues, and manual static code analysis helps to identify programmer-induced errors
+
+##
+
+### Dynamic Code Analysis
+
+Relies on execution of the code while providing it with input to test the software
+
+May be done via automated tools or manually, but there is a strong preference for automated testing due to the volume of tests that need to be conducted in most dynamic code testing processes
+
+##
+
+### Fuzzing
+
+Involves sending invalid or random data to an application to test its ability to handle unexpected data
+
+The application is monitored to determine if it crashes, fails, or responds in an incorrect manner. 
+
+Fuzzing is typically automated due to the large amount of data that a fuzz test involves, and it is particularly useful for detecting input validation and logic issues as well as memory leaks and error handling.
+
+Unfortunately, fuzzing tends to only identify simple problems—it does not account for complex logic or business process issues, and it may not provide complete code coverage if its progress is not monitored
+
+
+## Injection Vulnerabilities
 
 
