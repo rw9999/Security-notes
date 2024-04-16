@@ -460,4 +460,81 @@ Systems often ship with default administrative accounts that may remain unchange
 
 ### Session Attacks
 
+Credential-stealing attacks allow a hacker or penetration tester to authenticate directly to a service using a stolen account
+
+**Session hijacking** attacks take a different approach by stealing an existing authenticated session
+
+These attacks don’t require that the attacker gain access to the authentication mechanism; instead, they take over an already authenticated session with a website
+
+Most websites that require authentication manage user sessions using cookies managed in the user’s browser and transmitted as part of the **HTTP header** information provided by a website
+
+The user accesses the website’s login form and uses their credentials to authenticate
+
+If the user passes the authentication process, the website provides the user’s browser with a cookie that may be used to authenticate future requests. 
+
+Once the user has a valid cookie stored in the browser, the browser transmits that cookie with all future requests made to the website.
+
+The website inspects the cookie and determines that the user has already authenticated and does not need to reenter their password or complete other authentication tasks
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/9b19361c-194d-4d20-9223-e8e2dd7429ca)
+
+The cookie is simply a storage object maintained in the user’s browser that holds variables that may later be accessed by the website that created them
+
+You can think of a cookie as a small database of information that the website maintains in the user’s browser. The cookie contains an authentication string that ties the cookie to a particular user session
+
+##
+
+### Cookie Stealing and Manipulation
+
+Cookies serve as a key to bypass the authentication mechanisms of a website
+
+If an attacker is able to steal someone’s cookie, they may then impersonate that user to the website that issued the cookie. 
+
+There are several ways that an attacker might obtain a cookie:
+
+- Eavesdropping on unencrypted network connections and stealing a copy of the cookie as it is transmitted between the user and the website. 
+
+- Installing malware on the user’s browser that retrieves cookies and transmits them back to the attacker. 
+
+- Engaging in a **man-in-the-middle attack**, where the attacker fools the user into thinking that the attacker is actually the target website and presenting a fake authentication form. They may then authenticate to the website on the user’s behalf and obtain the cookie
+
+**Session replay attack**
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/f6cea147-199c-447f-9191-d15199bbfa73)
+
+Web developers can protect against cookie theft by marking cookies with the SECURE attribute. **Secure cookies** are never transmitted over unencrypted HTTP connections. Both servers and web browsers understand that they must only be sent over encrypted channels to protect against session replay attacks
+
+The **NTLM pass-the-hash** attack is another form of replay attack that takes place against the operating system rather than a web application
+
+The attacker begins by gaining access to a Windows system and then harvests stored NTLM password hashes from that system. They can then attempt to use these hashes to gain user or administrator access to that system or other systems in the same Active Directory domain
+
+##
+
+### Unvalidated Redirects
+
+Some web applications allow the browser to pass destination URLs to the application and then redirect the user to that URL at the completion of their transaction.
+
+**Unvalidated redirect**, which an attacker may use to redirect the user to a malicious site.
+
+**Validated redirects** that check redirection URLs against an approved list. This list might specify the exact URLs authorized for redirection, or more simply, it might just limit redirection to URLs from the same domain.
+
+## Exploiting Authorization Vulnerabilities
+
+Allows an attacker to exceed the level of access that they are authorized
+
+##
+
+### Insecure Direct Object References
+
+Web developers design an application to directly retrieve information from a database based on an argument provided by the user in either a query string or a POST request
+
+There is nothing wrong with this approach, as long as the application also implements other authorization mechanisms. The application is still responsible for ensuring that the user is properly authenticated and is authorized to access the requested document
+
+If the application does not perform authorization checks, the user may be permitted to view information that exceeds their authority. This situation is known as an **insecure direct object reference**.
+
+##
+
+### Directory Traversal
+
+ 
+
 
