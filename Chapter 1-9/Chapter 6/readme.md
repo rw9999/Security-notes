@@ -535,6 +535,15 @@ If the application does not perform authorization checks, the user may be permit
 
 ### Directory Traversal
 
- 
+Some web servers suffer from a security misconfiguration that allows users to navigate the directory structure and access files that should remain secure
+
+These directory traversal attacks work when web servers allow the inclusion of operators that navigate directory paths and filesystem access controls don’t properly restrict access to files stored elsewhere on the server
+
+Directory traversal attacks use attempt to navigate outside of the areas of the filesystem that are reserved for the web server
+
+If the attack is successful, the web server will dutifully display the shadow password file in the attacker’s browser, providing a starting point for a brute-force attack on the credentials
+
+
+
 
 
