@@ -587,8 +587,91 @@ Cross-site scripting (XSS) attacks occur when web applications allow an attacker
 
 ### Reflected XSS
 
+XSS attacks commonly occur when an application allows **reflected input**.
 
+Consider a simple web application that contains a single text box asking a user to enter their name.
 
+A malicious individual could take advantage of this web application to trick an unsuspecting third party.
 
+When the web application “reflects” this input in the form of a web page, your browser processes it as it would any other web page: it displays the text portions of the web page and executes the script portions.
 
+You could be more malicious and include a more sophisticated script that asks the user to provide a password and then transmits it to a malicious third party.
+
+The key to this attack is that it’s possible to embed form input in a link.
+
+A malicious individual could create a web page with a link titled “Check your account at First Bank” and encode form input in the link. When the user visits the link, the web page appears to be an authentic First Bank website (because it is!) with the proper address in the toolbar and a valid digital certificate. However, the website would then execute the script included in the input by the malicious user, which appears to be part of the valid web page.
+
+When creating web applications that allow any type of user input, developers must be sure to perform **input validation**.
+
+Applications should never allow a user to include the <SCRIPT> tag in a reflected input field.
+
+The best solution is to determine the type of input that the application will allow and then validate the input to ensure that it matches that pattern.
+
+##
+
+### Stored/Persistent XSS
+
+To store cross-site scripting code on a remote web server
+
+These attacks are described as persistent because they remain on the server even when the attacker isn’t actively waging an attack.
+
+Consider a message board that allows users to post messages that contain HTML code. This is very common, because users may want to use HTML to add emphasis to their posts.
+
+When future users load this message an XSS attack could also be used to redirect users to a phishing site, request sensitive information, or perform another attack.
+
+## Request Forgery
+
+Request forgery attacks exploit trust relationships and attempt to have users unwittingly execute commands against a remote server.
+
+They come in two forms: cross-site request forgery and server-side request forgery.
+
+##
+
+### Cross-Site Request Forgery (CSRF/XSRF)
+
+XSS attacks exploit the trust that a user has in a website to execute code on the user’s computer. XSRF attacks exploit the trust that remote sites have in a user’s system to execute commands on the user’s behalf.
+
+XSRF attacks work by making the reasonable assumption that users are often logged into many different websites at the same time.
+
+Attackers then embed code in one website that sends a command to a second website. When the user clicks the link on the first site, they are unknowingly sending a command to the second site. If the user happens to be logged into that second site, the command may succeed.
+
+Developers should protect their web applications against XSRF attacks by creating web applications that use secure tokens that the attacker would not know to embed in the links.
+
+Another safeguard is for sites to check the referring URL in requests received from end users and only accept requests that originated from their own site.
+
+##
+
+### Server-Side Request Forgery (SSRF)
+
+Server-side request forgery (SSRF) attacks exploit a similar vulnerability but instead of tricking a user’s browser into visiting a URL, they trick a server into visiting a URL based on user-supplied input.
+
+SSRF attacks are possible when a web application accepts URLs from a user as input and then retrieves information from that URL. If the server has access to nonpublic URLs, an SSRF attack can unintentionally disclose that information to an attacker.
+
+## Application Security Controls
+
+Through a combination of secure coding practices and security infrastructure tools, cybersecurity professionals can build robust defenses against application exploits.
+
+##
+
+### Input Validation
+
+Applications that allow user input should perform validation of that input to reduce the likelihood that it contains an attack. 
+
+Improper input handling practices can expose applications to injection attacks, cross-site scripting attacks, and other exploits.
+
+The most effective form of input validation uses **input whitelisting**, in which the developer describes the exact type of input that is expected from the user and then verifies that the input matches that specification before passing the input to other processes or servers.
+
+When performing input validation, it is very important to ensure that validation occurs server-side rather than within the client’s browser. 
+
+Client-side validation is useful for providing users with feedback on their input, but it should never be relied on as a security control. It’s easy for hackers and penetration testers to bypass browser-based input validation.
+
+It is often difficult to perform input whitelisting because of the nature of many fields that allow user input. It would be difficult to write logical rules that describe all valid submissions to that field that would also prevent the insertion of malicious code.
+
+Developers might use input blacklisting to control user input. With this approach, developers do not try to explicitly describe acceptable input but instead describe potentially malicious input that must be blocked.
+
+When performing input validation, developers must be mindful of the types of legitimate input that may appear in a field.
+
+##
+
+### Parameter Pollution
 
