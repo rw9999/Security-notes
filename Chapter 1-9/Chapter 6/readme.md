@@ -543,6 +543,51 @@ Directory traversal attacks use attempt to navigate outside of the areas of the 
 
 If the attack is successful, the web server will dutifully display the shadow password file in the attacker’s browser, providing a starting point for a brute-force attack on the credentials
 
+##
+
+### File Inclusion
+
+Instead of simply retrieving a file from the local operating system and displaying it to the attacker, file inclusion attacks actually execute the code contained within a file, allowing the attacker to fool the web server into executing arbitrary code
+
+File inclusion attacks come in two variants: 
+
+- Local file inclusion attacks seek to execute code stored in a file located elsewhere on the web server. They work in a manner very similar to a directory traversal attack
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/5da74cf1-1da4-421a-b7ab-1a7f7d002e42)
+
+	
+- Remote file inclusion attacks allow the attacker to go a step further and execute code that is stored on a remote server. These attacks are especially dangerous because the attacker can directly control the code being executed without having to first store a file on the local server
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/33c08b3f-7931-4e9d-8457-2e8d5a556b49)
+
+ 
+When attackers discover a file inclusion vulnerability, they often exploit it to upload a web shell to the server. Web shells allow the attacker to execute commands on the server and view the results in the browser
+	
+This approach provides the attacker with access to the server over commonly used HTTP and HTTPS ports, making their traffic less vulnerable to detection by security tools.
+	
+The attacker may even repair the initial vulnerability they used to gain access to the server to prevent its discovery by another attacker seeking to take control of the server or by a security team who then might be tipped off to the successful attack
+
+##
+
+### Privilege Escalation
+
+Seek to increase the level of access that an attacker has to a target system. They exploit vulnerabilities that allow the transformation of a normal user account into a more privileged account, such as the root superuser account.
+
+## Exploiting Web Application Vulnerabilities
+
+Web applications are complex ecosystems consisting of application code, web platforms, operating systems, databases, and interconnected **application programming interfaces (APIs)**
+
+##
+
+### Cross-Site Scripting (XSS)
+
+Cross-site scripting (XSS) attacks occur when web applications allow an attacker to perform HTML injection, inserting their own HTML code into a web page
+
+##
+
+### Reflected XSS
+
+
 
 
 
