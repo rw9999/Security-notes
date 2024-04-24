@@ -675,3 +675,283 @@ When performing input validation, developers must be mindful of the types of leg
 
 ### Parameter Pollution
 
+Parameter pollution is one technique that attackers have successfully used to defeat input validation controls.
+
+Parameter pollution works by sending a web application more than one value for the same input variable.
+
+This approach relies on the premise that the web platform won’t handle this URL properly. It might perform input validation on only the first argument but then execute the second argument, allowing the injection attack to slip through the filtering technology.
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/6d8e9259-b98d-4481-943c-be478eb3aca8)
+
+
+Parameter pollution attacks depend on defects in web platforms that don’t handle multiple copies of the same parameter properly. 
+
+These vulnerabilities have been around for a while, and most modern platforms are defended against them, but successful parameter pollution attacks still occur today due to unpatched systems or insecure custom code.
+
+##
+
+### Web Application Firewalls
+
+Though developers should always rely on input validation as their primary defense against injection attacks, the reality is that applications still sometimes contain injection flaws. This can occur when developer testing is insufficient or when vendors do not promptly supply patches to vulnerable applications.
+
+WAFs function similarly to network firewalls, but they work at the Application layer.
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/26433537-baac-44ea-ac04-2c1ab0388019)
+
+A WAF sits in front of a web server and receives all network traffic headed to that server.
+
+It then scrutinizes the input headed to the application, performing input validation (whitelisting and/or blacklisting) before passing the input to the web server.
+
+This prevents malicious traffic from ever reaching the web server and acts as an important component of a layered defense against web application vulnerabilities.
+
+##
+
+### Database Security
+
+Secure applications depend on secure databases to provide the content and transaction processing necessary to support business operations.
+
+Relational databases form the core of most modern applications, and securing these databases goes beyond just protecting them against SQL injection attacks.
+
+##
+
+### Normalization
+
+Database normalization is a set of design principles that database designers should follow when building and modifying databases.
+
+Databases that follow these principles are said to be in normal forms, which are numbered in increasing order of the level of principle followed.
+
+The simplest normal form is the first normal form (1NF) and more advanced normal forms follow sequentially (2NF, 3NF, etc.).
+
+There’s an active and healthy debate in the database community about how closely database designers should follow the normal forms. Some of the advantages of implementing these principles as much as practical include that normalized designs do the following:
+
+- Prevent data inconsistency
+- Prevent update anomalies
+- Reduce the need for restructuring existing databases, and
+- Make the database schema more informative
+
+##
+
+### Parameterized Queries
+
+Parameterized queries offer another technique to protect applications against injection attacks. In a parameterized query, the client does not directly send SQL code to the database server. 
+
+Instead, the client sends arguments to the server, which then inserts those arguments into a precompiled query template. This approach protects against injection attacks and also improves database performance.
+
+**Stored procedures** are an example of an implementation of parameterized queries used by some database platforms.
+
+##
+
+### Obfuscation and Camouflage
+
+Maintaining sensitive personal information in databases exposes an organization to risk in the event that information is stolen by an attacker. Database administrators should take measures to protect against **data exposure**.
+
+- **Data minimization** is the best defense. Organizations should not collect sensitive information that they don’t need and should dispose of any sensitive information that they do collect as soon as it is no longer needed for a legitimate business purpose.
+  
+- **Tokenization** replaces personal identifiers that might directly reveal an individual’s identity with a unique identifier using a lookup table.
+  
+- **Hashing** uses a cryptographic hash function to replace sensitive identifiers with an irreversible alternative identifier. **Salting** these values with a random number prior to hashing them makes these hashed values resistant to a type of attack known as a rainbow table attack.
+
+## Code Security
+
+Software developers should also take steps to safeguard the creation, storage, and delivery of their code.
+
+### Code Signing
+
+Code signing provides developers with a way to confirm the authenticity of their code to end users. 
+
+Developers use a cryptographic function to digitally sign their code with their own private key and then browsers can use the developer’s public key to verify that signature and ensure that the code is legitimate and was not modified by unauthorized individuals. 
+
+In cases where there is a lack of code signing, users may inadvertently run inauthentic code.
+
+##
+
+### Code Reuse
+
+Many organizations reuse code not only internally but by making use of third-party software libraries and software development kits (SDKs). Third-party software libraries are a common way to share code among developers
+
+Libraries consist of shared code objects that perform related functions.
+
+Instead of having to write the code to perform every detailed function they need, developers can simply locate libraries that contain relevant functions and then call those functions
+
+Organizations trying to make libraries more accessible to developers often publish software development kits (SDKs). SDKs are collections of software libraries combined with documentation, examples, and other resources designed to help programmers get up and running quickly in a development environment. SDKs also often include specialized utilities designed to help developers design and test code
+
+Organizations may also introduce third-party code into their environments when they outsource code development to other organizations. Security teams should ensure that outsourced code is subjected to the same level of testing as internally developed code
+
+Security professionals should be familiar with the various ways that third-party code is used in their organizations as well as the ways that their organization makes services available to others
+
+It’s fairly common for security flaws to arise in shared code, making it extremely important to know these dependencies and remain vigilant about security updates
+
+##
+
+### Software Diversity
+
+Security professionals seek to avoid single points of failure in their environments to avoid availability risks if an issue arises with a single component.
+
+Security professionals should watch for places in the organization that are dependent on a single piece of source code, binary executable files, or compilers. 
+
+Though it may not be possible to eliminate all of these dependencies, tracking them is a critical part of maintaining a secure codebase.
+
+##
+
+### Code Repositories
+
+Centralized locations for the storage and management of application source code
+
+The main purpose of a code repository is to store the source files used in software development in a centralized location that allows for secure storage and the coordination of changes among multiple developers
+
+**Version control** allows the tracking of changes and the rollback of code to earlier versions when required
+
+possible for many people to share work on a large software project in an organized fashion
+
+They also meet the needs of security and auditing professionals who want to ensure that software development includes automated auditing and logging of changes
+
+By exposing code to all developers in an organization, code repositories promote code reuse. Developers seeking code to perform a particular function can search the repository for existing code and reuse it rather than start from ground zero
+
+Code repositories also help avoid the problem of **dead code**, where code is in use in an organization but nobody is responsible for the maintenance of that code and, in fact, nobody may even know where the original source files reside
+
+##
+
+### Integrity Measurement
+
+Cybersecurity teams should also work hand in hand with developers and operations teams to ensure that applications are provisioned and de-provisioned in a secure manner through the organization’s approved release management process
+
+This process should include code integrity measurement. Code integrity measurement uses cryptographic hash functions to verify that the code being released into production matches the code that was previously approved. 
+
+Any deviation in hash values indicates that code was modified, either intentionally or unintentionally, and requires further investigation prior to release.
+
+##
+
+### Application Resilience
+
+When we design applications, we should create them in a manner that makes them resilient in the face of changing demand. We do this through the application of two related principles:
+
+- **Scalability** says that applications should be designed so that computing resources they require may be incrementally added to support increasing demand.
+
+- **Elasticity** goes a step further than scalability and says that  applications should be able to automatically provision resources to scale when necessary and then automatically deprovision those resources to reduce capacity (and cost) when it is no longer needed.
+
+## Secure Coding Practices
+
+A multitude of development styles, languages, frameworks, and other variables may be involved in the creation of an application, but many of the security issues are the same regardless of which you use
+
+### Source Code Comments
+
+Comments are an important part of any good developer’s workflow. Placed strategically throughout code, they provide documentation of design choices, explain workflows, and offer details crucial to other developers who may later be called on to modify or troubleshoot the code.
+
+Comments can also provide attackers with a roadmap explaining how code works. Comments may even include critical security details that should remain secret. Developers should take steps to ensure that commented versions of their code remain secret
+
+Web applications that expose their code may allow remote users to view comments left in the code. In those environments, developers should remove comments from production versions of the code before deployment.
+
+##
+
+### Error Handling
+
+Developers must understand this and write their code so that it is resilient to unexpected situations that an attacker might create in order to test the boundaries of code.
+
+Developers must anticipate unexpected situations and write error-handling code that steps in and handles situations in a secure fashion. Improper error handling may expose code to unacceptable levels of risk.
+
+Overly verbose error handling routines may also present risk. If error handling routines explain too much about the inner workings of code, they may allow an attacker to find a way to exploit the code.
+
+##
+
+### Hard-Coded Credentials
+
+Developers may include usernames and passwords in source code. There are two variations on this error.
+
+First, the developer may create a hard-coded maintenance account for the application that allows the developer to regain access even if the authentication system fails.
+
+This is known as a backdoor vulnerability and is problematic because it allows anyone who knows the backdoor password to bypass normal authentication and gain access to the system.
+
+If the backdoor becomes publicly (or privately!) known, all copies of the code in production are compromised.
+
+The second variation of hard-coding credentials occurs when developers include access credentials for other services within their source code.
+
+If that code is intentionally or accidentally disclosed, those credentials then become known to outsiders.
+
+This occurs quite often when developers accidentally publish code to a public code repository, such as GitHub, that contains API keys or other hardcoded credentials.
+
+##
+
+### Memory Management
+
+Applications are often responsible for managing their own use of memory, and in those cases, poor memory management practices can undermine the security of the entire system.
+
+##
+
+### Resource Exhaustion
+
+Systems may consume all of the memory, storage, processing time, or other resources available to them, rendering the system disabled or crippled for other uses.
+
+**Memory leaks** are one example of resource exhaustion.
+
+If an application requests memory from the operating system, it will eventually no longer need that memory and should then return the memory to the operating system for other uses.
+
+In the case of an application with a memory leak, the application fails to return some memory that it no longer needs, perhaps by simply losing track of an object that it has written to a reserved area of memory.
+
+If the application continues to do this over a long period of time, it can slowly consume all the memory available to the system, causing it to crash. 
+
+Rebooting the system often resets the problem, returning the memory to other uses but if the memory leak isn’t corrected, the cycle simply begins anew.
+
+##
+
+### Pointer De-referencing
+
+**Memory pointers** can also cause security issues. Pointers are a commonly used concept in application development. They are simply an area of memory that stores an address of another location in memory.
+
+One particular issue that might arise is if the pointer is empty, containing what programmers call a null value.
+
+If the application tries to de-reference this null pointer, it causes a condition known as a null pointer exception.
+
+In the best case, a null pointer exception causes the program to crash, providing an attacker with access to debugging information that may be used for reconnaissance of the application's security.
+
+In the worst case, a null pointer exception may allow an attacker to bypass security controls. Security professionals should work with application developers to help them avoid these issues.
+
+##
+
+### Buffer Overflows
+
+Buffer overflow attacks occur when an attacker manipulates a program into placing more data into an area of memory than is allocated for that program’s use.
+
+The goal is to overwrite other information in memory with instructions that may be executed by a different process running on the system.
+
+Buffer overflow attacks are quite commonplace and tend to persist for many years after they are initially discovered.
+
+Integer overflow - This is simply a variant of a buffer overflow where the result of an arithmetic operation attempts to store an integer that is too large to fit in the specified buffer.
+
+##
+
+### Race Conditions
+
+Race conditions occur when the security of a code segment depends upon the sequence of events occurring within the system.
+
+The **time-of-check-to-time-of-use (TOCTTOU or TOC/TOU)** issue is a race condition that occurs when a program checks access permissions too far in advance of a resource request.
+
+To prevent this race condition, the developer should evaluate access permissions at the time of each request rather than caching a listing of permissions.
+
+##
+
+### Unprotected APIs
+
+Organizations often want other developers to build upon the platforms that they have created.
+
+To enable this type of innovation, services often create application programming interfaces (APIs) that enable automated access.
+
+If not properly secured, unprotected APIs may lead to the unauthorized use of functions.
+
+An API that does not use appropriate authentication may allow anyone with knowledge of the API URLs to modify a service. 
+
+APIs that are not intended for public use should always be secured with an authentication mechanism, such as an API key, and accessed only over encrypted channels that protect those credentials from eavesdropping attacks.
+
+##
+
+### Driver Manipulation
+
+**Device drivers** play an important role in computing. They serve as the software interface between hardware devices and the operating system.
+
+Device drivers require low-level access to the operating system and run with administrative privileges. If an attacker can convince a user to install a malicious driver on their computer, that malware can gain complete control of the system.
+
+One way that attackers might do this is by **refactoring** an existing driver. If they have access to the driver’s source code, they can modify it to also include malware elements. This is very difficult to pull off in practice, however, because it’s not easy to get access to the source code for drivers.
+
+Attackers without access to the driver source code can use a technique called **shimming**. This takes a legitimate driver and wraps a malicious driver around the outside of it. The malicious driver, known as the shim, receives requests from the operating system and simply passes them on to the legitimate driver so that the device functions normally. However, the driver can also carry out its malware payload in the background.
+
+Fortunately, modern operating systems all contain protections against malicious drivers. The most important of these protections is code signing.
+
+Device manufacturers write drivers and then apply digital signatures to them so that the operating system can verify their authenticity. If the driver is not digitally signed, the operating system may warn the user of the suspicious driver or prevent its installation outright.
+
