@@ -199,7 +199,89 @@ Additionally, if you want to improve the chance that your data will remain safe 
 
 ### Symmetric Key Algorithms
 
-**Data Encryption Standard**
+Symmetric key algorithms rely on a “shared secret” encryption key that is distributed to all members who participate in the communications.
+
+This key is used by all parties to both encrypt and decrypt messages, so the sender and the receiver both possess a copy of the shared key.
+
+The sender encrypts with the shared secret key and the receiver decrypts with it.
+
+When large-sized keys are used, symmetric encryption is very difficult to break. It is primarily employed to perform bulk encryption and provides only for the security service of confidentiality.
+
+Symmetric key cryptography can also be called secret key cryptography and private key cryptography.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/f3eca3f5-28e0-43aa-8485-c1ce58a41463)
+
+Symmetric key cryptography has several weaknesses:
+
+**Key distribution is a major problem.** - Parties must have a secure method of exchanging the secret key before establishing communications with a symmetric key protocol. If a secure electronic channel is not available, an offline key distribution method must often be used (that is, out-of-band exchange).
+
+**Symmetric key cryptography does not implement nonrepudiation.** - Because any communicating party can encrypt and decrypt messages with the shared secret key, there is no way to prove where a given message originated.
+
+**The algorithm is not scalable.** - It is extremely difficult for large groups to communicate using symmetric key cryptography. Secure private communication between individuals in the group could be achieved only if each possible combination of users shared a private key.
+
+**Keys must be regenerated often.** - Each time a participant leaves the group, all keys known by that participant must be discarded.
+
+The major strength of symmetric key cryptography is the great speed at which it can operate. Symmetric key encryption is very fast, often 1,000 to 10,000 times faster than asymmetric algorithms. By nature of the mathematics involved, symmetric key cryptography also naturally lends itself to hardware implementations, creating the opportunity for even higher-speed operations.
+
+##
+
+### Asymmetric Key Algorithms
+
+Asymmetric key algorithms, also known as public key algorithms, provide a solution to the weaknesses of symmetric key encryption.
+
+In these systems, each user has two keys: a public key, which is shared with all users, and a private key, which is kept secret and known only to the owner of the keypair.
+
+Opposite and related keys must be used in tandem to encrypt and decrypt. In other words, if the public key encrypts a message, then only the corresponding private key can decrypt it, and vice versa.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/db866dd5-d2ba-4de9-b3f3-d3e2667bdbfb)
+
+Asymmetric key algorithms also provide support for digital signature technology.
+
+The following is a list of the major strengths of asymmetric key cryptography:
+
+**The addition of new users requires the generation of only one public-private key pair.** -This same key pair is used to communicate with all users of the asymmetric cryptosystem. This makes the algorithm extremely scalable.
+
+**Users can be removed far more easily from asymmetric systems.** - Asymmetric cryptosystems provide a key revocation mechanism that allows a key to be canceled, effectively removing a user from the system.
+
+**Key regeneration is required only when a user's private key is compromised.** - If a user leaves the community, the system administrator simply needs to invalidate that user's keys. No other keys are compromised and therefore key regeneration is not required for any other user.
+
+**Asymmetric key encryption can provide integrity, authentication, and nonrepudiation.** - If a user does not share their private key with other individuals, a message signed by that user can be shown to be accurate and from a specific source and cannot be later repudiated.
+
+**Key distribution is a simple process** - Users who want to participate in the system simply make their public key available to anyone with whom they want to communicate. There is no method by which the private key can be derived from the public key.
+
+**No preexisting communication link needs to exist.** - Two individuals can begin communicating securely from the start of their communication session. Asymmetric cryptography does not require a preexisting relationship to provide a secure mechanism for data exchange.
+
+The major weakness of public key cryptography is its slow speed of operation. For this reason, many applications that require the secure transmission of large amounts of data use public key cryptography to establish a connection and then exchange a symmetric secret key. The remainder of the session then uses symmetric cryptography.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/3a5f9dd2-1df2-4eb7-a85a-9875d3be2217)
+
+##
+
+### Hashing Algorithms
+
+Public key cryptosystems can provide digital signature capability when used in conjunction with a message digest.
+
+Message digests are summaries of a message's content (not unlike a file checksum) produced by a hashing algorithm.
+
+It's extremely difficult, if not impossible, to derive a message from an ideal hash function, and it's very unlikely that two messages will produce the same hash value.
+
+Cases where a hash function produces the same value for two different methods are known as collisions, and the existence of **collisions** typically leads to the deprecation of a hashing algorithm.
+
+##
+
+### Key Requirements
+
+The total number of keys required to completely connect n parties using symmetric cryptography is given by the following formula:
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/4d803ffc-e007-4577-913b-24d7eb97eb31)
+
+The larger the population, the less likely a symmetric cryptosystem will be suitable to meet its needs.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/2debd9b0-0212-4495-837e-e66477515a74)
+
+##
+
+### Data Encryption Standard
 
 The U.S. government published the Data Encryption Standard in 1977 as a proposed standard cryptosystem for all government communications.
 
@@ -385,3 +467,38 @@ At this point, Richard and Sue both have the same value, K, and can use this for
 ##
 
 ### Storage and Destruction of Symmetric Keys
+
+Another major challenge with the use of symmetric key cryptography is that all of the keys used in the cryptosystem must be kept secure.
+
+This includes the following best practices surrounding the storage of encryption keys:
+
+- Never store an encryption key on the same system where encrypted data resides.
+  
+- For sensitive keys, consider providing two different individuals with half of the key. They then must collaborate to re-create the entire key. This is known as the principle of **split knowledge**
+
+When a user with knowledge of a secret key leaves the organization or is no longer permitted access to material protected with that key, the keys must be changed, and all encrypted materials must be reencrypted with the new keys. 
+
+The difficulty of destroying a key to remove a user from a symmetric cryptosystem is one of the main reasons organizations turn to asymmetric algorithms.
+
+##
+
+### Key Escrow and Recovery
+
+To gain a handle on the explosive growth of cryptographic technologies, governments around the world have floated ideas to implement key escrow systems.
+
+These systems allow the government, under limited circumstances such as a court order, to obtain the cryptographic key used for a particular communication from a central storage facility.
+
+There are two major approaches to key escrow:
+
+**Fair Cryptosystems** - In this escrow approach, the secret keys used in a communication are divided into two or more pieces, each of which is given to an independent third party.
+
+Each of these pieces is useless on its own but may be recombined to obtain the secret key. When the government obtains legal authority to access a particular key, it provides evidence of the court order to each of the third parties and then reassembles the secret key.
+
+**Escrowed Encryption Standard** - This escrow approach provides the government with a technological means to decrypt ciphertext. This standard is the basis behind the Skipjack algorithm.
+
+It's highly unlikely that government regulators will ever overcome the legal and privacy hurdles necessary to implement key escrow on a widespread basis.
+
+The technology is certainly available, but the general public will likely never accept the potential government intrusiveness it facilitates.
+
+## Asymmetric Cryptography
+
