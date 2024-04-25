@@ -199,7 +199,189 @@ Additionally, if you want to improve the chance that your data will remain safe 
 
 ### Symmetric Key Algorithms
 
+**Data Encryption Standard**
 
+The U.S. government published the Data Encryption Standard in 1977 as a proposed standard cryptosystem for all government communications.
 
+Because of flaws in the algorithm, cryptographers and the federal government no longer consider DES secure. It is widely believed that intelligence agencies routinely decrypt DESencrypted information.
 
+DES was superseded by the Advanced Encryption Standard in December 2001
 
+DES is a 64-bit block cipher that has five modes of operation: Electronic Codebook (ECB) mode, Cipher Block Chaining (CBC) mode, Cipher Feedback (CFB) mode, Output Feedback (OFB) mode, and Counter (CTR) mode.
+
+All of the DES modes operate on 64 bits of plaintext at a time to generate 64-bit blocks of ciphertext. The key used by DES is 56 bits long.
+
+DES uses a long series of exclusive or (XOR) operations to generate the ciphertext. This process is repeated 16 times for each encryption/decryption operation. Each repetition is commonly referred to as a round of encryption, explaining the statement that DES performs 16 rounds of encryption.
+
+The DES specification calls for a 64- bit key. However, of those 64 bits, only 56 actually contain keying information. The remaining 8 bits are supposed to contain parity information to ensure that the other 56 bits are accurate. In practice, however, those parity bits are rarely used.
+
+##
+
+### Electronic Codebook Mode
+
+Electronic Codebook (ECB) mode is the simplest mode to understand and the least secure.
+
+Each time the algorithm processes a 64-bit block, it simply encrypts the block using the chosen secret key. This means that if the algorithm encounters the same block multiple times, it will produce the same encrypted block.
+
+After a sufficient number of blocks were gathered, cryptanalytic techniques could be used to decipher some of the blocks and break the encryption scheme.
+
+This vulnerability makes it impractical to use ECB mode on all but the shortest transmissions. In everyday use, ECB is used only for exchanging small amounts of data, such as keys and parameters used to initiate other DES modes as well as the cells in a database.
+
+##
+
+### Cipher Block Chaining Mode
+
+In Cipher Block Chaining (CBC) mode, each block of unencrypted text is combined with the block of ciphertext immediately preceding it before it is encrypted using the DES algorithm. The decryption process simply decrypts the ciphertext and reverses the encryption operation.
+
+CBC uses an **initialization vector** (IV), which is a randomly selected value that is used to start the encryption process. CBC takes the IV and combines it with the first block of the message using an operation known as the exclusive or (XOR), producing a unique output every time the operation is performed.
+
+The IV must be sent to the recipient, perhaps by tacking the IV onto the front of the completed ciphertext in plain form or by protecting it with ECB mode encryption using the same key used for the message.
+
+One important consideration when using CBC mode is that errors propagate—if one block is corrupted during transmission, it becomes impossible to decrypt that block and the next block as well.
+
+##
+
+### Cipher Feedback Mode
+
+Cipher Feedback (CFB) mode is the streaming cipher version of CBC. In other words, CFB operates against data produced in real time.
+
+However, instead of breaking a message into blocks, it uses memory buffers of the same block size. As the buffer becomes full, it is encrypted and then sent to the recipients. Then the system waits for the next buffer to be filled as the new data is generated before it is in turn encrypted and then transmitted.
+
+Other than the change from preexisting data to real-time data, CFB operates in the same fashion as CBC.
+
+##
+
+### Output Feedback Mode
+
+In Output Feedback (OFB) mode, DES operates in almost the same fashion as it does in CFB mode.
+
+However, instead of XORing an encrypted version of the previous block of ciphertext, DES XORs the plain text with a seed value.
+
+For the first encrypted block, an initialization vector is used to create the seed value. Future seed values are derived by running the DES algorithm on the previous seed value.
+
+The major advantages of OFB mode are that there is no chaining function and transmission errors do not propagate to affect the decryption of future blocks.
+
+##
+
+### Counter Mode
+
+DES that is run in Counter (CTR) mode uses a stream cipher similar to that used in CFB and OFB modes. However, instead of creating the seed value for each encryption/decryption operation from the results of the previous seed values, it uses a simple counter that increments for each operation. 
+
+As with OFB mode, errors do not propagate in CTR mode.
+
+CTR mode allows you to break an encryption or decryption operation into multiple independent steps. This makes CTR mode well suited for use in parallel computing.
+
+##
+
+### Triple DES
+
+An adapted version of DES, Triple DES (3DES), uses the same algorithm to produce a more secure encryption.
+
+There are four versions of 3DES. The first simply encrypts the plaintext three times, using three different keys: K<sub>1</sub>, K<sub>2</sub>, and K<sub>3</sub>.
+
+It is known as DES-EEE3 mode (the Es indicate that there are three encryption operations, whereas the numeral 3 indicates that three different keys are used).
+
+DES-EEE3 can be expressed using the following notation, where E(K,P) represents the encryption of plaintext P with key K:
+
+    E(K1,E(K2,E(K3,P)))
+
+DES-EEE3 has an effective key length of 168 bits.
+
+The second variant (DES-EDE3) also uses three keys but replaces the second encryption operation with a decryption operation.
+
+    E(K1,D(K2,E(K3,P)))
+
+The third version of 3DES (DES-EEE2) uses only two keys, K1 and K2, as follows:
+
+    E(K1,E(K2,E(K1,P)))
+
+The fourth variant of 3DES (DES-EDE2) also uses two keys but uses a decryption operation in the middle, represented by the D(K,C) function, where K is the decryption key and C is the ciphertext to be decrypted.
+
+    E(K1,D(K2,E(K1,P)))
+
+Both the third and fourth variants have an effective key length of 112
+bits.
+
+These four variants of 3DES were developed over the years because several cryptologists put forth theories that one variant was more secure than the others. However, the current belief is that all modes are equally secure.
+
+##
+
+### Advanced Encryption Standard
+
+In October 2000, the National Institute of Standards and Technology announced that the Rijndael block cipher had been chosen as the replacement for DES. In November 2001, NIST released FIPS 197, which mandated the use of AES/Rijndael for the encryption of all sensitive but unclassified data by the U.S. government.
+
+The AES cipher allows the use of three key strengths: 128 bits, 192 bits, and 256 bits. AES only allows the processing of 128-bit blocks, but Rijndael exceeded this specification, allowing cryptographers to use a block size equal to the key length. The number of encryption rounds depends on the key length chosen:
+
+- 128-bit keys require 10 rounds of encryption.
+  
+- 192-bit keys require 12 rounds of encryption.
+  
+- 256-bit keys require 14 rounds of encryption.
+
+## Symmetric Key Management
+
+It is incumbent upon cryptosystem users and administrators to take extraordinary measures to protect the security of the keying material. These security measures are collectively known as **key management practices**. They include safeguards surrounding the creation, distribution, storage, destruction, recovery, and escrow of secret keys.
+
+## Creation and Distribution of Symmetric Keys
+
+**Key exchange** is one of the major problems underlying symmetric encryption algorithms. Key exchange is the secure distribution of the secret keys required to operate the algorithms.
+
+The three main methods used to exchange secret keys securely are offline distribution, public key encryption, and the Diffie–Hellman key exchange algorithm.
+
+### Offline Distribution
+
+The most technically simple method involves the physical exchange of key material.
+
+One party provides the other party with a sheet of paper or piece of storage media containing the secret key.
+
+In many hardware encryption devices, this key material comes in the form of an electronic device that resembles an actual key that is inserted into the encryption device.
+
+However, every offline key distribution method has its own inherent flaws. If keying material is sent through the mail, it might be intercepted. Telephones can be wiretapped. Papers containing keys might be inadvertently thrown in the trash or lost.
+
+##
+
+### Public Key Encryption
+
+Many communicators want to obtain the speed benefits of secret key encryption without the hassles of key distribution.
+
+Many people use public key encryption to set up an initial communications link.
+
+Once the link is successfully established and the parties are satisfied as to each other's identity, they exchange a secret key over the secure public key link. They then switch communications from the public key algorithm to the secret key algorithm and enjoy the increased processing speed.
+
+In general, secret key encryption is thousands of times faster than public key encryption.
+
+##
+
+### Diffie–Hellman 
+
+In some cases, neither public key encryption nor offline distribution is sufficient. Two parties might need to communicate with each other, but they have no physical means to exchange key material, and there is no public key infrastructure in place to facilitate the exchange of secret keys.
+
+In situations like this, key exchange algorithms like the Diffie–Hellman algorithm prove to be extremely useful mechanisms.
+
+The algorithm works as follows:
+
+1. The communicating parties (we'll call them Richard and Sue) agree on two large numbers: p (which is a prime number) and g (which is an integer) such that 1 < g < p.
+
+2. Richard chooses a random large integer r and performs the following calculation:
+
+        R = gr mod p
+   
+3. Sue chooses a random large integer s and performs the following calculation:
+
+        S = gs mod p
+
+4. Richard sends R to Sue and Sue sends S to Richard.     
+
+5. Richard then performs the following calculation:
+
+        K = Sr mod p
+
+6. Sue then performs the following calculation:
+
+       K = Rs mod p
+
+At this point, Richard and Sue both have the same value, K, and can use this for secret key communication between the two parties.
+
+##
+
+### Storage and Destruction of Symmetric Keys
