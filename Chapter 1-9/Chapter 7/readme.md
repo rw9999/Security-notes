@@ -528,7 +528,7 @@ It's important to understand the capabilities of your encryption algorithm and c
 
 The more critical your data, the stronger the key you use to protect it should be.
 
-Timeliness of the data is also an important consideration. You must take into account the rapid growth of computing power—Moore's law suggests that computing power doubles approximately every two years.
+The timeliness of the data is also an important consideration. You must take into account the rapid growth of computing power—Moore's law suggests that computing power doubles approximately every two years.
 
 Attackers are now able to leverage cloud computing resources, they are able to more efficiently attack encrypted data. The cloud allows attackers to rent scalable computing power, including powerful graphic processing units (GPUs) on a per hour basis and offers significant discounts when using excess capacity during non-peak hours. This brings powerful computing well within reach of many attackers.
 
@@ -554,7 +554,7 @@ This problem can be extended to involve multiplication by assuming that Q is a m
 
 Q = xP
 
-Computer scientists and mathematicians believe that it is extremely hard to find x, even if P and Q are already known. This difficult problem, known as the elliptic curve discrete logarithm problem, forms the basis of elliptic curve cryptography. It is widely believed that this problem is harder to solve than both the prime factorization problem that the RSA cryptosystem is based on and the standard discrete logarithm problem utilized by Diffie–Hellman.
+Computer scientists and mathematicians believe that it is extremely hard to find x, even if P and Q are already known. This difficult problem, known as the elliptic curve discrete logarithm problem, forms the basis of elliptic curve cryptography. It is widely believed that this problem is harder to solve than both the prime factorization problem that the RSA cryptosystem is based on and the standard discrete logarithm problem utilized by Diffie–Helman.
 
 ## Hash Functions
 
@@ -586,3 +586,460 @@ There are five basic requirements for a cryptographic hash function:
 
 ### SHA
 
+The Secure Hash Algorithm (SHA) and its successors, SHA-1, SHA-2, and SHA-3, are government standard hash functions promoted by the National Institute of Standards and Technology (NIST) and are specified in an official government publication—the Secure Hash Standard (SHS), also known as Federal Information Processing Standard (FIPS) 180.
+
+SHA-1 takes an input of virtually any length (in reality, there is an upper bound of approximately 2,097,152 terabytes on the algorithm) and produces a 160-bit message digest. The SHA-1 algorithm processes a message in 512-bit blocks. Therefore, if the message length is not a multiple of 512, the SHA algorithm pads the message with additional data until the length reaches the next highest multiple of 512.
+
+Cryptanalytic attacks demonstrated that there are weaknesses in the SHA-1 algorithm. This led to the creation of SHA-2, which has four variants:
+
+- SHA-256 produces a 256-bit message digest using a 512-bit block size.
+  
+- SHA-224 uses a truncated version of the SHA-256 hash to produce a 224-bit message digest using a 512-bit block size.
+  
+- SHA-512 produces a 512-bit message digest using a 1,024-bit block size.
+  
+- SHA-384 uses a truncated version of the SHA-512 hash to produce a 384-bit digest using a 1,024-bit block size.
+
+The cryptographic community generally considers the SHA-2 algorithms secure, but they theoretically suffer from the same weakness as the SHA-1 algorithm.
+
+The SHA-3 suite was developed to serve as drop-in replacement for the SHA-2 hash functions, offering the same variants and hash lengths using a more secure algorithm.
+
+##
+
+### MD5
+
+In 1991, Ron Rivest released the next version of his message digest algorithm, which he called MD5.
+
+It also processes 512-bit blocks of the message, but it uses four distinct rounds of computation to produce a digest of the same length as the earlier MD2 and MD4 algorithms (128 bits).
+
+MD5 implements security features that reduce the speed of message digest production significantly. Unfortunately, recent cryptanalytic attacks demonstrated that the MD5 protocol is subject to collisions, preventing its use for ensuring message integrity.
+
+## Digital Signatures
+
+Digital signature infrastructures have two distinct goals:
+
+- Digitally signed messages assure the recipient that the message truly came from the claimed sender. They enforce nonrepudiation (that is, they preclude the sender from later claiming that the message is a forgery).
+
+- Digitally signed messages assure the recipient that the message was not altered while in transit between the sender and recipient. This protects against both malicious modification (a third party altering the meaning of the message) and unintentional modification (because of faults in the communications process, such as electrical interference).
+
+Digital signature algorithms rely on a combination of the two major concepts already covered in this chapter—public key cryptography and hashing functions.
+
+If Alice wants to digitally sign a message she's sending to Bob, she performs the following actions:
+
+1. Alice generates a message digest of the original plaintext message using one of the cryptographically sound hashing algorithms, such as SHA3-512.
+  
+2. Alice then encrypts only the message digest using her private key. This encrypted message digest is the digital signature.
+
+3. Alice appends the signed message digest to the plaintext message.
+   
+4. Alice transmits the appended message to Bob.
+
+When Bob receives the digitally signed message, he reverses the procedure, as follows:
+
+1. Bob decrypts the digital signature using Alice's public key.
+
+2. Bob uses the same hashing function to create a message digest of the full plaintext message received from Alice.
+
+3. Bob then compares the decrypted message digest he received from Alice with the message digest he computed himself. If the two digests match, he can be assured that the message he received was sent by Alice. If they do not match, either the message was not sent by Alice or the message was modified while in transit.
+
+Software vendors often use digital signature technology to authenticate code distributions that you download from the Internet, such as applets and software patches.
+
+Note that the digital signature process does not provide any privacy in and of itself. It only ensures that the cryptographic goals of integrity, authentication, and nonrepudiation are met.
+
+However, if Alice wanted to ensure the privacy of her message to Bob, she could add a step to the message creation process. After appending the signed message digest to the plaintext message, Alice could encrypt the entire message with Bob's public key. When Bob received the message, he would decrypt it with his own private key before following the steps just outlined.
+
+##
+
+### HMAC
+
+The Hashed Message Authentication Code (HMAC) algorithm implements a partial digital signature—it guarantees the integrity of a message during transmission, but it does not provide for nonrepudiation.
+
+HMAC can be combined with any standard message digest generation algorithm, such as SHA-3, by using a shared secret key. Therefore, only communicating parties who know the key can generate or verify the digital signature.
+
+If the recipient decrypts the message digest but cannot successfully compare it to a message digest generated from the plain-text message, that means the message was altered in transit.
+
+Because HMAC relies on a shared secret key, it does not provide any nonrepudiation functionality (as previously mentioned).
+
+However, it operates in a more efficient manner than the digital signature standard described in the following section and may be suitable for applications in which symmetric key cryptography is appropriate.
+
+In short, it represents a halfway point between the unencrypted use of a message digest algorithm and computationally expensive digital signature algorithms based on public key cryptography.
+
+##
+
+### Which Key Should I Use?
+
+Encryption, decryption, message signing, and signature verification all use the same algorithm with different key inputs. Here are a few simple rules to help keep these concepts straight in your mind when preparing for the exam:
+
+- If you want to encrypt a message, use the recipient's public key.
+
+- If you want to decrypt a message sent to you, use your private key.
+
+- If you want to digitally sign a message you are sending to someone else, use your private key.
+
+- If you want to verify the signature on a message sent by someone else, use the sender's public key.
+
+##
+
+### Digital Signature Standard
+
+The National Institute of Standards and Technology specifies the digital signature algorithms acceptable for federal government use in Federal Information Processing Standard (FIPS) 186-4, also known as the Digital Signature Standard (DSS).
+
+This document specifies that all federally approved digital signature algorithms must use the SHA-3 hashing functions.
+
+DSS also specifies the encryption algorithms that can be used to support a digital signature infrastructure. There are three currently approved standard encryption algorithms:
+
+- The Digital Signature Algorithm (DSA) as specified in FIPS 186-4
+
+- The Rivest, Shamir, Adleman (RSA) algorithm as specified in ANSI X9.31
+
+- The Elliptic Curve DSA (ECDSA) as specified in ANSI X9.62
+
+## Public Key Infrastructure
+
+The major strength of public key encryption is its ability to facilitate communication between parties previously unknown to each other.
+
+This is made possible by the public key infrastructure (PKI) hierarchy of trust relationships. These trusts permit combining asymmetric cryptography with symmetric cryptography along with hashing and digital certificates, giving us hybrid cryptography.
+
+### Certificates
+
+Digital certificates provide communicating parties with the assurance that the people they are communicating with truly are who they claim to be.
+
+Digital certificates are essentially endorsed copies of an individual's public key. When users verify that a certificate was signed by a trusted certificate authority (CA), they know that the public key is legitimate.
+
+Digital certificates contain specific identifying information, and their construction is governed by an international standard—X.509. Certificates that conform to X.509 contain the following certificate attributes:
+
+- Version of X.509 to which the certificate conforms
+- Serial number (from the certificate creator)
+- Signature algorithm identifier (specifies the technique used by the certificate authority to digitally sign the contents of the certificate)
+- Issuer name (identification of the certificate authority that issued the certificate)
+- Validity period (specifies the dates and times—a starting date and time and an expiration date and time—during which the certificate is valid)
+- Subject's Common Name (CN) that clearly describes the certificate owner(e.g., “certmike.com”)
+- Certificates may optionally contain Subject Alternative Names (SAN) that allow you to specify additional items (IP addresses, domain names, and so on) to be protected by the single certificate.
+- Subject's public key (the meat of the certificate—the actual public key the certificate owner used to set up secure communications)
+
+The current version of X.509 (version 3) supports certificate extensions—customized variables containing data inserted into the certificate by the certificate authority to support tracking of certificates or various applications.
+
+Certificates may be issued for a variety of purposes. These include providing assurance for the public keys of
+
+- Computers/machines
+- Individual users
+- Email addresses
+- Developers (code-signing certificates)
+
+The subject of a certificate may include a wildcard in the certificate name, indicating that the certificate is good for subdomains as well.
+
+name, indicating that the certificate is good for subdomains as well. The wildcard is designated by an asterisk character. For example, a wildcard certificate issued to *. certmike.com would be valid for all of the following domains:
+
+- certmike.com
+- www.certmike.com
+- mail.certmike.com
+- secure.certmike.com
+
+Wildcard certificates are only good for one level of subdomain. Therefore, the *. certmike.com certificate would not be valid for the www.cissp.certmike.com subdomain.
+
+##
+
+### Certificate Authorities
+
+Certificate authorities (CAs) are the glue that binds the public key infrastructure together.
+
+These neutral organizations offer notarization services for digital certificates. To obtain a digital certificate from a reputable CA, you must prove your identity to the satisfaction of the CA.
+
+The following list includes some of the major CAs who provide widely accepted digital certificates:
+
+- Symantec
+- IdenTrust
+- Amazon Web Services
+- GlobalSign
+- Comodo
+- Certum
+- GoDaddy
+- DigiCert
+- Secom
+- Entrust
+- Actalis
+- Trustwave
+
+Nothing is preventing any organization from simply setting up shop as a CA. However, the certificates issued by a CA are only as good as the trust placed in the CA that issued them.
+
+This is an important item to consider when receiving a digital certificate from a third party. If you don't recognize and trust the name of the CA that issued the certificate, you shouldn't place any trust in the certificate at all.
+
+PKI relies on a hierarchy of trust relationships. If you configure your browser to trust a CA, it will automatically trust all of the digital certificates issued by that CA. Browser developers preconfigure browsers to trust the major CAs to avoid placing this burden on users.
+
+**Registration authorities** (RAs) assist CAs with the burden of verifying users' identities prior to issuing digital certificates. They do not directly issue certificates themselves, but they play an important role in the certification process, allowing CAs to remotely validate user identities.
+
+Certificate authorities must carefully protect their own private keys to preserve their trust relationships. To do this, they often use an **offline CA** to protect their **root certificate**, the top-level certificate for their entire PKI.
+
+This offline CA is disconnected from networks and powered down until it is needed. The offline CA uses the root certificate to create subordinate **intermediate CAs** that serve as the **online CAs** used to issue certificates on a routine basis. 
+
+In the CA trust model, the use of a series of intermediate CAs is known as **certificate chaining**. To validate a certificate, the browser verifies the identity of the intermediate CA(s) first and then traces the path of trust back to a known root CA, verifying the identity of each link in the chain of trust.
+
+Certificate authorities do not need to be third-party service providers. Many organizations operate internal CAs that provide **self-signed certificates** for use inside an organization.
+
+These certificates won't be trusted by the browsers of external users, but internal systems may be configured to trust the internal CA, saving the expense of obtaining certificates from a third-party CA.
+
+## Certificate Generation and Destruction
+
+### Enrollment
+
+When you want to obtain a digital certificate, you must first prove your identity to the CA in some manner; this process is called enrollment.
+
+This sometimes involves physically appearing before an agent of the certification authority with the appropriate identification documents. Some certificate authorities provide other means of verification, including the use of credit report data and identity verification by trusted community leaders.
+
+Once you've satisfied the certificate authority regarding your identity, you provide them with your public key in the form of a **Certificate Signing Request (CSR)**.
+
+The CA next creates an X.509 digital certificate containing your identifying information and a copy of your public key.
+
+The CA then digitally signs the certificate using the CA's private key and provides you with a copy of your signed digital certificate. You may then safely distribute this certificate to anyone with whom you want to communicate securely.
+
+Certificate authorities issue different types of certificates depending upon the level of identity verification that they perform.
+
+The simplest, and most common, certificates are **Domain Validation (DV) certificates**, where the CA simply verifies that the certificate subject has control of the domain name. **Extended Validation (EV) certificates** provide a higher level of assurance and the CA takes steps to verify that the certificate owner is a legitimate business before issuing the certificate.
+
+##
+
+###  Verification
+
+When you receive a digital certificate from someone with whom you want to communicate, you verify the certificate by checking the CA's digital signature using the CA's public key.
+
+Next, you must check and ensure that the certificate was not revoked using a **certificate revocation list** (CRL) or the **Online Certificate Status Protocol** (OCSP).
+
+At this point, you may assume that the public key listed in the certificate is authentic, provided that it satisfies the following requirements:
+
+- The digital signature of the CA is authentic.
+
+- You trust the CA.
+
+- The certificate is not listed on a CRL.
+
+- The certificate actually contains the data you are trusting.
+
+The last point is a subtle but extremely important item. Before you trust an identifying piece of information about someone, be sure that it is actually contained within the certificate.
+
+Digital certificate verification algorithms are built in to a number of popular web browsing and email clients, so you won't often need to get involved in the particulars of the process.
+
+However, it's important to have a solid understanding of the technical details taking place behind the scenes to make appropriate security judgments for your organization. It's also the reason that, when purchasing a certificate, you choose a CA that is widely trusted. If a CA is not included in, or is later pulled from, the list of CAs trusted by a major browser, it will greatly limit the usefulness of your certificate.
+
+**Certificate pinning** approaches instruct browsers to attach a certificate to a subject for an extended period of time. When sites use certificate pinning, the browser associates that site with their public key. This allows users or administrators to notice and intervene if a certificate unexpectedly changes.
+
+##
+
+### Revocation
+
+Occasionally, a certificate authority needs to revoke a certificate. This might occur for one of the following reasons:
+
+- The certificate was compromised (for example, the certificate owner accidentally gave away the private key).
+
+- The certificate was erroneously issued (for example, the CA mistakenly issued a certificate without proper verification).
+
+- The details of the certificate changed (for example, the subject's name changed).
+
+- The security association changed (for example, the subject is no longer employed by the organization sponsoring the certificate).
+
+The revocation request grace period is the maximum response time within which a CA will perform any requested revocation.
+
+This is defined in the **certificate practice statement (CPS)**. The CPS states the practices a CA employs when issuing or managing certificates.
+
+You can use three techniques to verify the authenticity of certificates and identify revoked certificates:
+
+**Certificate Revocation Lists** - Certificate revocation lists (CRLs) are maintained by the various certificate authorities and contain the serial numbers of certificates that have been issued by a CA and have been revoked along with the date and time the revocation went into effect.
+
+The major disadvantage to certificate revocation lists is that they must be downloaded and cross-referenced periodically, introducing a period of latency between the time a certificate is revoked and the time end users are notified of the revocation.
+
+**Online Certificate Status Protocol (OCSP)** - This protocol eliminates the latency inherent in the use of certificate revocation lists by providing a means for real-time certificate verification. When a client receives a certificate, it sends an OCSP request to the CA's OCSP server. The server then responds with a status of valid, invalid, or unknown. The browser uses this information to determine whether the certificate is valid.
+
+The primary issue with OCSP is that it places a significant burden on the OCSP servers operated by certificate authorities. These servers must process requests from every single visitor to a website or other user of a digital certificate, verifying that the certificate is valid and not revoked.
+
+**Certificate Stapling** - Certificate stapling is an extension to the Online Certificate Status Protocol that relieves some of the burden placed upon certificate authorities by the original protocol. In certificate stapling, the web server contacts the OCSP server itself and receives a signed and timestamped response from the OCSP server, which it then attaches, or staples, to the digital certificate. Then, when a user requests a secure web connection, the web server sends the certificate with the stapled OCSP response to the user. The user's browser then verifies that the certificate is authentic and also validates that the stapled OCSP response is genuine and recent. Because the CA signed the OCSP response, the user knows that it is from the certificate authority and the timestamp provides the user with assurance that the CA recently validated the certificate. From there, communication may continue as normal.
+
+The time savings come when the next user visits the website. The web server can simply reuse the stapled certificate, without recontacting the OCSP server. As long as the timestamp is recent enough, the user will accept the stapled certificate without needing to contact the CA's OCSP server again. It's common to have stapled certificates with a validity period of 24 hours. That reduces the burden on an OCSP server from handling one request per user over the course of a day, which could be millions of requests, to handling one request per certificate per day.
+
+## 
+
+### Certificate Formats
+
+Digital certificates are stored in files, and those files come in a variety of different formats, both binary and text-based:
+
+- The most common binary format is the Distinguished Encoding Rules (DER) format. DER certificates are normally stored in files with the .DER, .CRT, or .CER extensions.
+
+- The Privacy Enhanced Mail (PEM) certificate format is an ASCII text version of the DER format. PEM certificates are normally stored in files with the .PEM or .CRT extensions.
+
+- The Personal Information Exchange (PFX) format is commonly used by Windows systems. PFX certificates may be stored in binary form, using either .PFX or .P12 file extensions.
+
+- Windows systems also use P7B certificates, which are stored in ASCII text format.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/3a96037f-06c8-47ef-9c02-1979db311371)
+
+## Asymmetric Key Management
+
+When working within the public key infrastructure, it's important that you comply with several best practice requirements to maintain the security of your communications.
+
+Choose an encryption system with an algorithm in the public domain that has been thoroughly vetted by industry experts.
+
+You must also select your keys in an appropriate manner. Use a key length that balances your security requirements with performance considerations. Also, ensure that your key is truly random, or, in cryptographic terms, that it has sufficient entropy.
+
+Any predictability within the key increases the likelihood that an attacker will be able to break your encryption and degrade the security of your cryptosystem. You should also understand the limitations of your cryptographic algorithm and avoid the use of any known weak keys.
+
+Do not, under any circumstances, allow anyone else to gain access to your private key. Remember, allowing someone access even once permanently compromises all communications that take place (past, present, or future) using that key and allows the third party to successfully impersonate you.
+
+Retire keys when they've served a useful life. Many organizations have mandatory key rotation requirements to protect against undetected key compromise. If you don't have a formal policy that you must follow, select an appropriate interval based on the frequency with which you use your key.
+
+You might want to change your key pair every few months, if practical.
+
+If you lose the file containing your private key because of data corruption, disaster, or other circumstances, you'll certainly want to have a backup available.
+
+You may want to either create your own backup or use a key escrow service that maintains the backup for you.
+
+**Hardware security modules (HSMs)** also provide an effective way to manage encryption keys. These hardware devices store and manage encryption keys in a secure manner that prevents humans from ever needing to work directly with the keys.
+
+HSMs range in scope and complexity from very simple devices, such as the YubiKey, that store encrypted keys on a USB drive for personal use, to more complex enterprise products that reside in a data center. Cloud providers, such as Amazon and Microsoft, also offer cloud-based HSMs that provide secure key management for IaaS services.
+
+## Cryptographic Attacks
+
+### Brute Force
+
+This method simply involves trying every possible key. It is guaranteed to work, but it is likely to take so long that it is simply not usable.
+
+##
+
+### Frequency Analysis
+
+Frequency analysis involves looking at the blocks of an encrypted message to determine if any common patterns exist.
+
+Initially, the analyst doesn't try to break the code but looks at the patterns in the message.
+
+A determined cryptanalyst looks for these types of patterns and, over time, may be able to deduce the method used to encrypt the data. This process can sometimes be simple, or it may take a lot of effort. This method works only on the historical ciphers that we discussed at the beginning of this chapter. It does not work on modern algorithms.
+
+##
+
+### Known Plain Text
+
+This attack relies on the attacker having pairs of known plain text along with the corresponding ciphertext. This gives the attacker a place to start attempting to derive the key.
+
+With modern ciphers, it would still take many billions of such combinations to have a chance at cracking the cipher.
+
+This method was, however, successful at cracking the German Naval Enigma. The code breakers at Bletchley Park in the UK realized that all German Naval messages ended with Heil Hitler. They used this known plain-text attack to crack the key.
+
+##
+
+### Chosen Plain Text
+
+In this attack, the attacker obtains the ciphertexts corresponding to a set of plain texts of their own choosing.
+
+This allows the attacker to attempt to derive the key used and thus decrypt other messages encrypted with that key.
+
+This can be difficult, but it is not impossible. Advanced methods such as differential cryptanalysis are types of chosen plain-text attacks.
+
+##
+
+### Related Key Attack
+
+This is like a chosen plain-text attack, except the attacker can obtain cipher texts encrypted under two different keys. This is actually a useful attack if you can obtain the plain text and matching ciphertext.
+
+##
+
+### Birthday Attack
+
+This is an attack on cryptographic hashes, based on something called the birthday theorem.
+
+So for an MD5 hash, you might think that you need 2128 +1 different inputs to get a collision—and for a guaranteed collision you do.
+
+But the Birthday paradox tells us that to just have a 51 percent chance of there being a collision with a hash you only need 1.7 √ n (n being 2128) inputs.
+
+That number is still very large: 31,359,464,925,306,237,747.2. But it is much smaller than the brute force approach of trying every possible input.
+
+##
+
+### Downgrade Attack
+
+A downgrade attack is sometimes used against secure communications such as TLS in an attempt to get the user or system to inadvertently shift to less secure cryptographic modes. The idea is to trick the user into shifting to a less secure version of the protocol, one that might be easier to break.
+
+##
+
+### Rainbow Tables, Hashing, and Salting
+
+**Rainbow table** attacks attempt to reverse hashed password value by precomputing the hashes of common passwords. The attacker takes a list of common passwords and runs them through the hash function to generate the rainbow table. They then search through lists of hashed values, looking for matches to the rainbow table.
+
+The most common approach to preventing these attacks is **salting**, which adds a randomly generated value to each password prior to hashing.
+
+**Key stretching** is used to create encryption keys from passwords in a strong manner. Key stretching algorithms, such as the Password Based Key Derivation Function v2 (PBKDF2), use thousands of iterations of salting and hashing to generate encryption keys that are resilient against attack.
+
+##
+
+### Exploiting Weak Keys
+
+There are also scenarios in which someone is using a good cryptographic algorithm (like AES) but has it implemented in a weak manner—for example, using weak key generation.
+
+##
+
+### Exploiting Human Error
+
+Human error is one of the major causes of encryption vulnerabilities.
+
+If an email is sent using an encryption scheme, someone else may send it in the clear (unencrypted). If a cryptanalyst gets ahold of both messages, the process of decoding future messages will be considerably simplified. A code key might wind up in the wrong hands, giving insights into what the key consists of.
+
+Another error is to use weak or deprecated algorithms. Over time, some algorithms are no longer considered appropriate. This may be due to some flaw found in the algorithm. It can also be due to increasing computing power.
+
+## Emerging Issues in Cryptography
+
+### Tor and the Dark Web
+
+Tor, formerly known as The Onion Router, provides a mechanism for anonymously routing traffic across the Internet using encryption and a set of relay nodes.
+
+It relies upon a technology known as perfect forward secrecy, where layers of encryption prevent nodes in the relay chain from reading anything other than the specific information they need to accept and forward the traffic.
+
+By using perfect forward secrecy in combination with a set of three or more relay nodes, Tor allows for both anonymous browsing of the standard Internet, as well as the hosting of completely anonymous sites on the Dark Web.
+
+#
+
+### Blockchain
+
+The blockchain is, in its simplest description, a distributed and immutable public ledger.
+
+This means that it can store records in a way that distributes those records among many different systems located around the world and do so in manner that prevents anyone from tampering with those records. The blockchain creates a data store that nobody can tamper with or destroy.
+
+The first major application of the blockchain is cryptocurrency. The blockchain was originally invented as a foundational technology for Bitcoin, allowing the tracking of Bitcoin transactions without the use of a centralized authority.
+
+In this manner, blockchain allows the existence of a currency that has no central regulator. Authority for Bitcoin transactions is distributed among all participants in the Bitcoin blockchain.
+
+#
+
+### Lightweight Cryptography
+
+There are many specialized use cases for cryptography that you may encounter during your career where computing power and energy might be limited.
+
+Some devices operate at extremely low power levels and put a premium on conserving energy.
+
+Smartcards are an example of a low power environment. They must be able to securely communicate with smartcard readers, but only using the energy either stored on the card or transferred to it by a magnetic field.
+
+In these cases, cryptographers often design specialized hardware that is purpose-built to implement lightweight cryptographic algorithms with as little power expenditure as possible.
+
+Another specialized use case for cryptography are cases where you need very low latency. That simply means that the encryption and decryption should not take a long time.
+
+Encrypting network links is a common example of low latency cryptography. The data is moving quickly across a network and the encryption should be done as quickly as possible to avoid becoming a bottleneck.
+
+Specialized encryption hardware also solves many low latency requirements. For example, a dedicated VPN hardware device may contain cryptographic hardware that implements encryption and decryption operations in highly efficient form to maximize speed.
+
+High resiliency requirements exist when it is extremely important that data be preserved and not accidentally destroyed during an encryption operation. In cases where resiliency is extremely important, the easiest way to address the issue is for the sender of data to retain a copy until the recipient confirms the successful receipt and decryption of the data.
+
+#
+
+### Homomorphic Encryption
+
+Privacy concerns also introduce some specialized use cases for encryption.
+
+We sometimes have applications where we want to protect the privacy of individuals, but still want to perform calculations on their data.
+
+Homomorphic encryption technology allows this, encrypting data in a way that preserves the ability to perform computation on that data.
+
+When you encrypt data with a homomorphic algorithm and then perform computation on that data, you get a result that, when decrypted, matches the result you would have received if you had performed the computation on the plaintext data in the first place. 
+
+#
+
+### Quantum Computing
+
+Quantum computing is an emerging field that attempts to use quantum mechanics to perform computing and communication tasks.
+
+It's still mostly a theoretical field but, if it advances to the point where that theory becomes practical to implement, quantum cryptography may be able to defeat cryptographic algorithms that depend on factoring large prime numbers.
+
+At the same time, quantum computing may be used to develop even stronger cryptographic algorithms that would be far more secure than modern approaches.
