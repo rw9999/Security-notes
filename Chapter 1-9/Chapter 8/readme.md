@@ -30,4 +30,7 @@ When a subject wants to use their identity, they need to use one of a number of 
 
 #
 
-### Lost Key Pairs
+### Authentication and Authorization
+
+
+The **Extensible Authentication Protocol** (EAP) is an authentication framework that is commonly used for wireless networks.
