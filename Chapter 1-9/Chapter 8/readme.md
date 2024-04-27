@@ -34,3 +34,29 @@ When a subject wants to use their identity, they need to use one of a number of 
 
 
 The **Extensible Authentication Protocol** (EAP) is an authentication framework that is commonly used for wireless networks.
+
+Many different implementations exist that use the EAP framework, including vendor-specific and open methods like EAP-TLS, LEAP, and EAP-TTLS. Each of these protocols implements EAP messages using that protocol's messaging standards. EAP is commonly used for wireless network authentication.
+
+**Challenge Handshake Authentication Protocol (CHAP)** is an authentication protocol designed to provide more security than protocols like PAP
+
+CHAP uses an encrypted challenge and three-way handshake to send credentials
+
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/841c7a4d-2626-4a09-8ca3-b6ffbb01a63b)
+
+Microsoft introduced their own version of CHAP called MS-CHAP, but vulnerabilities in both MS-CHAP versions 1 and 2 have led to it being largely replaced by other protocols.
+
+**Password Authentication Protocol (PAP)** is a password-centric authentication protocol that was commonly used with the Point-to- Point Protocol (PPP) to authenticate users.
+
+PAP sends unencrypted passwords, making it unsuitable for use in most modern networks.
+
+**802.1X** is an IEEE standard for network access control (NAC), and it is used for authentication for devices that want to connect to a network.
+
+In 802.1X systems, supplicants send authentication requests to authenticators such as network switches, access points, or wireless controllers.
+
+Those controllers connect to an authentication server, typically via RADIUS. The RADIUS servers may then rely on a backend directory using LDAP or Active Directory as a source of identity information.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/f152b599-b242-4dc7-b4b6-04f336c750ad)
+
+**RADIUS (Remote Authentication Dial-in User Service)** is one of the most common authentication, authorization, and accounting (AAA) systems for network devices, wireless networks, and other services.
+
