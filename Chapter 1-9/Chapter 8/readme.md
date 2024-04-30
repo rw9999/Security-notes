@@ -46,7 +46,7 @@ CHAP uses an encrypted challenge and three-way handshake to send credentials
 
 Microsoft introduced their own version of CHAP called MS-CHAP, but vulnerabilities in both MS-CHAP versions 1 and 2 have led to it being largely replaced by other protocols.
 
-**Password Authentication Protocol (PAP)** is a password-centric authentication protocol that was commonly used with the Point-to- Point Protocol (PPP) to authenticate users.
+**Password Authentication Protocol (PAP)** is a password-centric authentication protocol that was commonly used with the Point-to-Point Protocol (PPP) to authenticate users.
 
 PAP sends unencrypted passwords, making it unsuitable for use in most modern networks.
 
@@ -67,3 +67,34 @@ RADIUS sends passwords that are obfuscated by a shared secret and MD5 hash, mean
 RADIUS traffic between the RADIUS network access server and the RADIUS server is typically encrypted using IPSec tunnels or other protections to protect the traffic
 
 In an AAA system, users must first authenticate, typically with a username and password. The system then allows them to perform actions they are authorized to by policies or permission settings. Accounting tracks resource utilization like time, bandwidth, or CPU utilization.
+
+**Terminal Access Controller Access Control System Plus (TACACS+)**, is a Cisco-designed extension to TACACS, the Terminal Access Controller Access Control System.
+
+TACACS+ uses TCP traffic to provide authentication, authorization, and accounting services. It provides full-packet encryption as well as granular command controls, allowing individual commands to be secured as needed.
+
+**Kerberos** is designed to operate on untrusted networks and uses authentication to shield its authentication traffic.
+
+Kerberos users are composed of three main elements: the primary, which is typically the username; the instance, which helps to differentiate similar primaries; and realms, which consist of groups of users.
+
+Realms are typically separated by trust boundaries and have distinct Kerberos key distribution centers (KDCs).
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/9501b64f-6de9-4c1c-ba8e-28296a19700d)
+
+When a client wants to use Kerberos to access a service, the client requests an authentication ticket, or ticket-granting ticket (TGT).
+
+An authentication server checks the client's credentials and responds with the TGT, which is encrypted using the ticket-granting service's (TGS) secret key.
+
+When the client wants to use a service, the client sends the TGT to the TGS (which is usually also the KDC) and includes the name of the resource it wants to use.
+
+The TGS sends back a valid session key for the service, and the client presents the key to the service to access it.
+
+Internet-based systems often rely on a number of core technologies to accomplish authentication and authorization. These include the following:
+
+- **Security Assertion Markup Language (SAML**) is an XML-based open standard for exchanging authentication and authorization information.
+
+SAML is often used between identity providers and service providers for web-based applications.
+
+Using SAML means that service providers can accept SAML assertions from a range of identity providers, making it a common solution for federated environments like those we will discuss later in this chapter.
+
+- **OpenID** is an open standard for decentralized authentication.
+
