@@ -304,4 +304,214 @@ The place on this chart where FAR and FRR cross over is called the **crossover e
 
 When you assess biometrics systems, knowing their FAR and FRR will help you determine their efficacy rates, or how effective they are at performing their desired function.
 
+The FIDO Alliance sets their FRR threshold for acceptance for certification for biometric factors to 3 in 100 attempts and at 1 in 10,000 for FAR.
 
+The Imposter Attack Presentation Match Rate (IAPMR), a measure that tackles the question of how often an attack will succeed. IAPMR is a challenging measure because it requires attacks that are designed to specifically take advantage of the weaknesses of any given biometric system.
+
+In addition to measures like these, in the real world you have to assess the user acceptance of the biometric system.
+
+Biometric systems must often be deployed with a backup method available for some percentage of the user population, even if they will consent to use the system.
+
+#
+
+### Knowledge-Based Authentication
+
+KBA is frequently used for password resets in the form of security questions.
+
+Knowledge-based authentication questions are also used to validate users who are creating accounts by dynamically generating questions that the account requestor can be expected to know.
+
+In any KBA implementation, it is important that others cannot easily discover the answer, that the answer is unique, and that the answer is something that the user should be able to remember easily or will likely know.
+
+Allowing users to set their own questions or asking about more obscure information is a more secure option.
+
+#
+
+### Managing Authentication
+
+For individuals, one option that provides a high level of security is a password key (often called a security key).
+
+These are hardware devices that support things like one-time passwords, public key cryptography for security certificates, and various security protocols like FIDO and Universal 2nd Factor (U2F). They're available in a variety of form factors and with different types of connectivity; most provide USB and/or Bluetooth.
+
+Password vaults (often called password managers) are another common solution for authentication management.
+
+They are software solutions that store, manage, and secure passwords and other information, allowing users to use strong passwords without memorizing dozens, or even hundreds, of individual complex passwords.
+
+Enterprise password manager applications are widely deployed in organizations to help with the management of servers, applications, and devices, and they have additional features like logging and auditing as well as management tools to ensure that passwords are properly rotated and monitored for use and abuse.
+
+Computers also have the ability to have built in or add-on security modules like the **Trusted Platform Module** (TPM) standard.
+
+TPM modules or chips have a built-in cryptoprocessor used to store RSA key pairs protected by a password set by the system owner.
+
+TPM modules can help prevent unauthorized changes to firmware and software as part of a trusted or secure boot process, and they are supported by operating systems allowing drive encryption and other cryptographic-based security features.
+
+Although some systems, including many enterprise-class laptops, have TPM chips built in, they can also be added to systems that support them as an add-on module.
+
+A final option you should be aware of is the use of hardware security modules (HSMs).
+
+HSMs, which are most often found as either an independent physical device or a plug-in expansion card for a computer, integrate cryptoprocessors to securely create, store, and manage encryption keys; provide encryption and decryption services; and perform other cryptographic processing in a secure way.
+
+Cloud providers now provide HSMs as a service, allowing a secure way to add HSMs to cloud infrastructure.
+
+An important part of HSM design is the security of the device itself, and HSMs often carry a third-party security certification to prove that they have been assessed and validated to meet standards like FIPS-140, the U.S. government's cryptographic security standard.
+
+## Accounts
+
+Accounts contain information about a user, including things like rights and permissions that are associated with the account.
+
+### Account Types
+
+There are many types of accounts, and they can almost all be described as one of a few basic account types:
+
+- User accounts, which can run the gamut from basic access to systems, devices, or applications to power users with broad rights and privileges.
+
+- Privileged or administrative accounts, like the root account or members of the wheel group on Linux and Unix systems, and the Windows default Administrator account.
+
+- Shared and generic accounts or credentials, which are often prohibited by security policies.
+
+Although shared accounts can be useful, many organizations build delegation capabilities to allow multiple users to act in the same way or with the same rights to avoid shared account issues such as the inability to determine who was logged into the shared account or what actions each user who shares the account took.
+
+- Guest accounts, which are provided to temporary users and which typically have very limited privileges, but are also likely to have far less information about the user who uses them, if any.
+
+- Service accounts associated with applications and services. Service accounts should not be used for interactive logins, and many organizations have specific security policies in place to ensure service account security.
+
+#
+
+### Account Policies and Controls
+
+Account policies are set to provide controls about how and when accounts can be used, to control password complexity, lifespan, and other details.
+
+Password complexity determines the makeup of passwords.
+
+Password complexity settings will set which characters can and cannot be used for a password, how long it must be, if it can contain words or if there are specific words it cannot contain, and any related settings that determine how complex the password will be.
+
+The trade-off with password complexity is that requiring additional complexity can make it less likely that users will remember their password, and additional time and money can be spent on support for password resets.
+
+Complexity may also lead users to record their passwords, potentially in an insecure location, or to reuse complex passwords so that they don't have to remember as many.
+
+Password lifespans were also commonly used, although increasing use of MFA has led many organizations to stop requiring regular password changes.
+
+When passwords were the sole protection for accounts, password lifespan was seen as a way to limit the maximum amount of time that a password could be exposed if it was compromised.
+
+**Password history** settings are used to prevent **password reuse**.
+
+Basic password histories keep track of past passwords for a given number of iterations set by the administrator. More advanced password history systems may be able to recognize if the password is too similar to previous entries to ensure that passwords with a minor change are not being used.
+
+MFA tends to be the best solution when implemented well.
+
+In addition to controls related to passwords, account controls can leverage other information from the login process. Common controls include the following:
+
+In addition to controls related to passwords, account controls can leverage other information from the login process. Common controls include the following:
+
+- The time of day, which can prevent employees from accessing systems after their shift, potentially reducing the opportunities for attackers to use the accounts when the account owner won't notice or for insiders to abuse their privileges.
+
+**Time-based logins** are more common for shift-based or hourly workers.
+
+- The network location of the system that is being authenticated to.
+
+This can help prevent data from being accessed from the wrong network, or it can help preserve trust boundaries by ensuring systems authenticate only from inside a protected network.
+
+- Geolocation data can be used to allow logins only from a geofenced area, a predetermined, GPS data–driven location or locations.
+
+Geotagging is also sometimes used with this to tag specific data or systems with locations they can be used in.
+
+Geographic information is also used to determine if an impossible travel time issue is occurring where a user logs in from one place and then another with enough distance between the two to ensure that the user cannot have traveled to the new location in the time given.
+
+Account audits help to make sure that accounts are well managed, that accounts have the proper account permissions, and that appropriate controls are in place.
+
+Account audits, which may be manual or automatic, focus on ensuring that accounts are configured as expected with appropriate permissions and rights based on the user's role or the organization's rules and standards for that type of account or user.
+
+Finally, when accounts encounter issues, accounts can be locked out or disabled. Account lockouts are frequently automated and based on incorrect login attempts.
+
+Lockouts may require human intervention or may automatically unlock after a period of time. 
+
+Lockouts that unlock after some set period are called back-off algorithms, and various back-off algorithm designs exist that are intended to slow down or stop brute-force attackers while still allowing legitimate users a chance to log in to their account without calling support.
+
+In cases where accounts need to be terminated due to compromise or lifecycle changes like termination or retirement, or if other issues occur, disabling accounts is an important option.
+
+Disabled accounts, rather than deleted accounts, can be a cause for concern, since they may still have privileges that could be used by an attacker if the account was restored on purpose or by accident. Thus, account audits often review disabled accounts to see if they are managed well and if the organization has a habit of reenabling them or validates why they were reenabled.
+
+#
+
+### Privileged Access Management
+
+Privileged access management (PAM) tools can be used to handle administrative and privileged accounts.
+
+PAM tools focus on ensuring that the concept of least privilege is maintained by helping administrators specify only the minimum set of privileges needed for a role or task. 
+
+PAM tools often provide more detailed, granular controls; increased audit capabilities; and additional visibility and reporting on the state of privileged accounts.
+
+#
+
+### Access Control Schemes
+
+User accounts and account controls are important, but systems also implement access control schemes to determine which users, services, and programs can access various files or other objects that they host.
+
+**Attribute-based access control (ABAC)** relies on policies that are driven by the attributes of the users.
+
+This allows for complex rulesets based on combinations of attributes that provide users with specific rights that match the attributes they have.
+
+Since attributes can be set in specific contexts, this also means that ABAC schemes can be very flexible. The downside of ABAC policies is that they can also be complex to manage well due to their flexibility.
+
+Attribute-based access control schemes are useful for application security, where they are often used for enterprise systems that have complex user roles and rights that vary depending on the way and role that users interact with a system. They're also used with databases and content management systems, microservices, and APIs for similar reasons.
+
+**Role-based access control (RBAC)** systems rely on roles that are then matched with privileges that are assigned to those roles.
+
+This makes RBAC a popular option for enterprises that can quickly categorize employees with roles like “cashier” or “database administrator” and provide users with the appropriate access to systems and data based on those roles. 
+
+RBAC systems boil down to three primary rules:
+
+- Role assignment, which states that subjects can use only permissions that match a role they have been assigned.
+- Role authorization, which states that the subject's active role must be authorized for the subject. This prevents subjects from taking on roles they shouldn't be able to.
+- Permission authorization, which states that subjects can use only permissions that their active role is allowed to use.
+
+Together, these three rules describe how permissions can be applied in an RBAC system. With these three rules, role hierarchies can be built that allow specific permissions to be available at the right levels based on roles in any given environment.
+
+**Rule-based access control**, also sometimes called RBAC (and sometimes RuBAC to help differentiate it from role-based access control) is applied using a set of rules, or access control lists (ACLs), that apply to various objects or resources.
+
+When an attempt is made to access an object, the rule is checked to see if the access is allowed. A common example of a rule-based access control is a firewall ruleset.
+
+**Mandatory access control (MAC)** systems rely on the operating system to enforce control as set by a security policy administrator.
+
+In a MAC implementation, users do not have the ability to grant access to file or otherwise change the security policies that are set centrally.
+
+MAC implementations were once only found in government and military systems, but now they can be found in specific high-securitysystems like SELinux and in Windows as Mandatory Integrity Control (MIC).
+
+**Discretionary access control (DAC)** is an access control scheme that many people are used to from their own home PCs.
+
+The most common type of discretionary access control assigns owners for objects like files and directories, and then allows the owner to delegate rights and permissions to those objects as they desire.
+
+Linux file permissions provide an easy example of this. The owner of a file (or directory) can set permissions that apply to the owner, the group, or the world, and they can choose to allow the file to be read, modified, or executed.
+
+In addition to access control schemes, the Security+ exam outline covers two specific implementations of access control systems that you need to be familiar with:
+
+- **Privileged access management** is the set of controls, tools, and processes used to handle privileges for elevated accounts and rights.
+
+ Accounts like administrator, root, or similar high-level accounts need to be managed and secured.
+
+ Managing administrative and privileged accounts typically starts with ensuring that least privilege is enforced to provide users and accounts with only the rights they need to perform their jobs. PAM solutions can be deployed to manage and control these accounts as part of a risk reduction strategy.
+
+ - **Conditional access** describes the process of testing the security state of devices and users before allowing access to data, networks, or other resources.
+
+The advantage of conditional access is that it does not simply look for permissions to provide access control. Instead, you need to have both the permissions or rights to access an object and a system or device that is sufficiently secure or trusted to access the object as well.
+
+#
+
+### Filesystem Permissions
+
+Filesystem controls determine which accounts, users, groups, or services can perform actions like reading, writing, and executing (running) files.
+
+Linux filesystem permissions are shown in file listings with the letters drwxrwxrwx, indicating whether a file is a directory, and then displaying user, group, and world (sometimes called other) permissions.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/1e0e7136-f372-4fc2-ac2e-64a3882a6e0c)
+
+Windows file permissions can be set using the command line or the GUI.
+
+Note that the permissions are similar but not quite the same as those set in Linux.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/6cd1be78-54cd-4621-a6e6-431365fee085)
+
+The modify permission allows viewing as well as changing files or folders.
+
+Read and execute does not allow modification or changes but does allow the files to be run, while read and write work as you'd expect them to.
+
+Filesystem permissions are an important control layer for systems, and improperly set or insecure permissions are often leveraged by attackers to acquire data and to run applications that they should not be able to.
