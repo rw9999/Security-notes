@@ -98,3 +98,31 @@ Using SAML means that service providers can accept SAML assertions from a range 
 
 - **OpenID** is an open standard for decentralized authentication.
 
+OpenID identity providers can be leveraged for third-party sites using established identities.
+
+Google, Microsoft, Amazon, and many other organizations are OpenID identity providers (IdPs).
+
+Relying parties (RPs) redirect authentication requests to the IdP, and then receive a response back with an assertion that the user is who they claim to be due to successful authentication, and the user is logged in using the OpenID for that user.
+
+- **OAuth** is an open standard for authorization used by many websites.
+
+OAuth provides a method for users to determine what information to provide to third-party applications and sites without sharing credentials.
+
+These technologies are a major part of the foundation for many webbased SSO and federation implementations.
+
+##
+
+### Single Sign-On
+
+Single sign-on (SSO) systems allow a user to log in with a single identity and then use multiple systems or services without reauthenticating.
+
+SSO systems provide significant advantages because they simplify user interactions with authentication and authorization systems, but they require a trade-off in the number of identity-based security boundaries that are in place.
+
+This means that many organizations end up implementing single sign-on for many systems but may require additional authentication steps or use of an additional privileged account for high-security environments.
+
+Single sign-on is commonly implemented using LDAP and Kerberos such as in Windows domains and Linux infrastructures, or via a SAML implementation for web applications and federated services.
+
+##
+
+### Federation
+
