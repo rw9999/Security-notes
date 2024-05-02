@@ -247,3 +247,193 @@ Physical access to systems, facilities, and networks is one of the easiest ways 
 
 ### Site Security
 
+Site security looks at the entire facility or facilities used by an organization and implements a security plan based on the threats and risks that are relevant to each specific location.
+
+That means that facilities used by an organization in different locations, or as part of different business activities, will typically have different site security plans and controls in place.
+
+Some organizations use **industrial camouflage** to help protect them.
+
+A common example is the nondescript location that companies pick for their call centers. Rather than making the call center a visible location for angry customers to seek out, many are largely unmarked and otherwise innocuous.
+
+Although security through obscurity is not a legitimate technical control, in the physical world being less likely to be noticed can be helpful in preventing many intrusions that might not otherwise happen.
+
+Many facilities use fencing as a first line of defense. **Fences** act as a deterrent by both making it look challenging to access a facility and as an actual physical defense. Highly secure facilities will use multiple lines of fences, barbed wire or razor wire at the top, and  other techniques to increase the security provided by the fence. Fence materials, the height of the fence, where entrances are placed and how they are designed, and a variety of other factors are all taken into consideration for security fencing.
+
+A second common physical control is the placement of bollards. Bollards are posts or other obstacles that prevent vehicles from moving through an area.
+
+Bollards may look like posts, pillars, or even planters, but their purpose remains the same: preventing vehicle access. Some bollards are designed to be removable or even mechanically actuated so that they can be raised and lowered as needed. Many are placed in front of entrances to prevent both accidents and intentional attacks using vehicles.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/eb7c7833-46ed-4883-ab99-247fcfc1d40e)
+
+**Lighting** plays a part in exterior and interior security. Bright lighting that does not leave shadowed or dark areas is used to discourage intruders and to help staff feel safer. Automated lighting can also help indicate where staff are active, allowing security guards and other staff members to know where occupants are.
+
+A newer concern for organizations is the broad use of drones and unmanned aerial vehicles (UAVs).
+
+Drones can be used to capture images of a site, to deliver a payload, or even to take action like cutting a wire or blocking a camera.
+
+Although drone attacks aren't a critical concern for most organizations, they are increasingly an element that needs to be considered.
+
+Anti-drone systems include systems that can detect the wireless signals and electromagnetic emissions of drones, or the heat they produce via infrared sensors, acoustic systems that listen for the sounds of drones, radar that can detect the signature of a drone flying in the area, and of course optical systems that can recognize drones.
+
+Once they are spotted, a variety of techniques may be used against drones, ranging from kinetic systems that seek to shoot down or disable drones, to drone-jamming systems that try to block their control signals or even hijack them.
+
+Of course, laws also protect drones as property, and shooting down or disabling a drone on purpose may have expensive repercussions for the organization or individual who does so.
+
+Inside a facility, physical security is deployed in layers much like you would find in a technical security implementation.
+
+**Badges** can play a number of roles in physical security.
+
+In addition to being used for entry access via magnetic stripe and radio frequency ID (RFID) access systems, badges also often include a picture and other information that can quickly allow personnel and guards to determine if the person is who they say they are, what areas or access they should have, and if they are an employee or guest.
+
+This also makes badges a target for social engineering attacks by attackers who want to acquire, copy, or falsify a badge as part of their attempts to get past security.
+
+Badges are often used with **proximity readers**, which use RFID to query a badge without requiring it to be inserted or swiped through a magnetic stripe reader.
+
+**Alarms** and alarm systems are used to detect and alert about issues, including unauthorized access, environmental problems, and fires.
+
+Alarm systems may be locally or remotely monitored, and they can vary significantly in complexity and capabilities. Much like alerts from computer-based systems, alarms that alert too often or with greater frequency are likely to be ignored, disabled, or worked around by staff.
+
+**Fire suppression systems** are an important part of safety systems and help with resilience by reducing the potential for disastrous fires
+
+One of the most common types of fire suppression system is sprinkler systems. There are four major types, including wet sprinkler systems, which have water in them all the time; dry sprinklers, which are empty until needed; pre-action sprinklers, which fill when a potential fire is detected and then release at specific sprinkler heads as they 
+are activated by heat; and deluge sprinklers, which are empty, with open sprinkler heads, until they are activated and then cover an entire area.
+
+Water-based sprinkler systems are not the only type of fire suppression system in common use. Gaseous agents, which displace oxygen, reduce heat, or help prevent the ability of oxygen and materials to combust, are often used in areas such as datacenters, vaults, and art museums where water might not be a viable or safe option. Chemical agents, including both wet and dry agents, are used as well; examples are foam-dispensing systems used in airport hangars and dry chemical fire extinguishers used in home and other places.
+
+**Signage** may not immediately seem like a security control, but effective signage can serve a number of purposes. It can remind authorized personnel that they are in a secure area and that others who are not authorized should not be permitted to enter and should be reported if they are seen.
+
+Signs can also serve as a deterrent control, such as those that read “authorized personnel only.” However, much like many other deterrent controls, signs act to prevent those who might casually violate the rules the sign shows, not those actively seeking to bypass the security controls an organization has in place.
+
+Some organizations use access control vestibules (often called mantraps) as a means to ensure that only authorized individuals gain access to secure areas and that attackers do not use piggybacking attacks to enter places they shouldn't be.
+
+An access control vestibule is a pair of doors that both require some form of authorized access to open.
+
+The first door opens after authorization and closes, and only after it is closed can the person who wants to enter provide their authorization to open the second door. That way, a person following behind (piggybacking) will be noticed and presumably will be asked to leave or will be reported.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/0c71ea9c-517f-4df8-984e-0e6b9eaee389)
+
+**Locks** are one of the most common physical security controls you will encounter.
+
+A variety of lock types are commonly deployed, ranging from traditional physical locks that use a key, push buttons, or other code entry mechanisms, to locks that use biometric identifiers such as fingerprints, to electronic mechanisms connected to computer systems with card readers or passcodes associated with them. Locks can be used to secure  spaces and devices or to limit access to those who can unlock them. Cable locks are a common solution to ensure that devices like computers or other hardware are not removed from a location.
+
+Although locks are heavily used, they are also not a real deterrent for most determined attackers. Locks can be bypassed, picked, or otherwise disabled if attackers have time and access to the lock. 
+
+Thus, locks are not considered a genuine physical security control. A common phrase among security professionals is “Locks keep honest people honest.”\
+
+#
+
+### Guards
+
+Security guards are used in areas where human interaction is either necessary or helpful. Guards can make decisions that technical control systems cannot, and they can provide additional capabilities by offering both detection and response capabilities. Guards are commonly placed in reception areas, deployed to roam around  facilities, and stationed in security monitoring centers with access to cameras and other sensors. 
+
+Robot sentries are relatively rare. Some robots are deployed in specific circumstances to help monitor areas, but widespread deployment of robotic sentries has not occurred yet.
+
+Visitor logs are a common control used in conjunction with security guards.
+
+A guard can validate an individual's identity, ensure that they enter only the areas they are supposed to, and ensure that they have signed a visitor log and that their signature matches a signature on file or on their ID card.
+
+Each of these can be faked, however, an alert security guard can significantly increase the security of a facility.
+
+Security guards also bring their own challenges; humans can be fallible, and social engineering attempts can persuade guards to violate policies or even to provide attackers with assistance. Guards are also relatively expensive, requiring ongoing pay, whereas technical security controls are typically installed and maintained at lower costs. Consequently, guards are a solution that is deployed only where there is a specific need for their capabilities in most organizations.
+
+#
+
+### Cameras and Sensors
+
+Camera systems are a common form of physical security control, allowing security practitioners and others to observe what is happening in real-time and to capture video footage of areas for future use when conducting investigations or for other reasons. 
+
+Cameras come in a broad range of types, including black and white, infrared, and color cameras, with each type suited to specific scenarios. 
+
+In addition to the type of camera, the resolution of the camera, whether it is equipped with zoom lenses, and whether it has a pan/tilt/zoom (PTZ) capability are all factors in how well it works for its intended purpose and how much it will cost.
+
+The exam focuses on two types of camera capabilities:
+
+- **Motion recognition** cameras activate when motion occurs. These types of cameras are particularly useful in areas where motion is relatively infrequent. Motion recognition cameras, which can help conserve storage space, will normally have a buffer that will be retrieved when motion is recognized so that they will retain a few seconds of video before the motion started; that way, you can see everything that occurred.
+
+- **Object detection ** cameras and similar technologies can detect specific objects, or they have areas that they watch for changes. These types of camera can help ensure that an object is not moved and can detect specific types of objects like a gun or a laptop.
+
+Another form of camera system is a closed-circuit television (CCTV), which displays what the camera is seeing on a screen. Some CCTV systems include recording capabilities as well, and the distinction between camera systems and CCTV systems is increasingly blurry as technologies converge.
+
+Common sensor systems include motion, noise, moisture, and temperature detection sensors. Motion and noise sensors are used as security sensors, or to turn on or off environment control systems based on occupancy. Temperature and moisture sensors help maintain datacenter environments and other areas that require careful control of the environment, as well as for other monitoring purposes.
+
+This USB data blocker is a device used to ensure that USB cables can only be used to transfer power, not data when chargers and other devices cannot be trusted. An alternative is a USB power-only cable.
+
+#
+
+### Enhanced Security Zones and Secure Areas
+
+Organizations frequently have a need for specific areas to have greater security than the rest of their spaces or areas.
+
+Datacenters are one of the most obvious secure areas for most organizations, as are vaults and safes, which are protected to ensure that unauthorized personnel do not gain access to them. 
+
+Vaults are typically room size and built in place, whereas a safe is smaller and portable, or at least movable.
+
+Datacenters and vaults are typically designed with secure and redundant environmental controls, access controls, and additional security measures to ensure that they remain secure.
+
+In addition to the security features that are built into data centers, environmental controls, including the use of **hot aisles** and **cold aisles**, play into their ability to safely house servers and other devices.
+
+A hot aisle/cold aisle design places air intakes and exhausts on alternating aisles to ensure proper airflow, allowing data center designers to know where to provide cool air and where exhaust needs to be handled.
+
+Hot and cold aisles aren't typically considered secure areas, although the data center where they are deployed usually is.
+
+In some cases, administrative controls like two-person integrity control schemes are put in place to secure safes or vaults. In a two-person control scheme, two trusted staff members must work together to provide access—with dual keys, with passwords, or with two portions of an access control factor.
+
+Additional isolation for systems may be provided by physical controls such as a **Faraday cage**, which blocks electromagnetic fields. 
+
+A Faraday cage is an enclosure made up of conductive mesh that distributes charges from wireless device signals, thus stopping them. High-security facilities may be constructed as a Faraday cage, or they may have one inside them to prevent cell phone and other electronic and wireless communications from occurring. 
+
+Faraday cages are also sometimes used to allow wireless devices to be tested inside them without impacting other production networks and devices.
+
+Faraday cage (more properly a Faraday shield)-style bags are commercially available, often sold as a means of preventing thieves from cloning electronic key fobs for cars. 
+
+They are also useful as part of a technique used by cell phone thieves to prevent phones from being remotely wiped. Thieves put a stolen phone into a bag or container that acts as a Faraday cage. The phone will be unable to “phone home” and can be wiped or accessed without interference.
+
+Network security also plays a role in secure areas, including the use of a screened subnet (also frequently called a demilitarized zone [DMZ]).
+
+Screened subnets can be logical or physical segments of a network that are used to contain systems that are accessible by the outside world or some other less secure population.
+
+Screened subnets rely on network security devices like firewalls to provide segmentation that limits the flow of traffic into and out of the screened subnet, thus keeping higher security zones secure.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/d3525458-e52d-4efe-8a64-04bffa3c70f0)
+
+The network and other telecommunication lines that an organization uses are also susceptible to attack. That's where **protected cable** distribution schemes come into play.
+
+If organizations are concerned about attacks that tap into cables or that attempt to access them through any means, they may deploy a variety of cable protection techniques. 
+
+Though they are relatively rare in most environments, government installations and other extremely high-security facilities may use locks, secure cable conduits and channels, tamper-evident seals, and even conduit and cables that can detect attempts to access them via pressure changes, changes in shielding conductivity, or other techniques.
+
+When network security is not sufficient, an **air-gap** design may be used.
+
+Air-gap designs physically separate network segments, thus preventing network connectivity. Air-gapped networks require data to be physically transported, typically after careful inspection and approval to enter the secure zone.
+
+#
+
+### Secure Data Destruction
+
+When data reaches the end of its lifespan, destroying the media that contains it is an important physical security measure.
+
+Secure data destruction helps prevent data breaches, including intentional attacks like dumpster diving as well as unintentional losses through the reuse of media, systems, or other data storage devices.
+
+|Destruction method|Description|Notes|
+|------------------|-----------|-----|
+|Burning|Most often done in a high-temperature incinerator. Primarily used for paper records, although some incinerators may support electronic devices.| Typically done off-site through a third-party service; leaves no recoverable materials.|
+|Shredding|Can be done on-site; can support paper or devices using an industrial shredder.| Traditional paper shredders may allow for recovery of documents, even from crosscut shredded documents. For high-security environments, burning or pulping may be required.|
+|Pulping|Breaks paper documents into wood pulp, removing ink. Materials can be recycled.|Completely destroys documents to prevent recovery.|
+|Pulverizing|Breaks devices down into very small pieces to prevent recovery.|The size of the output material can determine the potential for recovery of data; typically pulverizing results in very small fragments of material.|
+|Degaussing|Magnetically wipes data from tapes and traditional magnetic media like hard drives.|Only effective on magnetic media; will not work on SSDs, flash media, optical media, or paper.|
+
+Physical destruction is the most secure way to ensure data destruction, but nondestructive options are often desirable in a business environment to allow for the reuse of media or devices. 
+
+Secure drive or media wiping options can be used when the potential for exposure is low or the risks of remnant data exposure are not a significant concern for the organization.
+
+Wiping drives using a tool like the open source Darik's Boot and Nuke (DBAN) is a common practice for organizations that want to reuse a drive.
+
+Modern SSDs should not be wiped using tools that perform a zero wipe, random fill, or other wiping technique. Instead, SSDs should use the secure erase command if they support it.
+
+An even better option is to encrypt the SSD in use using a full-disk encryption tool for its entire lifespan. When the drive needs to be wiped, simply deleting the encryption key ensures that the data is unrecoverable.
+
+Why is zero wiping problematic? SSDs are overprovisioned, meaning they contain more space than they report. As they wear due to use, that extra space is put into use, with data remaining in the worn sectors that are no longer mapped. Wiping the drive will write only to the active sectors, leaving data potentially accessible using a low-level drive access tool.
+
+A final option that many organizations choose to put into place for secure destruction is the use of third-party solutions.
+
+Contracted document and device destruction companies will pick up and remove sensitive documents and media for shredding at their facility, or they will perform the same service on-site. Organizations may opt for a thoroughly documented destruction process, including photos of the devices and per-device destruction certification depending on their security needs. Third-party destruction services are a good fit for many organizations with typical security needs, because they ensure appropriate destruction without requiring internal investment in the tools and time to securely destroy media and systems.
