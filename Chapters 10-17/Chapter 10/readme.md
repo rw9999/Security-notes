@@ -144,3 +144,167 @@ However, this is somewhat of a misnomer, since FaaS environments most certainly 
 #
 
 ### Managed Services
+
+Organizations may also choose to outsource some or all of the management of their technology infrastructure.
+
+**Managed service providers** (MSPs) are services organizations that provide information technology as a service to their customers. MSPs may handle an organization's IT needs completely, or they may offer focused services such as network design and implementation, application monitoring, or cloud cost management.
+
+MSPs are not necessarily cloud service providers themselves (although they may be both MSP and CSP). They are typically capable of working across a customer's total environment, including both cloud and on-premises deployments.
+
+When MSPs offer security services, they are commonly referred to as managed security service providers (MSSPs). Services offered by MSSPs include security monitoring, vulnerability management, incident response, and firewall management.
+
+## Cloud Deployment Models
+
+Cloud deployment models describe how a cloud service is delivered to customers and whether the resources used to offer services to one customer are shared with other customers.
+
+### Public Cloud
+
+When we think of “the cloud,” we commonly first think of public cloud offerings.
+
+Public cloud service providers deploy infrastructure and then make it accessible to any customers who wish to take advantage of it in a multitenant model. A single customer may be running workloads on servers spread throughout one or more datacenters, and those servers may be running workloads for many different customers simultaneously.
+
+The public cloud supports all cloud service models. Public cloud providers may offer IaaS, PaaS, SaaS, and FaaS services to their customers.
+
+The key distinction is that those services do not run on infrastructure dedicated to a single customer but rather on infrastructure that is available to the general public. AWS, Microsoft Azure, and Google Compute Platform all use the public cloud model.
+
+#
+
+### Private Cloud
+
+The term private cloud is used to describe any cloud infrastructure that is provisioned for use by a single customer.
+
+This infrastructure may be built and managed by the organization that will be using the infrastructure, or it may be built and managed by a third party. The key distinction here is that only one customer uses the environment.
+
+For this reason, private cloud services tend to have excess unused capacity to support peak demand and, as a result, are not as costefficient as public cloud services.
+
+#
+
+### Community Cloud
+
+A community cloud service shares characteristics of both the public and private models.
+
+Community cloud services do run in a multitenant environment, but the tenants are limited to members of a specifically designed community. Community membership is normally defined based on shared mission, similar security and compliance requirements, or other commonalities.
+
+The HathiTrust digital library is an example of community cloud in action. Academic research libraries joined together to form a consortium that provides access to their collections of books. Students and faculty at HathiTrust member institutions may log into the community cloud service to access resources.
+
+#
+
+### Hybrid Cloud
+
+Hybrid cloud is a catch-all term used to describe cloud deployments that blend public, private, and/or community cloud services together.
+
+It is not simply purchasing both public and private cloud services and using them together. Hybrid clouds require the use of technology that unifies the different cloud offerings into a single coherent platform. For example, a firm might operate their own private cloud for the majority of their workloads and then leverage public cloud capacity when demand exceeds the capacity of their private cloud infrastructure. This approach is known as public **cloud bursting**.
+
+AWS Outposts are examples of hybrid cloud computing. Customers of this service receive a rack of computing equipment that they install in their own datacenters. The equipment in the rack is maintained by AWS but provisioned by the customer in the same manner as their AWS public cloud resources. This approach qualifies as hybrid cloud because customers can manage both their on-premises AWS Outposts private cloud deployment and their public cloud AWS services through the same management platform.
+
+#
+
+### Shared Responsibility Model
+
+In some ways, cybersecurity work in a cloud-centric environment is quite similar to on-premises cybersecurity. 
+
+No matter where our systems are hosted, we still need to think about the confidentiality, integrity, and availability of our data and implement strong access controls and other mechanisms that protect those primary objectives.
+
+However, cloud security operations also differ significantly from on-premises environments because cloud customers must divide responsibilities between one or more service providers and the customers' own cybersecurity teams.
+
+This type of operating environment is known as the shared responsibility model.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/d2dad6c7-86aa-4b9b-b871-58ff229e2631)
+
+In some cases, this division of responsibility is straightforward. Cloud providers, by their nature, are always responsible for the security of both hardware and the physical data center environment. If the customer were handling either of these items, the solution would not fit the definition of cloud computing.
+
+The differences in responsibility come higher up in the stack and vary depending on the nature of the cloud service being used.
+
+In an IaaS environment, the customer takes over security responsibility for everything that isn't infrastructure—the operating system, applications, and data that they run in the IaaS environment.
+
+In a PaaS solution, the vendor also takes on responsibility for the operating system, whereas the customer retains responsibility for the data being placed into the environment and configuring its security.
+
+Responsibility for the application layer is shared between the service provider and the customer, and the exact division of responsibilities shifts based on the nature of the service.
+
+For example, if the PaaS platform provides runtime interpreters for customer code, the cloud provider is responsible for the security of those interpreters.
+
+In a SaaS environment, the provider takes on almost all security responsibility.
+
+The customer retains some shared control over the data that they place in the SaaS environment and the configuration of access controls around that data, but the SaaS provider is being paid to take on the burden of most operational tasks, including cybersecurity.
+
+#
+
+### Cloud Standards and Guidelines
+
+The cybersecurity community offers a variety of reference documents to help organizations come to a common understanding of the cloud and cloud security issues.
+
+The Cloud Reference Architecture, published by the National Institute for Standards and Technology (NIST) in their SP 500-292, offers a high-level taxonomy for cloud services.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/059fc9a1-912f-43f5-ae8c-7a85f498a295)
+
+The Cloud Security Alliance (CSA) is an industry organization focused on developing and promoting best practices in cloud security.
+
+They developed the Cloud Controls Matrix (CCM) as a reference document designed to help organizations understand the appropriate use of cloud security controls and map those controls to various regulatory standards.
+
+#
+
+### Edge Computing
+
+Many of the applications of the Internet of Things occur out of sight in manufacturing plants, agricultural fields, and even in outer space.
+
+In situations where sensors are in remote locations with poor network connectivity, the traditional cloud model of shipping data back to the cloud for processing doesn't always work well.
+
+Instead, it may make more sense to perform some processing close to the sensor to aggregate and minimize the data transferred back to the cloud.
+
+**Edge computing** approaches seek to address this issue by placing some processing power on the remote sensors, allowing them to preprocess data before shipping it back to the cloud.
+
+This model takes its name from the fact that the computing is being pushed out to sensors that are located on the “edge” of the network.
+
+**Fog computing** is a related concept that uses IoT gateway devices that are located in close physical proximity to the sensors. The sensors themselves don't necessarily have processing power, but they send data to their local gateway that performs preprocessing before sending the results to the cloud.
+
+#
+
+### Virtualization
+
+Cloud computing providers, as well as most other modern datacenter operators, make extensive use of virtualization technology to allow multiple guest systems to share the same underlying hardware.
+
+In a virtualized datacenter, the virtual host hardware runs a special operating system known as a hypervisor that mediates access to the underlying hardware resources.
+
+Virtual machines then run on top of this virtual infrastructure provided by the hypervisor, running standard operating systems such as Windows and Linux variants. The virtual machines may not be aware that they are running in a virtualized environment because the hypervisor tricks them into thinking that they have normal access to the underlying hardware when, in reality, that hardware is shared with other systems.
+
+#
+
+### Hypervisors
+
+The primary responsibility of the hypervisor is enforcing **isolation** between virtual machines.
+
+This means that the hypervisor must present each virtual machine with the illusion of a completely separate physical environment dedicated for use by that virtual machine.
+
+From an operational perspective, isolation ensures that virtual machines do not interfere with each other's operations. 
+
+From a security perspective, it means that virtual machines are not able to access or alter information or resources assigned to another virtual machine.
+
+There are two primary types of hypervisors:
+
+- **Type I hypervisors**, also known as **bare metal hypervisors**, operate directly on top of the underlying hardware.
+
+The hypervisor then supports guest operating systems for each virtual machine.
+
+This is the model most commonly used in datacenter virtualization because it is highly efficient.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/97d9a1aa-4df6-4d4b-92a2-5b6f53f821e7)
+
+- **Type II hypervisors** run as an application on top of an existing operating system
+
+In this approach, the operating system supports the hypervisor and the hypervisor requests resources for each guest operating system from the host operating system.
+
+In this approach, the operating system supports the hypervisor and the hypervisor requests resources for each guest operating system from the host operating system. 
+
+This model is commonly used to provide virtualization environments on personal computers for developers, technologists, and others who have the need to run their own virtual machines. 
+
+It is less efficient than bare-metal virtualization because the host operating system introduces a layer of inefficiency that consumes resources.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/36b4686f-c859-4852-a7c8-b645c65e1adf)
+
+## Cloud Infrastructure Components
+
+IaaS computing environments provide organizations with access to a wide variety of computing resources, including compute capacity, storage, and networking. These resources are available in a flexible manner and typically may be used immediately upon request.
+
+### Cloud Compute Resources
+
+
