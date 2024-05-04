@@ -307,4 +307,68 @@ IaaS computing environments provide organizations with access to a wide variety 
 
 ### Cloud Compute Resources
 
+Computing capacity is one of the primary needs of organizations moving to the cloud.
+
+As they seek to augment or replace the servers running in their own datacenters, they look to the cloud for virtualized servers and other means of providing compute capacity. 
+
+All of these technologies benefit from the cloud's dynamic resource allocation, allowing administrators to add and remove resources (automatically or manually) as needs change.
+
+#
+
+### Virtualized Servers
+
+Virtual machines are the basic building block of compute capacity in the cloud.
+
+Organizations may provision servers running most common operating systems with the specific number of CPU cores, amount of RAM, and storage capacity that is necessary to meet business requirements.
+
+The cost of a server instance normally accrues based upon an hourly rate and that rate varies based on the compute, memory, and storage resources consumed by the server.
+
+Once you've provisioned a virtualized server, you may interact with it in the same manner as you would a server running in your own datacenter.
+
+#
+
+### Containers
+
+Containers provide application-level virtualization.
+
+Instead of creating complex virtual machines that require their own operating systems, containers package applications and allow them to be treated as units of virtualization that become portable across operating systems and hardware platforms.
+
+Organizations implementing containerization run containerization platforms, such as Docker, that provide standardized interfaces to operating system resources. This interface remains consistent, regardless of the underlying operating system or hardware, and the consistency of the interface allows containers to shift between systems as needed.
+
+Containerization platforms share many of the same security considerations as virtualization platforms. They must enforce isolation between containers to prevent operational and security issues that might occur if an application running in one container is able to accidentally or intentionally interact with resources assigned to another container.
+
+#
+
+### Cloud Storage Resources
+
+Infrastructure providers also offer their customers storage resources, both storage that is coupled with their computing offerings and independent storage offerings for use in building out other cloud architectures. 
+
+These storage offerings come in two major categories:
+
+- **Block storage** allocates large volumes of storage for use by virtual server instance(s). These volumes are then formatted as virtual disks by the operating system on those server instances and used as they would a physical drive. AWS offers block storage through their Elastic Block Storage (EBS) service.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/d1c5b601-3e7c-44c0-b714-3574b5f93b8e)
+
+
+- **Object storage** provides customers with the ability to place files in buckets and treat each file as an independent entity that may be accessed over the web or through the provider's API. Object storage hides the storage details from the end user, who does not know or care about the underlying disks. The AWS Simple Storage Service (S3) is an example of object storage.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/dc3e48cb-dd15-4999-8544-5ef0cc84ef9b)
+
+Block and object storage incur costs in different ways.
+
+Block storage is preallocated by the cloud provider, and you pay for the capacity that you allocated, regardless of whether you actually store data on that volume. If you allocate a 1 TB drive, you will pay for 1 TB of storage even if you are storing only 500 GB of data on the drive.
+
+Object storage is not preallocated, and you pay for the storage that you use. 
+
+Block storage is also significantly more expensive than object storage. As of this writing, block storage charges at major cloud providers were three to ten times higher than object storage charges.
+
+As you work with cloud storage, be certain that you keep three key security considerations top-of-mind:
+
+- **Set permissions properly**. Make sure that you pay careful attention to the access policies you place on storage. This is especially true for object storage, where a few wayward clicks can inadvertently publish a sensitive file on the web.
+
+- **Consider high availability and durability options**. Cloud providers hide the implementation details from users, but that doesn't mean they are immune from hardware failures. Use the provider's replication capabilities or implement your own to accommodate availability and integrity requirements.
+
+- **Use encryption to protect sensitive data**. You may either apply your own encryption to individual files stored in the cloud or use the full-disk encryption options offered by the provider.
+
+## Cloud Networking
 
