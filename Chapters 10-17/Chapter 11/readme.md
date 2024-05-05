@@ -197,3 +197,74 @@ That means that there isn't a single consistent definition of what they are and 
 
 Fortunately, there are a few common features that are consistent among many firewall devices that claim the title of next-generation firewalls:
 
+- Built-in IPS or IDS functionality, which can analyze traffic for attacks and either take action or alert on it
+- Antimalware and antivirus features that allow them to scan traffic for malware in addition to performing firewall operations
+- Geo-IP and geolocation capability to match threats with realworld locations
+- Proxying, which allows the device to intercept traffic and analyze it by sitting in the middle of encrypted web traffic
+- Web application firewall capabilities designed to protect web applications
+- Sandboxing
+
+Features may also include the ability to integrate threat intelligence feeds, perform behavior analysis, perform network tasks like load balancing or reverse proxy services, and many other functions. 
+
+In short, they are more akin to all-in-one security devices than just a more advanced firewall, but that means they are also deployed at the network layer rather than at the endpoint.
+
+## Hardening Endpoints and Systems
+
+### Hardening
+
+Hardening a system or application involves changing settings on the system to increase its overall level of security and reduce its vulnerability to attack. The concept of a system's attack surface, or the places where it could be attacked, is important when performing system hardening. Hardening tools and scripts are a common way to perform basic hardening processes on systems.
+
+Hardening may also include techniques like application security improvements, sometimes called binary hardening.
+
+Application hardening focuses on techniques that can prevent buffer overflows and other application attack techniques; however this topic is not covered in the exam outline, which means you may learn about it for your job, but not for the test.
+
+#
+
+### Service Hardening
+
+One of the fastest ways to decrease the attack surface of a system is to reduce the number of open ports and services that it provides. 
+
+Port scanners are commonly used to quickly assess which ports are open on systems on a network, allowing security practitioners to identify and prioritize hardening targets.
+
+The easy rule of thumb for hardening is that only services and ports that must be available to provide necessary services should be open, and that those ports and services should be limited to only the networks or systems that they need to interact with. Unfortunately for many servers, this may mean that the systems need to be open to the world.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/476afec2-6186-4ba9-9480-30c8d761c346)
+
+Although blocking a service using a firewall is a viable option, the best option for unneeded services is to disable them entirely.
+
+Starting and stopping services in Linux requires knowing how your Linux distribution handles services. For an Ubuntu Linux system, checking which services are running can be accomplished by using the service –status-all command. Starting and stopping services can be done in a number of ways, but the service command is an easy method. Issuing the sudo service [service name] stop or start commands will start or stop a service simply by using the information provided by the service -status-all command to identify the service you want to shut down. Permanently stopping services, however, will require you to make other changes. For Ubuntu, the update-rc.d script is called, whereas RedHat and CentOS systems use chkconfig.
+
+You should understand the concept of disabling services to reduce the attack surface of systems, and that ongoing review and maintenance is required to ensure that new services and applications do not appear over time
+
+#
+
+### Operating System Hardening
+
+Hardening operating systems relies on changing settings to match the desired security stance for a given system. 
+
+Popular benchmarks and configuration standards can be used as a base and modified to an organization's needs, allowing tools like the CIS benchmark to be used throughout an organization. Fortunately, tools and scripts exist that can help make applying those settings much easier as well.
+
+Examples of the type of configuration settings recommended by the CIS benchmark for Windows 10 include the following:
+
+- Setting the password history to remember 24 or more passwords
+- Setting maximum passwords age to “60 or fewer days, but not 0,” preventing users from simply changing their passwords 24 times to get back to the same password while requiring password changes every 2 months
+- Setting the minimum password length to 14 or more characters
+- Requiring password complexity
+- Disabling the storage of passwords using reversible encryption
+
+Operating system hardening uses system settings to reduce the attack surface for your operating system, that tools and standards exist to help with that process, and that assessing, auditing, and maintaining OS hardening for your organization is part of the overall security management process.
+
+#
+
+### Hardening the Windows Registry
+
+The Windows registry is the core of how Windows tracks what is going on.
+
+The registry is thus an important target for attackers, who can use it to automatically start programs, gather information, or otherwise take malicious action on a target machine. 
+
+Hardening the Windows registry involves configuring permissions for the registry, disallowing remote registry access if it isn't required for a specific need, and limiting access to registry tools like regedit so that attackers who do gain access to a system will be less likely to be able to change or view the registry.
+
+#
+
+### Configuration, Standards, and Schemas
+
