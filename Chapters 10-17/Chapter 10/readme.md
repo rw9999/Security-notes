@@ -372,3 +372,264 @@ As you work with cloud storage, be certain that you keep three key security cons
 
 ## Cloud Networking
 
+Cloud networking follows the same virtualization model as other cloud infrastructure resources. Cloud consumers are provided access to networking resources to connect their other infrastructure components and are able to provision bandwidth as needed to meet their needs.
+
+Cloud networking supports the **software-defined networking** (SDN) movement by allowing engineers to interact with and modify cloud resources through their APIs. Similarly, they provide cybersecurity professionals with **software-defined visibility** (SDV) that offers insight into the traffic on their virtual networks.
+
+### Security Groups
+
+Security professionals use firewalls on their physical networks to limit the types of network traffic that are allowed to enter the organization's secured perimeter. 
+
+Cloud service providers implement firewalls as well, but they do not provide customers with direct access to those firewalls, because doing so would violate the isolation principle by potentially allowing one customer to make changes to the firewall that would impact other customers
+
+Instead, cloud service providers meet the need for firewalls through the use of **security groups** that define permissible network traffic. These security groups consist of a set of rules for network traffic that are substantially the same as a firewall ruleset.
+
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/6c56e15a-2730-4261-8a55-7f5c83cfdce0)
+
+Security groups function at the network layer of the OSI model, similar to a traditional firewall. Cloud service providers also offer web application firewall capabilities that operate at higher levels of the OSI model.
+
+Security groups are normally considered a feature of a provider's virtual servers and, as such, do not incur additional costs.
+
+#
+
+### Virtual Private Cloud (VPC)
+
+**Segmentation** is one of the core concepts of network security.
+
+Segmentation allows network engineers to place systems of differing security levels and functions on different network subnets. Similarly grouped systems are able to communicate with each other while remaining isolated from systems on other network segments.
+
+On a physical network, networking and security professionals use virtual LAN (VLAN) technology to achieve segmentation.
+
+In cloud environments, **virtual private clouds** (VPCs) serve the same purpose.
+
+Using VPCs, teams can group systems into subnets and designate those subnets as public or private, depending on whether access to them is permitted from the Internet.
+
+Cloud providers also offer **VPC endpoints** that allow the connection of VPCs to each other using the cloud provider's secure network backbone.
+
+Cloud **transit gateways** extend this model even further, allowing the direct interconnection of cloud VPCs with on-premises VLANs for hybrid cloud operations.
+
+#
+
+### DevOps and Cloud Automation
+
+Traditional approaches to organizing and running technology teams focused on building silos of expertise centered on technology roles. In particular, software development and technology operations were often viewed as quite disconnected.
+
+Developers worked on creating the software applications that the business desired and had their own processes for specifying requirements, designing interfaces, writing code, testing applications, and maintaining the code base. 
+
+When they completed testing of a new version of an application, they then handed it off to the technology operations team, who managed the servers and other infrastructure supporting the application.
+
+Separating the development and operations worlds provides technologists with a comfortable working environment where they have their tasks clearly defined and are surrounded by a community of their peers. 
+
+It also, however, brings significant disadvantages, including the following:
+
+- Isolating operations teams from the development process inhibits their understanding of business requirements.
+
+- Isolating developers from operational considerations leads to designs that are wasteful in terms of processor, memory, and network consumption.
+
+- Requiring clear hand-offs from development to operations reduces agility and flexibility by requiring a lengthy transition phase
+
+- Increasing the overhead associated with transitions encourages combining many small fixes and enhancements into one major release, increasing the time to requirement satisfaction.
+
+Recognizing the inherent disadvantages of separating development and operational teams, many organizations now embrace a DevOps approach to technology management.
+
+This approach brings together development and operations teams in a unified process where they work together in an agile approach to software development.
+
+The software testing and release process becomes highly automated and collaborative, enabling organizations to move from lengthy release management processes to a world where they might release dozens of updates on a daily basis.
+
+**Infrastructure as code** (IaC) is one of the key enabling technologies behind the DevOps movement and is also a crucial advantage of cloud computing services integration.
+
+IaC is the process of automating the provisioning, management, and deprovisioning of infrastructure services through scripted code rather than human intervention. IaC is one of the key features of all major IaaS environments, including AWS, Microsoft Azure, and Google Cloud Platform.
+
+IaC takes many forms and may be either a feature offered by a cloud service provider or a functionality enabled by a third-party cloud management platform.
+
+In most cases, the same actions available to operations teams through the cloud provider's web interface are also available for implementation in code.
+
+AWS offers a service called CloudFormation that allows developers to specify their infrastructure requirements in several formats, including JavaScript Object Notation (JSON) and Yet Another Markup Language (YAML).
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/9cf93153-45c7-4a86-9a86-17ee1b449050)
+
+Infrastructure as code approaches depend on the use of **application programming interfaces** (APIs) offered by cloud providers. 
+
+Developers can use cloud provider APIs to programmatically provision, configure, modify, and deprovision cloud resources. API integration is particularly helpful in cloud environments that embrace microservices, cloud service offerings that provide very granular functions to other services, often through a function-as-aservice model. These microservices are designed to communicate with each other in response to events that take place in the environment.
+
+## Cloud Security Issues
+
+### Availability
+
+One of the major advantages of the cloud is that cloud providers may operate in many different geographic regions, and they often provide simple mechanisms for backing up data across those regions and/or operating in a high availability mode across diverse zones.
+
+For example, a company operating a web server cluster in the cloud may choose to place servers on each major continent to serve customers in those regions and also to provide geographic diversity in the event of a large-scale issue in a particular geographic region.
+
+#
+
+### Data Sovereignty
+
+The distributed nature of cloud computing involves the use of geographically distant facilities to achieve high availability and to place content in close proximity to users. 
+
+This may mean that a customer's data is stored and processed in datacenters across many different countries, either with or without explicit notification.
+
+Unless customers understand how their data is stored, this could introduce legal concerns.
+
+**Data sovereignty** is a principle that states that data is subject to the legal restrictions of any jurisdiction where it is collected, stored, or processed.
+
+Under this principle, a customer might wind up subject to the legal requirements of a jurisdiction where they have no involvement other than the fact that one of their cloud providers operates a data center within that jurisdiction.
+
+Security professionals responsible for managing cloud services should be certain that they understand how their data is stored, processed, and transmitted across jurisdictions.
+
+They may also choose to encrypt data using keys that remain outside the providers control to ensure that they maintain sole control over their data.
+
+Some cloud providers offer explicit control over the use of resources in specific regions.
+
+#
+
+### Virtualization Security
+
+**Virtual machine escape** vulnerabilities are the most serious issue that can exist in a virtualized environment, particularly when a virtual host runs systems of differing security levels.
+
+In an escape attack, the attacker has access to a single virtual host and then manages to leverage that access to intrude upon the resources assigned to a different virtual machine.
+
+The hypervisor is supposed to prevent this type of access by restricting a virtual machine's access to only those resources assigned to that machine.
+
+Escape attacks allow a process running on the virtual machine to “escape” those hypervisor restrictions.
+
+**Virtual machine sprawl** occurs when IaaS users create virtual service instances and then forget about them or abandon them, leaving them to accrue costs and accumulate security issues over time. Organizations should maintain instance awareness to avoid VM sprawl issues.
+
+#
+
+### Application Security
+
+Cloud applications suffer from many of the same security concerns as any other application.
+
+Cloud applications depend heavily upon the use of application programming interfaces (APIs) to provide service integration and interoperability.
+
+Security analysts responsible for API-based applications should implement API inspection technology that scrutinizes API requests for security issues. These capabilities are often found in web application firewall solutions.
+
+**Secure web gateways** (SWG) also provide a layer of application security for cloud-dependent organizations.
+
+SWGs monitor web requests made by internal users and evaluate them against the organization's security policy, blocking requests that run afoul of these requirements.
+
+SWGs are commonly used to block access to potentially malicious content but may also be used to enforce content filtering restrictions.
+
+#
+
+### Governance and Auditing
+
+Technology governance efforts guide the work of IT organizations and ensure that they are consistent with organizational strategy and policy. 
+
+These efforts also should guide the establishment and maintenance of cloud vendor relationships. Cloud governance efforts assist with the following:
+
+- Vetting vendors being considered for cloud partnerships
+
+- Managing vendor relationships and monitoring for early warning signs of vendor stability issues
+
+- Overseeing an organization's portfolio of cloud activities 
+
+**Auditability** is an important component of cloud governance. 
+
+Cloud computing contracts should include language guaranteeing the right of the customer to audit cloud service providers. 
+
+They may choose to perform these audits themselves or engage a third party to perform an independent audit. 
+
+The use of auditing is essential to providing customers with the assurance that the provider is operating in a secure manner and meeting its contractual data protection obligations.
+
+## Cloud Security Controls
+
+Cloud providers and third-party organizations offer a variety of solutions that help organizations achieve their security objectives in the cloud.
+
+Organizations may choose to adopt cloud-native controls offered by their cloud service provider, third-party solutions, or a combination of the two.
+
+Controls offered by cloud service providers have the advantage of direct integration with the provider's offerings, often making them cost-effective and user-friendly.
+
+Third-party solutions are often more costly, but they bring the advantage of integrating with a variety of cloud providers, facilitating the management of multicloud environments.
+
+### Cloud Access Security Brokers
+
+Most organizations use a variety of cloud service providers for different purposes. It's not unusual to find that a large organization purchases cloud services from dozens, or even hundreds, of different providers. This is especially true when organizations use highly
+specialized SaaS products. 
+
+Managing security policies consistently across these services poses a major challenge for cybersecurity analysts.
+
+**Cloud access security brokers** (CASBs) are software tools that serve as intermediaries between cloud service users and cloud service providers.
+
+This positioning allows them to monitor user activity and enforce policy requirements. CASBs operate using two different approaches:
+
+- Inline CASB solutions physically or logically reside in the connection path between the user and the service. They may do this through a hardware appliance or an endpoint agent that routes requests through the CASB. This approach requires configuration of the network and/or endpoint devices.
+
+It provides the advantage of seeing requests before they are sent to the cloud service, allowing the CASB to block requests that violate policy.
+
+- API-based CASB solutions do not interact directly with the user but rather interact directly with the cloud provider through the provider's API. This approach provides direct access to the cloud service and does not require any user device configuration.
+
+However, it also does not allow the CASB to block requests that violate policy. API-based CASBs are limited to monitoring user activity and reporting on or correcting policy violations after the fact.
+
+#
+
+### Resource Policies
+
+Cloud providers offer resource policies that customers may use to limit the actions that users of their accounts may take.
+
+Implementing resource policies is a good security practice to limit the damage caused by an accidental command, a compromised account, or a malicious insider.
+
+Here is an example of a service control policy written in JSON that restricts access to cloud resources:
+
+    {
+         "Statement": [
+             {
+                 "Sid": "DenyAllOutsideUSEastEUWest1",
+                 "Effect": "Deny",
+                 "NotAction": [
+                     "iam:*",
+                     "organizations:*",
+                     "route53:*",
+                     "budgets:*",
+                     "waf:*",
+                     "cloudfront:*",
+                     "globalaccelerator:*",
+                     "importexport:*",
+                     "support:*"
+                 ],
+                 "Resource": "*",
+                 "Condition": {
+                     "StringNotEquals": {
+                         "aws:RequestedRegion": [
+                              "us-east-1",
+                              "us-east-2",
+                              "eu-west-1"
+                         ]
+                     }
+                 }
+            },
+            {
+                 "Condition": {
+                     "ForAnyValue:StringNotLike": {
+                         "ec2:InstanceType": [
+                             "*.micro",
+                             "*.small",
+                             "*.nano"
+                         ]
+                     }
+                  },
+                  "Action": [
+                      "ec2:RunInstances",
+                      "ec2:ModifyInstanceAttribute"
+                  ],
+                  "Resource": "arn:aws:ec2:*:*:instance/*",
+                  "Effect": "Deny",
+                  "Sid": "DenyLargeInstances"
+               }
+          ]
+    }
+
+This policy prohibits affected users from using any resources outside of the US-East and EU-West regions and prohibits them from using some services (such as Identity and Access Management) in any region. It also limits users to only launching smaller server instances in an effort to control costs.
+
+#
+
+### Secrets Management
+
+**Hardware security modules** (HSMs) are special-purpose computing devices that manage encryption keys and also perform cryptographic operations in a highly efficient manner.
+
+HSMs are expensive to purchase and operate, but they provide an extremely high level of security when configured properly.
+
+One of their core benefits is that they can create and manage encryption keys without exposing them to a single human being, dramatically reducing the likelihood that they will be compromised.
+
+Cloud service providers often use HSMs internally for the management of their own encryption keys and also offer HSM services to their customers as a secure method for managing customer keys without exposing them to the provider.
