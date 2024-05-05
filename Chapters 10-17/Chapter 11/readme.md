@@ -595,11 +595,11 @@ Embedded systems may also take advantage of radio frequency protocols specifical
 
 Zigbee is one example of a network protocol that is designed for personal area networks like those found in houses for home automation. Protocols like Zigbee and Z-wave provide low-power, peer-to-peer communications for devices that don't need the bandwidth and added features provided by Wi-Fi and Bluetooth.
 
-That means that they have limitations on range and how much data they can transfer, and that since they are designed for home automation and similar uses they do not have strong security models.
+That means that they have limitations on range and how much data they can transfer and that since they are designed for home automation and similar uses they do not have strong security models.
 
 As a security practitioner, you should be aware that devices that communicate using protocols like Zigbee may be deployed as part of building monitoring or other uses and are unlikely to have enterprise management, monitoring, or security capabilities.
 
-Radio frequency systems like Zigbee can be narrowband or wideband.
+Radiofrequency systems like Zigbee can be narrowband or wideband.
 
 Narrowband radio systems generally have less noise and thus better range and sensitivity, whereas wideband radios can transfer more data because they have more wireless spectrum to use.
 
@@ -611,5 +611,22 @@ Broadband uses wide bandwidth to send data, often using multiple signals and dif
 
 ### Security Constraints of Embedded Systems
 
+Embedded systems have a number of constraints that security solutions need to take into account.
 
+Since embedded systems may have limited capabilities, differing deployment and management options, and extended lifecycles, they required additional thought to secure.
 
+When you consider security for embedded systems, you should take the following into account:
+
+- The overall computational power and capacity of embedded systems is usually much lower than a traditional PC or mobile device. Although this may vary, embedded systems may use a low-power processor, have less memory, and have very limited storage space. That means that the compute power needed for cryptographic processing may not exist, or it may have to be balanced with other needs for CPU cycles. At the same time, limited memory and storage capacity mean that there may not be capacity to run additional security tools like a firewall, antimalware tools, or other security tools you're used to including in a design.
+
+- Embedded systems may not connect to a network. They may have no network connectivity, or they may have it but due to environmental, operational, or security concerns it may not be enabled or used. In fact, since many embedded systems are deployed outside of traditional networks, or in areas where connectivity may be limited, even if they have a built-in wireless network capability, they may not have the effective range to connect to a viable network. Thus, you may encounter an inability to patch, monitor, or maintain the devices remotely. Embedded devices may need to be secured as an independent unit.
+
+- Without network connectivity, CPU and memory capacity, and other elements, authentication is also likely to be impossible. In fact, authenticating to an embedded system may not be desirable due to safety or usability factors. Many of the devices you will encounter that use embedded systems are built into industrial machinery, sensors and monitoring systems, or even household appliances. Without authentication, other security models need to be identified to ensure that changes to the embedded system are authorized.
+
+- Embedded systems may be very low cost, but many are effectively very high cost because they are a component in a larger industrial or specialized device. So, simply replacing a vulnerable device can be impossible, requiring compensating controls or special design decisions to be made to ensure that the devices remain secure and do not create issues for their home organization.
+
+Because of all these limitations, embedded devices may rely on implied trust. 
+
+They presume that operators and those who interact with them will be doing so because they are trusted, and that physical access to the device means that the user is authorized to use and potentially change settings, update the device, or otherwisemodify it.
+
+The implied trust model that goes with physical access for embedded devices makes them a potential vulnerability for organizations, and one that must be reviewed and designed for before they are deployed.
