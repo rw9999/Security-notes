@@ -348,3 +348,109 @@ The Opal Storage Specification is a standard published by the Trusted Computing 
 
 Full-disk encryption can be implemented at the hardware level using a **self-encrypting drive** (SED).
 
+Self-encrypting drives implement encryption capabilities in their hardware and firmware.
+
+Systems equipped with a self-encrypting drive require a key to boot from the drive, which may be entered manually or provided by a hardware token or device. 
+
+Since this is a form of full-disk encryption, the same sort of attack methods work—simply find a logged-in system or one that is in sleep mode.
+
+Disk encryption does bring potential downfalls. If the encryption key is lost, the data on the drive will likely be unrecoverable since the same strong encryption that protects it will make it very unlikely that you will be able to brute-force the key and acquire the data.
+
+Technical support can be more challenging, and data corruption or other issues can have a larger impact, resulting in unrecoverable data. 
+
+Despite these potential downfalls, the significant advantage of full-disk encryption is that a lost or stolen system with a fully encrypted drive can often be handled as a loss of the system, instead of a loss or breach of the data that system contained.
+
+#
+
+### Sanitization
+
+Ensuring that a disk is securely wiped when it is no longer needed and is being retired or when it will be reused is an important part of the lifespan for drives.
+
+Sanitizing drives or media involves one of two processes: wiping the data or destroying the media.
+
+Tapes and similar magnetic media have often been wiped using a degausser, which exposes the magnetic media to very strong electromagnetic fields, scrambling the patterns of bits written to the drive. Degaussers are a relatively quick way to destroy the data on magnetic media. SSDs, optical media and drives, and flash drives, however, require different handling.
+
+Wiping media overwrites or discards the data in a nonrecoverable way. 
+
+For hard drives and other magnetic media, this may be accomplished with a series of writes, typically of 1s or 0s, to every storage location (bit) on the drive. 
+
+Various tools like Darik's Boot and Nuke (DBAN) will perform multiple passes over an entire disk to attempt to ensure that no data remains.
+
+In fact, data remanence, or data that is still on a disk after the fact, is a significant concern, particularly with SSD and other flash media that uses wear-leveling algorithms to spread wear and tear on the drive over more space than the listed capacity.
+
+Wiping SSDs using a traditional drive wipe utility that writes to all accessible locations will miss sections of the disk where copies of data may remain due to the wear-leveling process.
+
+Fortunately, tools that can use the built-in secure Erase command for drives like these can help make sure remnant data is not an issue.
+
+An even better solution in many cases is to use full-disk encryption for the full life of a drive and then simply discard the encryption key when the data is ready to be retired. Unless your organization faces advanced threats, this approach is likely to keep the data from being recoverable by even reasonably advanced malicious actors.
+
+Since wiping drives can have problems, destroying drives is a popular option for organizations that want to eliminate the risk of data loss or exposure. Shredding, pulverizing, or incinerating drives so that no data could possibly be recovered is an option, and third-party vendors specialize in providing services like these with a documented trail for each asset (drive or system) that is destroyed.
+
+Although this does cause a loss of some potential recoverable value, the remaining value of older drives is much less than the cost of a single breach in the risk equations for organizations that make this decision.
+
+#
+
+### File Manipulation and Other Useful Command-Line Tools
+
+The ability to quickly gather information from a file, to manipulate it, to change its permissions, or simply to search through it can make the difference between successfully handling an incident, identifying an issue, or making operational tasks go faster. 
+
+The Security+ exam focuses on six command-line tools:
+
+- head is a command that shows you the first part of a file. By default, it will show you the first 10 lines of a file, making it a handy tool to quickly see what a file contains. You can change the number of lines shown by using the -n flag, and you can show lines from multiple files by including them on the command line.
+
+- tail is very similar to the head command, but it displays the last 10 lines of a file by default. tail is often used to view recent log entries or other data in a file that is changing. As with head, you can add the -n flag to show an arbitrary number of lines, but the most useful mode in many cases is the -f flag, which follows changes. Using tail -f will show you the file as it changes. As with head, you can also monitor multiple files at a time.
+
+- cat, short for concatenate, can be used to output files to standard output (your console) or to append files to other files.
+
+- grep is a search tool that allows you to search for patterns that match provided text or regular expressions.The grep command has a number of handy capabilities, such as the -A and -B options, which when provided with a number as input, will print that many lines after or before the matching pattern. This makes grep an ideal tool for quickly searching through logs and other text files, looking for specific information.
+
+- chmod lets you set permissions on files and directories, using either a symbol or a numeric representation of the permissions that you want to set.
+
+- logger is the most obscure of the commands that the Security+ exam includes. The logger command will append whatever information you provide as input to the/var/log/syslog file on the system. logger can also be used to add information from other commands or files to the syslog file by calling that command or file via logger.
+
+#
+
+### Scripting, Secure Transport, and Shells
+
+Another useful set of tools in your endpoint security toolkit are shells and scripting languages.
+
+The ability to connect to a command-line interface, or to use one on a local system, and then to execute commands like the file manipulation commands we just explored provides a powerful ability to control and manage systems.
+
+Secure Shell, or SSH, is an encrypted protocol used to connect to systems, typically via the command line. SSH is also the name of a client that uses the SSH protocol to create that connection. Once you're connected via SSH, you can issue commands in whatever shell environment the system you're using runs.
+
+Windows systems have a built-in management, automation, and scripting language tool called PowerShell. PowerShell scripts and commands allow management and configuration of Windows systems from the command line.
+
+PowerShell can report on the current state of the system, make changes both locally and to remote systems, and has many other features that make it a favorite tool for both attackers and defenders.
+
+Scripting languages like Python are also used for both systems management and maintenance tasks as well as to provide a powerful way for users to tackle complex tasks by automating them. Although Python has become increasingly common, Perl and other languages also remain in use for scripting and as part of software packages, particularly for Linux and Unix-based systems.
+
+OpenSSL isn't a shell, and it isn't a scripting language. 
+
+Instead, much like SSH, OpenSSL is an implementation of the TLS protocol and is often used to protect other services.
+
+OpenSSL's TLS implementation is used for HTTPS traffic; any time traffic needs to be sent across a network in a protected way that isn't a good match for tunneling via SSH or a VPN connection, OpenSSL is likely to be a reasonable alternative. As a security professional, you need to be aware that 
+
+OpenSSL is frequently used to wrap this traffic and thus you will encounter it embedded in many places.
+
+That means you need to understand why it might be used, and know the features that it brings that help improve the security of communications for your organization. 
+
+One of the key elements of the TLS protocol is that it provides for ephemeral RSA key exchange to create perfect forward secrecy. In other words, conversations can be decrypted only when the key is known, and a temporary key is generated as part of the start of communications between two systems. 
+
+Thus, using OpenSSL and TLS is an ideal solution when two systems that may not have ever communicated before need to communicate securely. 
+
+Websites use TLS for this purpose all the time, and your security assessment of systems that host websites or other services where systems may need to communicate securely without having additional configuration or prior communication should identify OpenSSL and TLS as a secure option
+
+Misconfigured or improperly configured OpenSSL installations will allow the use of weak encryption suites, possibly permitting downgrade attacks that can result in data exposure.
+
+Consider whether OpenSSL's allowed set of encryption options matches your organization's needs, even if OpenSSL is configured for a web or other service that you are reviewing.
+
+OpenSSL isn't used to assess security, but assessing OpenSSL, whether it should be deployed, and how it is deployed is a part of security assessments.
+
+## Securing Embedded and Specialized Systems
+
+Security practitioners encounter traditional computers and servers every day, but as smart devices, embedded systems, and other specialized systems continue to be built into everything from appliances, to buildings, to vehicles, and even clothing, the attack surface for organizations is growing in new ways. 
+
+Wherever these systems appear, they need to be considered as part of an organization's overall security posture.
+
+### Embedded Systems
+
