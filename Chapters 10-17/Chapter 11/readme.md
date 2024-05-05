@@ -454,3 +454,82 @@ Wherever these systems appear, they need to be considered as part of an organiza
 
 ### Embedded Systems
 
+Embedded systems are computer systems that are built into other devices.
+
+Industrial machinery, appliances, and cars are all places where you may have encountered embedded systems. 
+
+Embedded systems are often highly specialized, running customized operating systems and with very specific functions and interfaces that they expose to users. In a growing number of cases, however, they may embed a relatively capable system with Wi-Fi, cellular, or other wireless access that runs Linux or a similar, more familiar operating system.
+
+Many embedded systems use a **real-time operating system** (RTOS).
+
+A RTOS is an operating system that is used when priority needs to be placed on processing data as it comes in, rather than using interrupts for the operating system or waiting for tasks being processed to be handled before data is processed. 
+
+Since embedded systems are widely used for industrial processes where responses must be quick, real-time operating systems are used to minimize the amount of variance in how quickly the OS accepts data and handles tasks.
+
+**Raspberry Pi**s are single-board computers, which means that they have all the features of a computer system on a single board, including network connectivity, storage, video output, input, CPU and memory.
+
+Raspberry Pi devices provide a relatively capable computational platform, and they can run a variety of operating systems, including Linux and Windows. Raspberry Pi devices are more likely to be found used for personal development or small-scale custom use rather than in broader deployment as the core of industrial or commercial embedded systems.
+
+Arduinos, unlike the Raspberry Pi, are not considered single-board computers. Instead, they belong to a class of computer known as a **microcontroller**. 
+
+They include a lower-power CPU with a small amount of memory and storage, and they provide input and output capabilities. They are often used for prototyping devices that interface with sensors, motors, lighting, and similar basic capabilities.
+
+Unlike the Raspberry Pi, Arduinos do not have a wireless or wired network connection built into them, thus reducing their attack surface because they lack direct physical access.
+
+Field-programmable gate array (FPGA)s are a type of computer chip that can be programmed to redesign how it works, allowing it to be a customizable chip. 
+
+A manufacturer that chooses to use an FPGA can program it to perform specific tasks with greater efficiency than a traditional purpose-built chip. 
+
+An FPGA alone is not an embedded system, however. Systems may integrate FPGAs as a component in an embedded system or as the program processor inside of one. If an embedded system integrates an FPGA, you need to be aware that it could potentially be reprogrammed.
+
+Embedded systems come in many flavors and can be so fully embedded that you may not realize that there is a system embedded in the device you are looking at.
+
+As a security professional, you need to be able to assess embedded system security and identify ways to ensure that they remain secure and usable for their intended purpose without causing the system itself to malfunction or suffer from unacceptable degradations in performance.
+
+Assessing embedded systems can be approached much as you would a traditional computer system:
+
+1. Identify the manufacturer or type of embedded system and acquire documentation or other materials about it.
+2. Determine how the embedded system interfaces with the world: does it connect to a network, to other embedded devices, or does it only have a keyboard or other physical interface?
+3. If the device does provide a network connection, identify any services or access to it provided through that network connection, and how you can secure those services or the connection itself.
+4. Learn about how the device is updated, if patches are available, and how and when those patches should be installed; then ensure a patching cycle is in place that matches the device's threat model and usage requirements.
+5. Document what your organization would do in the event that the device had a security issue or compromise. Could you return to normal? What would happen if the device were taken offline due to that issue? Are there critical health, safety, or operational issues that might occur if the device failed or needed to be removed from service?
+6. Document your findings, and ensure that appropriate practices are included in your organization's operational procedures.
+
+#
+
+### SCADA and ICS
+
+Industrial and manufacturing systems are often described using one of two terms.
+
+Industrial controls systems (ICSs) is a broad term for industrial automation, and Supervisory Control and Data Acquisition (SCADA) often refers to large systems that run power and water distribution or other systems that cover large areas.
+
+Since the terms overlap, they are often used interchangeably.
+
+SCADA is a type of system architecture that combines data acquisition and control devices, computers, communications capabilities, and an interface to control and monitor the entire architecture. 
+
+SCADA systems are commonly found running complex manufacturing and industrial processes, where the ability to monitor, adjust, and control the entire process is critical to success.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/8ad6a8a4-9838-4004-b072-aad850a80e17)
+
+You'll see that there are remote telemetry units (RTUs) that collect data from sensors and programmable logic controllers (PLCs) that control and collect data from industrial devices like machines or robots.
+
+Data is sent to the system control and monitoring controls, allowing operators to see what is going on and to manage the SCADA system. 
+
+These capabilities mean that SCADA systems are in common use in industrial and manufacturing environments, as well as in the energy industry to monitor plants and even in the logistics industry tracking packages and complex sorting and handling systems.
+
+ICS and SCADA can also be used to control and manage facilities, particularly when the facility requires management of things like heating, ventilation, and air-conditioning (HVAC) systems to ensure that the processes or systems are at the proper temperature and humidity.
+
+Since ICS and SCADA systems combine general-purpose computers running commodity operating systems with industrial devices with embedded systems and sensors, they present a complex security profile for security professionals to assess. 
+
+In many cases, they must be addressed as individual components to identify their unique security needs, including things like customized industrial communication protocols and proprietary interfaces. 
+
+Once those individual components are mapped and understood, their interactions and security models for the system as a whole or as major components can be designed and managed. 
+
+A key thing to remember when securing complex systems like this is that they are often designed without security in mind. That means that adding security may interfere with their function or that security devices may not be practical to add to the environment.
+
+In some cases, isolating and protecting ICS, SCADA, and embedded systems is one of the most effective security models that you can adopt.
+
+#
+
+### Securing the Internet of Things
+
