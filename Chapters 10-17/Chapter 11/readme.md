@@ -268,3 +268,83 @@ Hardening the Windows registry involves configuring permissions for the registry
 
 ### Configuration, Standards, and Schemas
 
+To harden systems in an enterprise environment, you'll need to manage the configuration of systems through your organization.
+
+In fact, configuration management tools are one of the most powerful options security professionals and system administrators have to ensure that the multitude of systems in their organizations have the right security settings and to help keep them safe.
+
+A third-party configuration management system like Jamf Pro for macOS, a vendor-supplied tool like Configuration Manager for Windows, or even open source configuration management tools like CFEngine help enforce standards, manage systems, and report on areas where systems do not match expected settings.
+
+Configuration management tools often start with **baseline configurations** for representative systems or operating system types throughout an organization.
+
+Baseline configurations are an ideal starting place to build from to help reduce complexity and make configuration management and system hardening possible across multiple machines—even thousands of them.
+
+In addition to configuration management standards and tools, documentation is an important part of configuration management. 
+
+Diagrams, including architecture, network, and dataflow diagrams, are used to understand and document how an organization's technology and system are set up. 
+
+Establishing an organizational habit of producing system and architecture diagrams, ensuring that they meet quality standards and that they are updated when things change, helps ensure that deployments meet organizational standards. 
+
+The same diagrams are critical when performing incident response and disaster recovery operations because they allow responders to quickly understand how infrastructure and systems are configured, how they interconnect, where data flows, how it gets from place to place, and what dependencies exist in a system or application architecture. Diagrams and documentation can also be provided to auditors, providing a useful artifact for assessment of designs.
+
+#
+
+### Naming Standards and Addressing Schemas
+
+Hardening endpoints involves knowing which systems you're managing and ensuring that the systems on your network are the systems that you expect to be there. Standards can help with that.
+
+The Security+ exam calls out standard naming conventions as one option. Naming conventions play a number of roles:
+
+- They can help you identify systems based on purpose, location, or other elements included in the naming convention. 
+- They can be used to make systems more anonymous; examplecorp123 is less meaningful to an attacker than examplesqlserver or examplewebserver.
+-  They make scripting and management easier because you can filter, sort, and take other actions more easily using a standard naming convention.
+
+Using a standardized Internet Protocol (IP) schema is also useful. 
+
+Segmenting systems based on purpose, location, or other factors and ensuring that you are managing the IP address space that your organization uses help you avoid address collisions, avoid running out of addresses in network segments, and identify systems that shouldn't be using a given address. 
+
+This capability becomes even more important when you are designing a datacenter or a cloud infrastructure and assigning IP addresses. If you run out of addresses and have to re-address a datacenter, significant rework may be required to update firewall rules, infrastructure-as-code scripts and tools, or other places where you have made a significant time investment.
+
+#
+
+### Patch Management
+
+Ensuring that systems and software are up to date helps ensure endpoint security by removing known vulnerabilities. 
+
+Timely patching decreases how long exploits and flaws can be used against systems, but patching also has its own set of risks. Patches may introduce new flaws, or the patching process itself can sometimes cause issues.
+
+The importance of patching, as well as the need to make sure that patching is controlled and managed, is where patch management comes in.
+
+A significant proportion of modern software, including software, browsers, office suites, and many other packages, has built-in automatic update tools. These tools check for an update and either notify the user requesting permission to install the updates or automatically install the update. Although this model is useful for individual devices, an enterprise solution makes sense for organizations.
+
+Patch management for operating systems can be done using tools like Microsoft's Endpoint Configuration Manager for Windows, but third-party tools provide support for patch management across a wide variety of software applications.
+
+Tracking versions and patch status using a systems management tool can be important for organizational security, particularly because third-party updates for the large numbers of applications and packages that organizations are likely to have deployed can be a daunting task.
+
+A common practice for many organizations is to delay the installation of a patch for a period of a few days from its release date. That allows the patch to be installed on systems around the world, hopefully providing insight into any issues the patch may create.
+
+In cases where a known exploit exists, organizations have to choose between the risk of patching and the risk of not patching and having the exploit used against them. Testing can help, but many organizations don't have the resources to do extensive patch testing.
+
+Managing software for mobile devices remains a challenge, but mobile device management tools also include the ability to validate software versions. These tools often have the ability to update applications and the device operating system in addition to controlling security settings.
+
+As you consider endpoint security, think about how you will update your endpoint devices, the software and applications they run, and what information you would need to know that patching was consistent and up-to-date.
+
+Key features like reporting, the ability to determine which systems or applications get updates and when, the ability to block an update, and of course being able to force updates to be installed are all critical to enterprise patch management over the many different types of devices in our organizations today.
+
+#
+
+### Disk Security and Sanitization
+
+Keeping the contents of disks secure protects data in the event that a system or disk is lost or stolen. That's where disk encryption comes in.
+
+**Full-disk encryption** (FDE) encrypts the disk and requires that the bootloader or a hardware device provide a decryption key and software or hardware to decrypt the drive for use. 
+
+One of the most common implementations of this type of encryption is transparent encryption (sometimes called on-the-fly, or real-time, encryption). Transparent encryption implementations are largely invisible to the user, with the drive appearing to be unencrypted during use. This also means that the simplest attack against a system that uses transparent FDE is to gain access to the system while the drive is unlocked.
+
+Volume encryption (sometimes called filesystem-level encryption) protects specific volumes of the drive, allowing different trust levels and additional security beyond that provided by encrypting the entire disk with a single key. 
+
+File and folder encryption methods can also be used to protect specific data, again allowing for different trust levels, as well as transfer of data in secure ways.
+
+The Opal Storage Specification is a standard published by the Trusted Computing Group's Storage Workgroup. It specifies both how devices must protect data when they are outside of their owners' control, and how to ensure that devices produced by various vendors can all interoperate successfully.
+
+Full-disk encryption can be implemented at the hardware level using a **self-encrypting drive** (SED).
+
