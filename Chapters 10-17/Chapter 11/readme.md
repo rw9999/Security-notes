@@ -575,3 +575,41 @@ The final category of embedded systems that you need to consider for the Securit
 
 ### Communication Considerations
 
+Many embedded and specialized systems operate in environments where traditional wired and wireless networks aren't available. As a security professional, you may need to account for different types of connectivity that are used for embedded systems.
+
+Cellular connectivity, including both existing LTE and other fourthgeneration technologies as well as newer 5G network connectivity, can provide high-bandwidth access to embedded systems in many locations where a Wi-Fi network wouldn't work.
+
+Since third-party cellular providers are responsible for connectivity, embedded systems that use cellular connectivity need to be secured so that the cellular network does not pose a threat to their operation.
+
+Ensuring that they do not expose vulnerable services or applications via their cellular connections is critical to their security.
+
+Building in protections to prevent network exploits from traversing internal security boundaries such as those between wireless connectivity and local control buses is also a needed design feature.
+
+Physically securing the subscriber identity module (SIM) built into cellular-enabled devices can be surprisingly important.
+
+Documented examples of SIMs being removed and repurposed, including running up significant bills for data use after they were acquired, appear regularly in the media.
+
+SIM cloning attacks can also allow attackers to present themselves as the embedded system, allowing them to both send and receive information as a trusted system.
+
+Embedded systems may also take advantage of radio frequency protocols specifically designed for them.
+
+Zigbee is one example of a network protocol that is designed for personal area networks like those found in houses for home automation. Protocols like Zigbee and Z-wave provide low-power, peer-to-peer communications for devices that don't need the bandwidth and added features provided by Wi-Fi and Bluetooth.
+
+That means that they have limitations on range and how much data they can transfer, and that since they are designed for home automation and similar uses they do not have strong security models.
+
+As a security practitioner, you should be aware that devices that communicate using protocols like Zigbee may be deployed as part of building monitoring or other uses and are unlikely to have enterprise management, monitoring, or security capabilities.
+
+Radio frequency systems like Zigbee can be narrowband or wideband.
+
+Narrowband radio systems generally have less noise and thus better range and sensitivity, whereas wideband radios can transfer more data because they have more wireless spectrum to use.
+
+Baseband radio is a type of signal that includes frequencies near zero.
+
+Broadband uses wide bandwidth to send data, often using multiple signals and different traffic types. Broadband is not limited to wireless and can be used in optical, coaxial, or twisted-pair wired networks as well.
+
+#
+
+### Security Constraints of Embedded Systems
+
+
+
