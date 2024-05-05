@@ -533,3 +533,45 @@ In some cases, isolating and protecting ICS, SCADA, and embedded systems is one 
 
 ### Securing the Internet of Things
 
+The Internet of Things (IoT) is a broad term that describes network-connected devices that are used for automation, sensors, security, and similar tasks. 
+
+IoT devices are typically a type of embedded system, but many leverage technologies like machine learning, AI, cloud services, and similar capabilities to provide “smart” features.
+
+IoT devices bring a number of security and privacy concerns, and security analysts must be aware of these common issues:
+
+- Poor security practices, including weak default settings, lack of network security (firewalls), exposed or vulnerable services, lack of encryption for data transfer, weak authentication, use of embedded credentials, insecure data storage, and a wide range of other poor practices.
+
+- Short support lifespans—IoT devices may not be patched or updated, leaving them potentially vulnerable for most of their deployed lifespan.
+
+- Vendor data-handling practice issues, including licensing and data ownership concerns, as well as the potential to reveal data to both employees and partners of the vendor and to government and other agencies without the device owner being aware.
+
+Despite these security concerns, IoT devices like sensors, building and facility automation devices, wearables, and other smart devices continue to grow in popularity. 
+
+Security professionals must account for both the IoT devices that their organization procures and that staff and visitors in their facilities may bring with them.
+
+#
+
+### Specialized Systems
+
+The final category of embedded systems that you need to consider for the Security+ exam is specialized systems:
+
+- Medical systems, including devices found in hospitals and at doctor offices, may be network-connected or have embedded systems. Medical devices like pacemakers, insulin pumps, and other external or implantable systems can also be attacked, with exploits for pacemakers via Bluetooth already existing in the wild.
+
+- Smart meters are deployed to track utility usage, and bring with them a wireless control network managed by the utility. Since the meters are now remotely accessible and controllable, they provide a new attack surface that could interfere with power, water, or other utilities, or that could provide information about the facility or building.
+
+- Vehicles ranging from cars to aircraft and even ships at sea are now network connected, and frequently are directly Internet connected. If they are not properly secured, or if the backend servers and infrastructure that support them is vulnerable, attackers can take control, monitor, or otherwise seriously impact them.
+
+- Drones and autonomous vehicles (AVs), as well as similar vehicles may be controlled from the Internet or through wireless command channels. Encrypting their command-and-control channels and ensuring that they have appropriate controls if they are Internet or network connected are critical to their security.
+
+- VoIP systems include both backend servers as well as the VoIP phones and devices that are deployed to desks and work locations throughout an organization. The phones themselves are a form of embedded system, with an operating system that can be targeted and may be vulnerable to attack. Some phones also provide interfaces that allow direct remote login or management, making them vulnerable to attack from VoIP networks. Segmenting networks to protect potentially vulnerable VoIP devices, updating them regularly, and applying baseline security standards for the device help keep VoIP systems secure.
+
+- Printers, including multifunction printers (MFPs), frequently have network connectivity built in. Wireless and wired network interfaces provide direct access to the printers, and many printers have poor security models. Printers have been used as access points to protected networks, to reflect and amplify attacks, and as a means of gathering information. In fact, MFPs, copiers, and other devices that scan and potentially store information from faxes, printouts, and copies make these devices a potentially significant data leakage risk in addition to the risk they can create as vulnerable networked devices that can act as reflectors and amplifiers in attacks, or as pivot points for attackers.
+
+- Surveillance systems like camera systems and related devices that are used for security but that are also networked can provide attackers with a view of what is occurring inside a facility or organization. Cameras provide embedded interfaces that are commonly accessible via a web interface.
+
+- Default configurations, vulnerabilities, lack of patching, and similar issues are common with specialized systems, much the same as with other embedded systems. When you assess specialized systems, consider both how to limit the impact of these potential problems and the management, administration, and incident response processes that you would need to deal with them for your organization.
+
+#
+
+### Communication Considerations
+
