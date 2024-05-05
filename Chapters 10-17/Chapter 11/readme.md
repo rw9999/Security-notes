@@ -171,3 +171,29 @@ More advanced filtering requires greater insight into what the traffic being ana
 
 A host intrusion prevention system (HIPS) analyzes traffic before services or applications on the host process it.
 
+A HIPS can take action on that traffic, including filtering out malicious traffic or blocking specific elements of the data that is received. A HIPS will look at traffic that is split across multiple packets or throughout an entire series of communications, allowing it to catch malicious activity that may be spread out or complex. 
+
+Since a HIPS can actively block traffic, misidentification of traffic as malicious, misconfiguration, or other issues can cause legitimate traffic to be blocked, potentially causing an outage. If you choose to deploy a HIPS or any other tool that can actively block traffic, you need to consider what would happen if something did go wrong.
+
+A host intrusion detection system (HIDS) performs similar functions but, like a traditional intrusion detection system (IDS) it cannot take action to block traffic. 
+
+Instead, a HIDS can only report and alert on issues. Therefore, a HIDS has limited use for real-time security, but it has a much lower likelihood of causing issues.
+
+Before deploying and managing host-based firewalls, HIPSs, or HIDSs, determine how you will manage them, how complex the individual configurations will be, and what would happen if the host-based protections had problems. 
+
+Granular controls are an important part of a zero-trust design, and armoring hosts helps ensure that a compromised system behind a security boundary does not result in broader issues fo organizations.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/8f7cf204-e6ec-4c33-a7d1-4eb46e21f33f)
+
+Host firewalls and IPS systems vs. network firewalls and IPS systems
+
+#
+
+### Next-Generation Firewalls
+
+Next-generation firewall is largely a marketing term for network security devices that include additional features beyond traditional firewalling capabilities.
+
+That means that there isn't a single consistent definition of what they are and can do.
+
+Fortunately, there are a few common features that are consistent among many firewall devices that claim the title of next-generation firewalls:
+
