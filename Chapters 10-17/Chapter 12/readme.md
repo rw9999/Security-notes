@@ -211,3 +211,271 @@ A full-tunnel VPN is a great way to ensure that traffic sent through an untruste
 
 ### Network Appliances and Security Tools
 
+There many different types of network appliances that you should consider as part of your network design. Special-purpose hardware devices, virtual machine and cloud-based software appliances, and hybrid models in both open source and proprietary commercial versions are used by organizations.
+
+Hardware appliances can offer the advantage of being purpose-built, allowing very high-speed traffic handling capabilities or other capabilities.
+
+Software and virtual machine appliances can be easily deployed and can be scaled based on needs, whereas cloud appliances can be dynamically created, scaled, and used as needed.
+
+Regardless of the underlying system, appliances offer vendors a way to offer an integrated system or device that can be deployed and used in known ways, providing a more controlled experience than a software package or service deployed on a customer-owned server.
+
+#
+
+### Hardware, Software, and Vendor Choices
+
+When you choose a network appliance, you must consider more than just the functionality.
+
+If you're deploying a device, you also need to determine whether you need or want a hardware appliance or a software appliance that runs on an existing operating system, a virtual machine, or a cloud-based service or appliance. 
+
+Drivers for that decision include the environment where you're deploying it, the capabilities you need, what your existing infrastructure is, upgradability, support, and the relative cost of the options. So, deciding that you need a DNS appliance isn't as simple as picking one off a vendor website.
+
+You should also consider if open source or proprietary commercial options are the right fit for your organization. 
+
+Open source options may be less expensive or faster to acquire in organizations with procurement and licensing restrictions. C
+
+ommercial offerings may offer better support, additional proprietary features, certifications and training, or other desirable options as well. When you select a network appliance, make sure you take into account how you will deploy it— hardware, software, virtual, or cloud—and whether you want an open source or proprietary solution.
+
+#
+
+### Jump Servers and Jump Boxes
+
+Administrators and other staff need ways to securely operate in security zones with different security levels.
+
+**Jump servers**, sometimes called jump boxes, are a common solution.
+
+A jump server is a secured and monitored system used to provide that access.
+
+It is typically configured with the tools required for administrative work and is frequently accessed with SSH, RDP, or other remote desktop methods. Jump boxes should be configured to create and maintain a secure audit trail, with copies maintained in a separate environment to allow for incident and issue investigations.
+
+#
+
+### Load Balancing
+
+Load balancers are used to distribute traffic to multiple systems, provide redundancy, and allow for ease of upgrades and patching.
+
+They are commonly used for web service infrastructures, but other types of load balancers can also be found in use throughout many networks.
+
+Load balancers typically present a **virtual IP (VIP)**, which clients send service requests to on a service port.
+
+The load balancer then distributes those requests to servers in a pool or group.
+
+Two major modes of operation are common for load balancers:
+
+- **Active/active** load balancer designs distribute the load among multiple systems that are online and in use at the same time.
+
+- **Active/passive** load balancer designs bring backup or secondary systems online when an active system is removed or fails to respond properly to a health check.
+
+This type of environment is more likely to be found as part of disaster recovery or business continuity environments, and it may offer less capability from the passive system to ensure some functionality remains.
+
+Load balancers rely on a variety of **scheduling** or load-balancing algorithms to choose where traffic is sent to. Here are a few of the most common options:
+
+- **Round-robin** sends each request to servers by working through a list, with each server receiving traffic in turn.
+
+- **Least connection** sends traffic to the server with the fewest number of active connections.
+
+- **Agent-based** adaptive balancing monitors the load and other factors that impact a server's ability to respond and updates the load balancer's traffic distribution based on the agent's reports.
+
+- **Source IP hashing** uses a hash of the source IP to assign traffic to servers. This is essentially a randomization algorithm using client-driven input.
+
+In addition to these, weighted algorithms take into account a weighting or score. Weighted algorithms include the following:
+
+- **Weighted least** connection uses a least connection algorithm combined with a predetermined weight value for each server.
+
+- **Fixed weighted** relies on a preassigned weight for each server, often based on capability or capacity.
+
+- **Weighted response time** combines the server's current response time with a weight value to assign it traffic.
+
+Finally, load balancers may need to establish persistent sessions.
+
+**Persistence** means that a client and a server continue to communicate throughout the duration of a session.
+
+This helps servers provide a smoother experience, with consistent information maintained about the client, rather than requiring that the entire load-balanced pool be made aware of the client's session.
+
+Of course, sticky sessions also mean that load will remain on the server that the session started with, which requires caution in case too many longrunning sessions run on a single server and a load-balancing algorithm is in use that doesn't watch this.
+
+Factors such as the use of persistence, different server capabilities, or the use of scalable architectures can all drive choices for scheduling algorithms. Tracking server utilization by a method such as an agentbased adaptive balancing algorithm can be attractive but requires more infrastructure and overhead than a simple round-robin algorithm.
+
+#
+
+### Proxy Servers
+
+Proxy servers accept and forward requests, centralizing the requests and allowing actions to be taken on the requests and responses.
+
+They can filter or modify traffic and cache data, and since they centralize requests, they can be used to support access restrictions by IP address or similar requirements. 
+
+There are two types of proxy servers:
+
+- **Forward proxies** are placed between clients and servers, and they accept requests from clients and send them forward to servers. Since forward proxies conceal the original client, they can anonymize traffic or provide access to resources that might be blocked by IP address or geographic location. They are also frequently used to allow access to resources such as those that libraries subscribe to
+
+- **Reverse proxies** are placed between servers and clients, and they are used to help with load balancing and caching of content. Clients can thus query a single system but have traffic load spread to multiple systems or sites.
+
+#
+
+### Network Address Translation Gateways
+
+Network address translation (NAT) allows a pool of addresses to be translated to one or more external addresses.
+
+Typically, NAT is used to allow many private IP addresses to use a single public IP address to access the Internet.
+
+A NAT gateway is a device that provides the network address translation and tracks which packets should be sent to each device as they transit through it.
+
+**NAT gateways** are a common network tool—in fact, they're in many homes in the form of the Internet router that provides a pool of private IP addresses and uses NAT to allow a single external public IP to serve many devices behind the router.
+
+NAT gateways are frequently used for cloud infrastructure as a service environment where private addresses are used for internal networking.
+
+A NAT gateway service can be used to allow systems to connect to the Internet. Since NAT gateways do not allow external systems to initiate inbound connections unless rules are specifically put in place to allow it, they can allow secure outbound access without creating additional risks to the systems behind the gateway.
+
+NAT isn't a firewall, but it has some firewall-like properties. Since a NAT gateway doesn't allow inbound access by default, it can act like a firewall with a default deny rule for inbound access.
+
+#
+
+### Content/URL Filters
+
+**Content filters** are devices or software that allow or block traffic based on content rules.
+
+These can be as simple as blocking specific URLs, domains, or hosts, or they may be complex, with pattern matching, IP reputation, and other elements built into the filtering rules.
+
+Like other technologies, they can be configured with allow or deny lists as well as rules that operate on the content or traffic they filter.
+
+Proxies frequently have content filtering capabilities, but content filtering and URL filtering can also be part of other network devices and appliances such as firewalls, network security appliances, IPSs, and others.
+
+#
+
+### Data Protection
+
+Ensuring that data isn't extracted or inadvertently sent from a network is where a data loss prevention (DLP) solution comes into play.
+
+DLP solutions frequently pair agents on systems with filtering capabilities at the network border, email servers, and other likely exfiltration points.
+
+When an organization has concerns about sensitive, proprietary, or other data being lost or exposed, a DLP solution is a common option.
+
+DLP systems can use pattern-matching capabilities or can rely on tagging, including the use of metadata to identify data that should be flagged.
+
+Actions taken by DLP systems can include blocking traffic, sending notifications, or forcing identified data to be encrypted or otherwise securely transferred rather than being sent by an unencrypted or unsecure mode.
+
+#
+
+### Intrusion Detection and Intrusion Prevention Systems
+
+Network-based intrusion detection systems (IDSs) and intrusion prevention systems (IPSs) are used to detect threats and, in the case of IPS, to block them.
+
+They rely on one or more of three different detection methods to identify unwanted and potentially malicious traffic:
+
+- **Signature-based** detections rely on a known hash or signature matching to detect a threat.
+
+- **Heuristic**, or **behavior-based**, detections look for specific patterns or sets of actions that match threat behaviors.
+
+- **Anomaly-based** detection establishes a baseline for an organization or network and then flags when out-of-theordinary behavior occurs.
+
+Although an IPS needs to be deployed in line where it can interact with the flow of traffic to stop threats, both IDSs and IPSs can be deployed in a passive mode as well.
+
+Passive modes can detect threats but cannot take action—which means that an IPS placed in a passive deployment is effectively an IDS.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/3a7ed78e-e798-4fa2-bd36-319b9cf33c22)
+
+Like many of the other appliances covered in this chapter, IDS and IPS deployments can be hardware appliances, software-based, virtual machines, or cloud instances.
+
+Key decision points for selecting them include their throughput, detection methods, availability of detection rules and updates, the ability to create custom filters and detections, and their detection rates for threats in testing.
+
+#
+
+### Hardware Security Modules
+
+Hardware security modules (HSMs) can be deployed as network appliances, and they are used to generate, securely store, and manage cryptographic keys.
+
+They can also handle cryptographic processing, allowing servers to offload CPU-intensive tasks to dedicated cryptographic hardware. 
+
+In addition to being available as hardware appliances, HSMs are widely available as part of cloud infrastructure as service offerings in both dedicated and virtual options.
+
+#
+
+### Data Collection
+
+Many components of datacenters rely on network appliances to acquire data.
+
+Hardware and software appliances can act as sensors, gathering data about the physical environment, network traffic, or other information that centralized services and management need to ensure the continued operations of the organization.
+
+Since the sheer amount of data acquired from sensors can be enormous, a tiered design using data collection collectors and aggregators that centralize subsets of data is also common.
+
+Collectors and aggregators can also provide preprocessing, de-duplication, or other information management services to ensure that the central management and analysis servers to which they provide data are not overwhelmed.
+
+#
+
+### Firewalls
+
+Firewalls are one of the most common components in network design. 
+
+They are deployed as network appliances or on individual devices, and many systems implement a simple firewall or firewalllike capabilities.
+
+There are two basic types of firewalls included in the Security+ exam outline:
+
+- **Stateless firewalls** (sometimes called packet filters) filter every packet based on data such as the source and destination IP and port, the protocol, and other information that can be gleaned from the packet's headers. They are the most basic type of firewall.
+
+- **Stateful firewalls** (sometimes called dynamic packet filters) pay attention to the state of traffic between systems. They can make a decision about a conversation and allow it to continue once it has been approved rather than reviewing every packet. They track this information in a state table, and use the information they gather to allow them to see entire traffic flows instead of each packet, providing them with more context to make security decisions.
+
+**Next-generation firewall(NGFW)** devices are far more than simple firewalls. In fact, they might be more accurately described as all-in-one network security devices in many cases. The general term has been used to describe network security devices that include a range of capabilities such as deep packet inspection, IDS/IPS functionality, antivirus and antimalware, and other functions.
+
+Finally, **web application firewalls** (WAFs) are security devices that are designed to intercept, analyze, and apply rules to web traffic, including tools such as database queries, APIs, and other web application tools.
+
+In many ways, a WAF is easier to understand if you think of it as a firewall combined with an intrusion prevention system.
+
+They provide deeper inspection of the traffic sent to web servers looking for attacks and attack patterns, and then apply rules based on what they see. This allows them to block attacks in real time, or even modify traffic sent to web servers to remote potentially dangerous elements in a query or request.
+
+#
+
+### Unified Threat Management
+
+Unified threat management (UTM) devices frequently include firewall, IDS/IPS, antimalware, URL and email filtering and security, data loss prevention, VPN, and security monitoring and analytics capabilities.
+
+The line between UTM and NGFW devices can be confusing, and the market continues to narrow the gaps between devices as each side offers additional features
+
+UTM appliances are frequently deployed at network boundaries, particularly for an entire organization or division.
+
+Since they have a wide range of security functionality, they can replace several security devices while providing a single interface to manage and monitor them.
+
+They also typically provide a management capability that can handle multiple UTM devices at once, allowing organizations with several sites or divisions to deploy UTM appliances to protect each area while still managing and monitoring them centrally.
+
+## Network Security, Services, and Management
+
+Managing your network in a secure way and using the security tools and capabilities built into your network devices is another key element in designing a secure network.
+
+Whether it is prioritizing traffic via QoS, providing route security, or implementing secure protocols on top of your existing network fabric, network devices and systems provide a multitude of options.
+
+### Out-of-Band Management
+
+Access to the management interface for a network appliance or device needs to be protected so that attackers can't seize control of it and to ensure that administrators can reliably gain access when they need to.
+
+Whenever possible, network designs must include a way to do secure out-of-band management.
+
+A separate means of accessing the administrative interface should exist.
+
+Since most devices are now managed through a network connection, modern implementations use a separate management VLAN or an entirely separate physical network for administration.
+
+Physical access to administrative interfaces is another option for out-of-band management, but in most cases physical access is reserved for emergencies because traveling to the network device to plug into it and manage it via USB, serial, or other interfaces is time consuming and far less useful for administrators than a network-based management plane.
+
+#
+
+### Access Control Lists
+
+The first thing that may come to mind when you think of access control is firewalls with firewall rules, but many network devices and appliances support some form of access control lists (ACLs) too.
+
+ACLs are a set of rules used to filter or control network traffic.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/0fb114de-ca99-4baa-aaf2-6e4c1a04b262)
+
+Cloud services also provide network ACLs. VPCs and other services provide firewall-like rules that can restrict or allow traffic between systems and services. Like firewall rules, these can typically be grouped, tagged, and managed using security groups or other methods.
+
+#
+
+### Quality of Service
+
+The ability to ensure that an application, service, or network traffic is prioritized and able to meet its designed purposes is handled by quality of service (QoS) capabilities.
+
+QoS protocols like 802.11E for Wi-Fi networks and 802.1Q (or Dot1Q) for wired networks define how traffic can be tagged and prioritized, and thus how quality of service can be managed.
+
+Quality of service considers a variety of important elements of network performance: the bandwidth available and in use, the latency of traffic, how much the latency varies (jitter), and the rate at which errors are occurring.
+
+These help provide QoS metrics, allowing traffic to be prioritized and managed according to QoS rules that apply based on applications, users, ports, protocols, or IP addresses.
+
+QoS offers support for bandwidth and traffic management as well as queuing to handle packets that are lower priority and need to wait. They can also provide either proportional or guaranteed bandwidth to prioritized traffic.
+
