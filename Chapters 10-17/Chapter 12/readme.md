@@ -855,3 +855,71 @@ DNSSEC can help prevent DNS poisoning and other DNS attacks by validating both t
 
 When domain hijacking isn't possible and DNS cannot be poisoned, another option for attackers is **URL redirection**.
 
+URL redirection can take many forms, depending on the vulnerability that attackers leverage, but one of the most common is to insert alternate IP addresses into a system's hosts file.
+
+The hosts file is checked when a system looks up a site via DNS and will be used first, making a modified hosts file a powerful tool for attackers who can change it.
+
+Modified hosts files can be manually checked, or they can be monitored by system security antimalware tools that know the hosts file is a common target. In most organizations, the hosts file for the majority of machines will never be modified from its default, making changes easy to spot.
+
+Although DNS attacks can provide malicious actors with a way to attack your organization, you can also leverage DNS-related information to help defend against attacks.
+
+**Domain reputation** services and tools provide information about whether a domain is a trusted email sender or sends a lot of spam email. In addition, individual organizations may assign domain reputation scores for email senders using their own email security and antispam tools.
+
+When you consider network-based controls and defenses, you should think about how reputation as a broad concept may be useful for defense, and how you and your organization would respond if an incident caused your reputation score to drop and be listed as negative or malicious by one, or many, services.
+
+#
+
+### Layer 2 Attacks
+
+Attacking the Data Link layer can be an effective technique for attackers who have access to a network. Unlike attacks at higher layers, local access to the network or a system that is on the network are required for these attacks because Layer 2 traffic is bounded by the local broadcast domain.
+
+The Security+ exam outline considers three specific Layer 2 attacks that you need to be aware of and may need to identify:
+
+- **Address Resolution Protocol** (ARP) poisoning attacks send malicious ARP packets to the default gateway of a network with the intent of changing the pairings of MAC addresses to IP addresses that the gateway maintains.
+
+Attackers will send ARP replies that claim that the IP address for a target machine is associated with their MAC address, causing systems and the gateway to send traffic intended for the target system to the attacker's system.
+
+Attackers can use this to conduct on-path attacks by then relaying the traffic to the target system, or they can simply collect and use the traffic they receive.
+
+ARP poisoning can also be used to create a denial of service by causing traffic not to reach the intended system. 
+
+ARP poisoning can be detected by tools like Wireshark as well as purpose-built network security devices that perform protocol analysis and network monitoring.
+
+- **Media access control** (MAC) flooding targets switches by sending so many MAC addresses to the switch that the CAM or MAC table that stores pairings of ports and MAC addresses is filled.
+
+Since these tables have a limited amount of space, flooding them results in a default behavior that sends out traffic to all ports when the destination is not known to ensure traffic continues to flow.
+
+Attackers can then capture that traffic for their own purposes.
+
+MAC flooding can be prevented by using port security, which limits how many MAC addresses can be learned for ports that are expected to be used by workstations or devices. 
+
+In addition, tools like NAC or other network authentication and authorization tools can match MAC addresses to known or authenticated systems.
+
+- **MAC cloning** duplicates the media access control address (hardware address) of a device.
+
+Tools like the Linux macchanger and iproute2 allow a system's MAC address to be manually changed.
+
+Attackers may choose to do this to bypass MAC address–restricted networks or to acquire access that is limited by MAC address. MAC cloning can be hard to detect without additional information about systems from a source other than network devices. 
+
+Network access control (NAC) capabilities or other machine authentication and validation technologies can help identify systems that are presenting a cloned or spurious MAC address.
+
+An increasing number of devices use MAC randomization as a technique to help preserve user privacy. This adds additional complexity for network administrators who have historically used MAC address, system, and user tracking to ascertain who was using a system when an event or incident occurred.
+
+As you consider ways to track MAC cloning and other layer 2 attacks, you need to be aware that what was once considered a consistent pairing of system and MAC address may no longer be valid and that you may need additional log information to match users, systems, and hardware addresses.
+
+In addition, although MAC address randomization is supposed to avoid collisions where two devices select and use the same MAC address, it is theoretically possible, and a collision would be indistinguishable from a MAC cloning attack at first glance.
+
+Although the Security+ exam does not include them, Spanning Tree Protocol attacks that modify the logical structure of traffic through the network, VLAN hopping and trunking attacks, and DHCP spoofing also occur at layer 2.
+
+## Distributed Denial-of-Service Attacks
+
+A distributed denial-of-service is conducted from multiple locations, networks, or systems, making it difficult to stop and hard to detect. 
+
+At the same time, the distributed nature of the DDoS means that it may bring significant resources to bear on a targeted system or network, potentially overwhelming the target through its sheer size.
+
+### Network DDoS
+
+One of the most common forms of the distributed denial-of-service attack is a network-based DDoS.
+
+Malicious actors commonly use large-scale botnets to conduct network DDoS attacks, and commercial services exist that conduct DDoS attacks and DDoS-like behavior for stress- and load-testing purposes. All of this means that organizations need to have a plan in place to detect and handle network DDoS attacks.
+
