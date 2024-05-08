@@ -515,4 +515,343 @@ When done accidentally, it can disrupt large portions of the Internet, causing d
 
 Like other authenticated protocols, OSPF does not secure the actual data, but it does validate that the data is complete and from the router it is expected to be from.
 
-- 
+- The **Enhanced Interior Gateway Routing Protocol (EIGRP)** is a Cisco-proprietary protocol that provides authentication, helping to prevent attackers or others from sending falsified routing messages.
+
+The Security+ exam won't expect you to have mastered the details of routing protocols. Instead, you need to focus on the concept of route security and why it is important. As you think about this section, remember that the Internet is made up of independent, interconnected networks and that there is no single authority that is responsible for the entire Internet. Thus, routing protocols negotiate and monitor routes, making them susceptible to attackers and mistakes.
+
+Network administrators need to understand the routing protocols they put in place and how they can be configured to prevent as many issues as possible. Unfortunately, due to issues like the lack of security in BGP, route security remains a challenge.
+
+#
+
+### DNS
+
+Domain Name System (DNS) servers and service can be an attractive target for attackers since systems rely on DNS to tell them where to send their traffic whenever they try to visit a site using a human-readable name.
+
+DNS itself isn't a secure protocol—in fact, like many of the original Internet protocols, it travels in an unencrypted, unprotected state and does not have authentication capabilities built in.
+
+Fortunately, Domain Name System Security Extensions (DNSSEC) can be used to help close some of these security gaps. DNSSEC provides authentication of DNS data, allowing DNS queries to be validated even if they are not encrypted.
+
+Properly configuring DNS servers themselves is a key component of DNS security. 
+
+Preventing techniques such as zone transfers, as well as ensuring that DNS logging is turned on and that DNS requests to malicious domains are blocked, are common DNS security techniques.
+
+#
+
+### DNS Sinkholes
+
+A DNS sinkhole is a DNS server that is configured to provide incorrect answers to specific DNS queries. 
+
+This allows administrators to cause malicious and unwanted domains to resolve to a harmless address and can also allow logging of those queries to help identify infected or compromised systems.
+
+#
+
+### Secure Sockets Layer/Transport Layer Security
+
+The ability to encrypt data as it is transferred is key to the security of many protocols.
+
+Although the first example that may come to mind is secure web traffic via HTTPS, Transport Layer Security (TLS) is in broad use to wrap protocols throughout modern systems and networks.
+
+A key concept for the Security+ exam is the use of **ephemeral keys** for TLS. In ephemeral Diffie–Hellman key exchanges, each connection receives a unique, temporary key.
+
+That means that even if a key is compromised, communications that occurred in the past, or in the future in a new session, will not be exposed. 
+
+Ephemeral keys are used to provide perfect forward secrecy, meaning that even if the secrets used for key exchange are compromised, the communication itself will not be.
+
+#
+
+### What about IPv6?
+
+IPv6 still hasn't reached many networks, but where it has, it can add additional complexity to many security practices and technologies.
+
+While IPv6 is supported by an increasing number of network devices, the address space and functionality it brings with it mean that security practitioners need to make sure that they understand how to monitor and secure IPv6 traffic on their network.
+
+Unlike IPv4 networks where ICMP may be blocked by default, IPv6 relies far more heavily on ICMP, meaning that habitual security practices are a bad idea.
+
+The use of NAT in IPv4 networks is also no longer needed due to the IPv6 address space, meaning that the protection that NAT provides for some systems will no longer exist.
+
+In addition, the many automatic features that IPv6 brings including automatic tunneling, automatic configuration, the use of dual network stacks (for both IPv4 and IPv6), and the sheer number of addresses all create complexity.
+
+All of this means that if your organization uses IPv6, you will need to make sure you understand the security implications of both IPv4 and IPv6 and what security options you have and may still need.
+
+When you choose a network appliance, you must consider more than just the functionality. If you're deploying a device you also need to determine if you need or want a hardware appliance or a software appliance that may run on an existing operating system, a virtual machine, or a cloud based service or appliance.
+
+Drivers for that decision may include the environment where you're deploying it, the capabilities you need, what your existing infrastructure is, upgradeability, support, and the relative cost of the options. That means that simply deciding that you need a DNS appliance isn't as simple as picking one off of a vendor website.
+
+#
+
+### Monitoring Services and Systems
+
+Ensuring that an organization's services are online and accessible requires monitoring and reporting capabilities.
+
+Although checking to see if a service is responding can be simple, validating that the service is functioning as expected can be more complex.
+
+Organizations often use multiple tiers of service monitoring.
+
+The first and most simple validates whether a service port is open and responding.
+
+That basic functionality can help identify significant issues such as the service failing to load, crashing, or being blocked by a firewall rule.
+
+The next level of monitoring requires interaction with the service and some understanding of what a valid response should look like.
+
+These transactions require addition functionality and may also use metrics that validate performance and response times.
+
+The final level of monitoring systems looks for indicators of likely failure and uses a broad range of data to identify pending problems.
+
+Service monitoring tools are built into many operations' monitoring tools, SIEM devices, and other organizational management platforms. 
+
+Configuring service-level monitoring can provide insight into ongoing issues for security administrators, as service failures or issues can be an indicator of an incident.
+
+#
+
+### File Integrity Monitors
+
+The infrastructure and systems that make up a network are a target for attackers, who may change configuration files, install their own services, or otherwise modify systems that need to be trustworthy.
+
+Detecting those changes and either reporting on them or restoring them to normal is the job of a file integrity monitor.
+
+Although there are numerous products on the market that can handle file integrity monitoring, one of the oldest and best known is Tripwire, a file integrity monitoring tool with both commercial and open source versions.
+
+File integrity monitoring tools like Tripwire create a signature or fingerprint for a file, and then monitor the file and filesystem for changes to monitored files.
+
+They integrate numerous features to allow normal behaviors like patching or user interaction, but they focus on unexpected and unintended changes.
+
+A file integrity monitor can be a key element of system security design, but it can also be challenging to configure and monitor if it is not carefully set up.
+
+Since files change through a network and on systems all the time, file integrity monitors can be noisy and require time and effort to set up and maintain.
+
+#
+
+### Deception and Disruption
+
+A final category of network-related tools are those intended to capture information about attackers and their techniques and to disrupt ongoing attacks.
+
+Capturing information about attackers can provide defenders with useful details about their tools and processes and can help defenders build better and more secure networks based on real-world experiences.
+
+The first and most common is the use of honeypots.
+
+**Honeypots** are systems that are intentionally configured to appear to be vulnerable but that are actually heavily instrumented and monitored systems that will document everything an attacker does while retaining copies of every file and command they use. They appear to be legitimate and may have tempting false information available on them.
+
+Much like honeypots, **honeynets** are networks set up and instrumented to collect information about network attacks. In essence, a honeynet is a group of honeypots set up to be even more convincing and to provide greater detail on attacker tools due to the variety of systems and techniques required to make it through the network of systems.
+
+Unlike honeynets and honeypots, which are used for adversarial research, honeyfiles are used for intrusion detection.
+
+A **honeyfile** is an intentionally attractive file that contains unique, detectable data that is left in an area that an attacker is likely to visit if they succeed in their attacks.
+
+If the data contained in a honeyfile is detected leaving the network, or is later discovered outside of the network, the organization knows that the system was breached.
+
+The final concept you need to know in this category for the Security+ exam is the practice of providing **fake telemetry data**. Fake telemetry is part of deception efforts and provides additional targets for attackers.
+
+The concept of **fake telemetry** is much like a honeyfile—it provides a target for attackers that will either mislead them or will allow you to detect access to the information
+
+The Security+ exam outline doesn't mention darknets. Darknets are sections of unused IP space that are monitored to see what traffic is sent to them. Since no valid traffic should be sent to them, scans, untargeted attacks, worms, and other activity that works its way through an IP range can be observed and studied.
+
+## Secure Protocols
+
+Networks carry traffic using a multitude of different protocols operating at different network layers.
+
+Although it is possible to protect networks by using encrypted channels for every possible system, in most cases networks do not encrypt every connection from end to end. 
+
+Therefore, choosing and implementing secure protocols properly is critical to a defense-in-depth strategy. 
+
+Secure protocols can help ensure that a system or network breach does not result in additional exposure of network traffic.
+
+### Using Secure Protocols
+
+Secure protocols have places in many parts of your network and infrastructure. Security professionals need to be able to recommend the right protocol for each of the following scenarios:
+
+- Voice and video rely on a number of common protocols. Videoconferencing tools often rely on HTTPS, but secure versions of the Session Initiation Protocol (SIP) and the Realtime Transport Protocol (RTP) exist in the form of SIPS and SRTP, which are also used to ensure that communications traffic remains secure.
+- A secure version of the Network Time Protocol (NTP) exists and is called NTS, but NTS has not been widely adopted. Like many other protocols you will learn about in this chapter, NTS relies on TLS. Unlike other protocols, NTS does not protect the time data. Instead, it focuses on authentication to make sure that the time information is from a trusted server and has not been changed in transit.
+- Email and web traffic relies on a number of secure options, including HTTPS, IMAPS, POPS, and security protocols like Domain-based Message Authentication, Reporting & Conformance (DMARC), Domain Keys Identified Mail (DKIM), and Sender Policy Framework (SPF).
+- File Transfer Protocol (FTP) has largely been replaced by a combination of HTTPS file transfers and SFTP or FTPS, depending on organizational preferences and needs.
+- Directory services like LDAP can be moved to LDAPS, a secure version of LDAP.
+- Remote access technologies—including shell access, which was once accomplished via telnet and is now almost exclusively done via SSH—can also be secured. Microsoft's RDP is encrypted by default, but other remote access tools may use other protocols, including HTTPS, to ensure that their traffic is not exposed.
+- Domain name resolution remains a security challenge, with multiple efforts over time that have had limited impact on DNS protocol security.
+- Routing and switching protocol security can be complex, with protocols like Border Gateway Protocol (BGP) lacking built-in security features. Therefore, attacks such as BGP hijacking attacks and other routing attacks remain possible. Organizations cannot rely on a secure protocol in many cases and need to design around this lack.
+- Network address allocation using(DHCP) does not offer a secure protocol, and network protection against DHCP attacks relies on detection and response rather than a secure protocol.
+- Subscription services such as cloud tools and similar services frequently leverage HTTPS but may also provide other secure protocols for their specific use cases. The wide variety of possible subscriptions and types of services means that these services must be assessed individually with an architecture and design review, as well as data flow reviews all being part of best practices to secure subscription service traffic if options are available.Subscription services such as cloud tools and similar services frequently leverage HTTPS but may also provide other secure protocols for their specific use cases. The wide variety of possible subscriptions and types of services means that these services must be assessed individually with an architecture and design review, as well as data flow reviews all being part of best practices to secure subscription service traffic if options are available.
+
+That long list of possible security options and the notable lack of secure protocols for DHCP, NTP, and BGP, and DHCP mean that though secure protocols are a useful part of a security design, they are just part of that design process.That long list of possible security options and the notable lack of secure protocols for DHCP, NTP, and BGP, and DHCP mean that though secure protocols are a useful part of a security design, they are just part of that design process.
+
+As a security professional, your assessment should identify whether an appropriate secure protocol option is included, if it is in use, and if it is properly configured. Even if a secure protocol is in use, you must then assess the other layers of security in place to determine whether the design or implementation has appropriate security to meet the risks that it will face in use.
+
+#
+
+###Secure Protocols
+
+The Security+ exam focuses on a number of common protocols that test takers need to understand how to identify and implement.
+
+As you read this section, take into account when you would recommend a switch to the secure protocol, whether both protocols might coexist in an environment, and what additional factors would need to be considered if you implemented the protocol. 
+
+These factors include client configuration requirements, a switch to an alternate port, a different client software package, impacts on security tools that may not be able to directly monitor encrypted traffic, and similar concerns.
+
+As you review these protocols, pay particular attention to the nonsecure protocol, the original port and if it changes with the secure protocol, and which secure protocol replaces it.
+
+Organizations rely on a wide variety of services, and the original implementations for many of these services, such as file transfer, remote shell access, email retrieval, web browsing, and others, were plain-text implementations that allowed the traffic to be easily captured, analyzed, and modified. This meant that confidentiality and integrity for the traffic that these services relied on could not be ensured and has led to the implementation of secure versions of these protocols. Security analysts are frequently called on to identify insecure services and to recommend or help implement secure alternatives.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/9a16fcac-f741-46f3-8830-d4c6f193ab9d)
+
+Many secure protocols rely on TLS to protect traffic, whereas others implement AES encryption or use other techniques to ensure that they can protect the confidentiality and integrity of the data that they transfer.
+
+Many protocols use a different port for the secure version of the protocol, but others rely on an initial negotiation or service request to determine whether or not traffic will be secured.
+
+Test takers should recognize each of these:
+
+- **Domain Name System Security Extension** (DNSSEC) focuses on ensuring that DNS information is not modified or malicious, but it doesn't provide confidentiality like many of the other secure protocols listed here do. DNSSEC uses digital signatures, allowing systems that query a DNSSEC-equipped server to validate that the server's signature matches the DNS record. DNSSEC can also be used to build a chain of trust for IPSec keys, SSH fingerprints, and similar records.
+- **Simple Network Management Protocol, version 3** (SNMPv3) improves on previous versions of SNMP by providing authentication of message sources, message integrity validation, and confidentiality via encryption. It supports multiple security levels, but only the authPriv level uses encryption, meaning that insecure implementations of SNMPv3 are still possible. Simply using SNMPv3 does not automatically make SNMP information secure.
+- **Secure Shell** (SSH) is a protocol used for remote console access to devices and is a secure alternative to telnet. SSH is also often used as a tunneling protocol or to support other uses like SFTP. SSH can use SSH keys, which are used for authentication. As with many uses of certificate or key-based authentication, a lack of a password or weak passwords as well as poor key handling can make SSH far less secure in use.
+- **Hypertext Transfer Protocol over SSL/TLS** (HTTPS) relies on TLS in modern implementations but is often called SSL despite this. Like many of the protocols discussed here, the underlying HTTP protocol relies on TLS to provide security in HTTPS implementations.
+- Secure Real-Time Protocol (SRTP) is a secure version of the Real-time Protocol, a protocol designed to provide audio and video streams via networks. SRTP uses encryption and authentication to attempt to reduce the likelihood of successful attacks, including replay and denial-of-service attempts. RTP uses paired protocols, RTP and RTCP. RTCP is the control protocol that monitors the quality of service (QoS) and synchronization of streams, and RTCP has a secure equivalent, SRTP, as well.
+- **Secure Lightweight Directory Application Protocol** (LDAPS) is a TLS-protected version of LDAP that offers confidentiality and integrity protections.
+
+#
+
+### Email-Related Protocols
+
+Although many organizations have moved to web-based email, email protocols like Post Office Protocol (POP) and Internet Message Access Protocol (IMAP) remain in use for mail clients.
+
+Secure protocol options that implement TLS as a protective layer exist for both, resulting in the deployment of POPS and IMAPS.
+
+**Secure/Multipurpose Internet Mail Extensions** (S/MIME) provides the ability to encrypt and sign MIME data, the format used for email attachments. 
+
+Thus, the content and attachments for an email can be protected, while providing authentication, integrity, nonrepudiation, and confidentiality for messages sent using S/MIME.
+
+Unlike many of the other protocols discussed here, S/MIME requires a certificate for users to be able to send and receive S/MIMEprotected messages. A locally generated certificate or one from a public certificate authority (CA) is needed.
+
+This requirement adds complexity for S/MIME users who want to communicate securely with other individuals, because certificate management and validation can become complex.
+
+For this reason, S/MIME is used less frequently, despite broad support by many email providers and tools.
+
+SMTP itself does not provide a secure option, although multiple efforts have occurred over time to improve SMTP security, including attempts to standardize on an SMTPS service.
+
+However, SMTPS has not entered broad usage. Now, email security efforts like Domain Keys Identified Mail (DKIM), Domain-based Message Authentication, Reporting & Conformance (DMARC), and Sender Policy Framework (SPF) are all part of efforts to make email more secure and less prone to spam.
+
+Email itself continues to traverse the Internet in unencrypted form through SMTP, which makes S/MIME one of the few broadly supported options to ensure that messages are encrypted and secure.
+
+Of course, a significant portion of email is accessed via the web, effectively making HTTPS the most common secure protocol for email access.
+
+#
+
+### File Transfer Protocols
+
+Although file transfer via FTP is increasingly uncommon, secure versions of FTP do exist and remain in use. 
+
+There are two major options: FTPS, which implements FTP using TLS, and SFTP, which leverages SSH as a channel to perform FTP-like file transfers. 
+
+SFTP is frequently chosen because it can be easier to get through firewalls since it uses only the SSH port, whereas FTPS can require additional ports, depending on the configuration.
+
+#
+
+### IPSeC
+
+IPSec (Internet Protocol Security) is more than just a single protocol.
+
+In fact, IPSec is an entire suite of security protocols used to encrypt and authenticate IP traffic.
+
+The Security+ exam outline focuses on two components of the standard:
+
+- **Authentication header** (AH) uses hashing and a shared secret key to ensure integrity of data and validates senders by authenticating the IP packets that are sent. AH can ensure that the IP payload and headers are protected
+
+- **Encapsulated Security Payload** (ESP) operates in either transport mode or tunnel mode. In tunnel mode, it provides integrity and authentication for the entire packet; in transport mode, it only protects the payload of the packet. If ESP is used with an authentication header, this can cause issues for networks that need to change IP or port information.
+
+You should be aware of a third major component, **security associations** (SAs), but SAs aren't included in the exam outline. Security associations provide parameters that AH and ESP require to operate.
+
+The Internet Security Association and Key Management Protocol (ISAKMP) is a framework for key exchange and authentication. It relies on protocols such as Internet Key Exchange (IKE) for implementation of that process.
+
+In essence, ISAKMP defines hoW to authenticate the system you want to communicate with, how to create and manage SAs, and other details necessary to secure communication. 
+
+IKE is used to set up a security association using x.509 certificates.
+
+IPSec is frequently used for VPNs, where it is used in tunnel mode to create a secure network connection between two locations.
+
+#
+
+### Cryptographic Authentication Modes
+
+The Security+ exam outline calls out three modes of operations for cryptographic systems: authenticated, unauthenticated, and counter. For the exam, you'll also need to know about single-sided authentication and mutual authentication as concepts.
+
+A common single-sided authentication event occurs when you browse to a website that presents an x.509 certificate.
+
+Your browser validates that certificate and you carry on, knowing that the server has a valid certificate and is the server you expect it to be. The server, however, does not have any proof that your system is specifically trustworthy or identifiable. Since you're using TLS, you'll still have secure data exchanges, but in some cases you may want a higher degree of trust.
+
+Mutual authentication provides that greater degree of trust and still relies on x.509 certificates, but it requires that certificates be provided by both entities. If both parties validate and trust those certificates, they can be used as the foundation of a TLS connection. Unlike single-sided authentication, this process ensures that both sides are satisfied that the other system is legitimate.
+
+What about authenticated and unauthenticated modes? Authenticated modes of encryption validate the integrity of the ciphertext to ensure that it has not been modified—often through the use of hash-based message authentication code (HMAC), also known as keyed-hash message authentication code.
+
+Unauthenticated modes do not validate the integrity of the ciphertext, potentially allowing an attack with modified padding in block ciphers. As a security practitioner, be aware that the safe recommendation is to use and implement authenticated modes rather than unauthenticated modes of encryption to prevent these issues.
+
+Finally, the Security+ outline lists counter mode (often called CTR). Unlike the other modes described, counter mode changes block ciphers into a stream cipher by generating successive blocks in the stream using a nonrepeating counter.
+
+## Attacking and Assessing Networks
+
+### On-Path Attacks
+
+An on-path (sometimes also called a man-in-the-middle [MitM]) attack occurs when an attacker causes traffic that should be sent to its intended recipient to be relayed through a system or device the attacker controls. 
+
+Once the attacker has traffic flowing through that system, they can eavesdrop or even alter the communications as they wish.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/89fae004-d94b-4d58-afa6-58ffde2641ef)
+
+An on-path attack can be used to conduct **SSL stripping**, an attack that in modern implementations removes TLS encryption to read the contents of traffic that is intended to be sent to a trusted endpoint. 
+
+A typical SSL stripping attack occurs in three phases:
+
+1. A user sends an HTTP request for a web page.
+2. The server responds with a redirect to the HTTPS version of the page.
+3. The user sends an HTTPS request for the page they were redirected to, and the website loads.
+
+A SSL stripping attack uses an on-path attack when the HTTP request occurs, redirecting the rest of the communications through a system that an attacker controls, allowing the communication to be read or possibly modified.
+
+Although SSL stripping attacks can be conducted on any network, one of the most common implementations is through an open wireless network, where the attacker can control the wireless infrastructure and thus modify traffic that passes through their access point and network connection.
+
+A final on-path attack variant is the browser based (formerly **man-in-the-browser** MitB or MiB) attack.
+
+This attack relies on a Trojan that is inserted into a user's browser. The Trojan is then able to access and modify information sent and received by the browser.
+
+Since the browser receives and decrypts information, a browser-based on-path attack can successfully bypass TLS encryption and other browser security features, and it can also access sites with open sessions or that the browser is authenticated to, allowing an MitB attack to be a very powerful option for an attacker.
+
+Since browser based on-path attacks require a Trojan to be installed, either as a browser plug-in or a proxy, system-level security defenses like antimalware tools and system configuration management and monitoring capabilities are best suited to preventing them.
+
+#
+
+### Stopping SSL Stripping and HTTPS On-Path Attacks
+
+Protecting against SSL stripping attacks can be done in a number of ways, including configuring systems to expect certificates for sites to be issued by a known certificate authority and thus preventing certificates for alternate sites or self-signed certificates from working.
+
+Redirects to secure websites are also a popular target for attackers, since unencrypted requests for the HTTP version of a site could be redirected to a site of the attacker's choosing to allow for an on-path attack.
+
+The HTTP Strict Transport Security (HSTS) security policy mechanism is intended to prevent attacks like these that rely on protocol downgrades and cookie jacking by forcing browsers to connect only via HTTPS using TLS.
+
+Unfortunately, HSTS only works after a user has visited the site at least once, allowing attackers to continue to leverage on-path attacks.
+
+Attacks like these, as well as the need to ensure user privacy, have led many websites to require HTTPS throughout the site, reducing the chances of users visiting an HTTP site that introduces the opportunity for an SSL stripping attack.
+
+Browser plug-ins like the Electronic Frontier Foundation's HTTPS Everywhere can also help ensure that requests that might have traveled via HTTP are instead sent via HTTPS automatically.
+
+#
+
+### Domain Name System Attacks
+
+Stripping away encryption isn't the only type of network attack that can provide malicious actors with visibility into your traffic. In fact, simply having traffic sent to a system that they control is much simpler if they can manage it.
+
+**Domain hijacking** changes the registration of a domain, either through technical means like a vulnerability with a domain registrar or control of a system belonging to an authorized user, or through nontechnical means such as social engineering.
+
+The end result of domain hijacking is that the domain's settings and configuration can be changed by an attacker, allowing them to intercept traffic, send and receive email, or otherwise take action while appearing to be the legitimate domain holder.
+
+Domain hijacking isn't the only way that domains can be acquired for malicious purposes. In fact, many domains end up in hands other than those of the intended owner because they are not properly renewed.
+
+Detecting domain hijacking can be difficult if you are simply a user of systems and services from the domain, but domain name owners can leverage security tools and features provided by domain registrars to both protect and monitor their domains.
+
+**DNS poisoning** can be accomplished in multiple ways. One form is another form of the on-path attack where an attacker provides a DNS response while pretending to be an authoritative DNS server.
+
+Vulnerabilities in DNS protocols or implementations can also permit DNS poisoning, but they are rarer.
+
+DNS poisoning can also involve poisoning the DNS cache on systems.
+
+Once a malicious DNS entry is in a system's cache, it will continue to use that information until the cache is purged or updated. This means that DNS poisoning can have a longer-term impact, even if it is discovered and blocked by an IPS or other security device.
+
+DNS cache poisoning may be noticed by users or may be detected by network defenses like an IDS or IPS, but it can be difficult to detect if done well.
+
+DNSSEC can help prevent DNS poisoning and other DNS attacks by validating both the origin of DNS information and ensuring that the DNS responses have not been modified.
+
+When domain hijacking isn't possible and DNS cannot be poisoned, another option for attackers is **URL redirection**.
+
