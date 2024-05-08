@@ -923,3 +923,63 @@ One of the most common forms of the distributed denial-of-service attack is a ne
 
 Malicious actors commonly use large-scale botnets to conduct network DDoS attacks, and commercial services exist that conduct DDoS attacks and DDoS-like behavior for stress- and load-testing purposes. All of this means that organizations need to have a plan in place to detect and handle network DDoS attacks.
 
+In many cases, your organization's Internet service provider (ISP) may provide a DDoS prevention service, either by default or as an additional subscription option.
+
+Knowing whether your ISP provides the capability and under what circumstances it will activate or can be turned on can be a critical network defense for your organization.
+
+If your ISP does not provide DDoS prevention, a second option is to ensure that your network border security devices have DDoS prevention capabilities.
+
+Once you understand your defensive capabilities, you need to know the most common types of network distributed denial-of-service attacks. Although there are many types, they can be categorized into two major categories: volume based and protocol based.
+
+Volume-based network DDoS attacks focus on the sheer amount of traffic causing a denial-of-service condition.
+
+Some volume-based DDoS attacks rely on amplification techniques that leverage flaws or features in protocols and services to create significantly more traffic than the attacker sends.
+
+Volume-based attack examples include UDP and ICMP floods:
+
+- UDP floods take advantage of the fact that UDP doesn't use a three-way handshake like TCP does, allowing UDP floods to be executed simply by sending massive amounts of traffic that the target host will receive and attempt to process.
+
+Since UDP is not rate limited or otherwise protected and does not use a handshake, UDP floods can be conducted with minimal resources on the attacking systems.
+
+UDP floods can be detected using IDSs and IPSs and other network defenses that have a UDP flood detection rule or module. Manual detection of a flood can be done with a packet analyzer as part of a response process, but manual analysis of a live attack can be challenging and may not be timely.
+
+- Unlike UDP, ICMP is rate limited in many modern operating systems.
+
+ICMP floods, sometimes called ping floods, send massive numbers of ICMP packets, with each requesting a response. 
+
+ICMP floods require more aggregate bandwidth on the side of the attacker than the defender has, which is why a distributed denial-of-service via ICMP may be attempted.
+
+Many organizations rate-limit or block ping at network ingress points to prevent this type of attack, and they may rate-limit ICMPbetween security zones as well.
+
+Much like UDP floods, detection rules on network security devices as well as manual detection can be used, but proactive defenses are relatively easy and quite common to deploy despite the fact that some ICMP traffic may be lost if the rate limit is hit.
+
+Protocol-based network DDoS attacks focus on the underlying protocols used for networking.
+
+SYN floods send the first step in a three-way handshake and do not respond to the SYN-ACK that is sent back, thus consuming TCP stack resources until they are exhausted.
+
+These attacks are one of the most common modern protocol-based network DDoS attacks.
+
+Older attacks targeted vulnerable TCP stacks with attacks like the Ping of Death, which sent a ping packet too large for many to handle, and Smurf attacks, which leveraged ICMP broadcast messages with a spoofed sender address, causing systems throughout the broadcast domain to send traffic to the purported sender and thus overwhelming it.
+
+Fragmented packets, packets with all of their TCP flags turned on (Christmas Tree or Xmas attacks), and a variety of other attacks have leveraged flaws and limitations in how the networking was implemented in operating systems.
+
+Security professionals need to know that the features of network protocols and the specific implementations of those protocols may be leveraged as part of an attack and that they may need to identify those attacks.
+
+#
+
+### Operational Technology DDoS
+
+Operational technology (OT) is the software and hardware that controls devices and systems in buildings, factories, powerplants, and other industries. The growth of the Internet of Things (IoT) has led to more devices being network enabled and thus a whole new set of devices that can be attacked through the network.
+
+Since IoT devices frequently lack the security protections that computers and network devices have and may have more limited amounts of processor, memory, and storage available, they can be even more vulnerable to network-based DDoS attacks than other devices on the network.
+
+Most operational technology attacks will rely on the same types of network and application-based DDoS attacks we have discussed already.
+
+key element for security practitioners to remember is that OT will typically have less reporting, less management, and fewer security capabilities built in, meaning that detecting and responding to network DDoS and other attacks against OT devices and systems will need to be handled using external devices and tools.
+
+Detecting an attack against an OT device or network without additional security tools in place often means noticing that it is not responding or that it appears to have fallen off the network. Further investigation may show that the device has crashed or is online but not responding to network traffic because it is overwhelmed. At that point, traditional incident response and network incident investigation techniques can be put in to play
+
+Since OT and IoT devices in general remain less prepared for a potentially hostile network, design and architecture planning can be a critical control to keep them secure.
+
+Using isolated VLANs, limiting ingress and egress of network traffic, preventing unknown devices from being added to the isolated VLANs, and instrumenting those networks are all useful techniques to prevent OT network attacks of all sorts.
+
