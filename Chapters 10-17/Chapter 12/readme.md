@@ -479,3 +479,40 @@ These help provide QoS metrics, allowing traffic to be prioritized and managed a
 
 QoS offers support for bandwidth and traffic management as well as queuing to handle packets that are lower priority and need to wait. They can also provide either proportional or guaranteed bandwidth to prioritized traffic.
 
+All of this means that QoS can be an important security tool because it can allow important traffic to make it through a network, even when the network is under attack or suffering from congestion. 
+
+It also means that improperly configured QoS can be a threat to networks.
+
+Although technical means like 802.11e, MPLS, and 802.1Q are some of the first things that may come to mind when looking at quality of service, QoS can also be provided by simply having more bandwidth and overall network capacity.
+
+Don't overlook provisioning or overprovisioning as an option in network design.
+
+It may help by providing additional capacity when encrypted protocols and tunnels mean that traffic can't be independently prioritized because it cannot be categorized by a QoS rule or tool.
+
+#
+
+### Route Security
+
+Networks rely on routing protocols to determine which path traffic should take to other networks.
+
+Common protocols include BGP, RIP, OSPF, EIGRP, and others.
+
+Attacks against routing can result in onpath (man-in-the-middle) attacks, outages due to loops or delays in traffic being sent, or drops of traffic.
+
+They can also cause network congestion or issues with the ability of routers to determine a route to a remote network.
+
+Although there are many routing protocols, it can help consider examples as you think about route security. Examples of these protocols and their security capabilities include the following:
+
+- **BGP (Border Gateway Protocol)** does not have strong security built in.
+
+In fact, BGP routes are accepted by default, which occasionally leads to accidental or purposeful BGP hijacking, where a router advertises itself as a route and ends up redirecting Internet traffic through itself.
+
+When done purposefully, this means traffic may be intercepted by attackers.
+
+When done accidentally, it can disrupt large portions of the Internet, causing denial-of-service conditions and latency, among other issues.
+
+- **Open Shortest Path First (OSPF)** does integrate some security features, including MD5-based authentication, although it is not turned on by default.
+
+Like other authenticated protocols, OSPF does not secure the actual data, but it does validate that the data is complete and from the router it is expected to be from.
+
+- 
