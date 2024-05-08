@@ -969,13 +969,13 @@ Security professionals need to know that the features of network protocols and t
 
 ### Operational Technology DDoS
 
-Operational technology (OT) is the software and hardware that controls devices and systems in buildings, factories, powerplants, and other industries. The growth of the Internet of Things (IoT) has led to more devices being network enabled and thus a whole new set of devices that can be attacked through the network.
+Operational technology (OT) is the software and hardware that controls devices and systems in buildings, factories, power plants, and other industries. The growth of the Internet of Things (IoT) has led to more devices being network enabled and thus a whole new set of devices that can be attacked through the network.
 
 Since IoT devices frequently lack the security protections that computers and network devices have and may have more limited amounts of processor, memory, and storage available, they can be even more vulnerable to network-based DDoS attacks than other devices on the network.
 
 Most operational technology attacks will rely on the same types of network and application-based DDoS attacks we have discussed already.
 
-key element for security practitioners to remember is that OT will typically have less reporting, less management, and fewer security capabilities built in, meaning that detecting and responding to network DDoS and other attacks against OT devices and systems will need to be handled using external devices and tools.
+A key element for security practitioners to remember is that OT will typically have less reporting, less management, and fewer security capabilities built in, meaning that detecting and responding to network DDoS and other attacks against OT devices and systems will need to be handled using external devices and tools.
 
 Detecting an attack against an OT device or network without additional security tools in place often means noticing that it is not responding or that it appears to have fallen off the network. Further investigation may show that the device has crashed or is online but not responding to network traffic because it is overwhelmed. At that point, traditional incident response and network incident investigation techniques can be put in to play
 
@@ -983,3 +983,143 @@ Since OT and IoT devices in general remain less prepared for a potentially hosti
 
 Using isolated VLANs, limiting ingress and egress of network traffic, preventing unknown devices from being added to the isolated VLANs, and instrumenting those networks are all useful techniques to prevent OT network attacks of all sorts.
 
+## Network Reconnaissance and Discovery Tools and Techniques
+
+### Routes, DNS Information, and Paths
+
+When you want to determine if a system is online and what the latency of traffic sent to the system is, the simplest tool to use is ping.
+
+Ping sends ICMP echo request packets to the destination host and calculates the minimum, maximum, and mean round-trip times.
+
+As you might expect, you can use command-line flags to determine how many pings you send, the size of the payload, and various other settings.
+
+One of the most useful flags is the -t flag, which continues to send pings until it is stopped. Running ping -t can show if a system suddenly stops responding or if the response time for the system fluctuates significantly.
+
+Ping isn't as useful as it used to be in many circumstances because of security concerns about ping. Ping has been used to map networks and as a denial-of-service tool when attacking network stacks that did not handle a Ping of Death properly. Many networks block ping or highly restrict ICMP traffic in general, so you may not receive a ping response when you use ping. That doesn't mean the host is down or unreachable but merely that ping is blocked for legitimate reasons.
+
+Understanding where a system is logically located on the Internet, as well as the route that traffic will take from it to other systems, can also be very useful when you are attempting to understand network topology or for troubleshooting. Windows and Linux/Unix-based systems include the ability to run a route-tracing command that will attempt to validate the route between systems.
+
+In Windows, the command is called tracert, whereas Linux calls it traceroute. The functionality of both commands is very similar.
+
+traceroute behaves differently from tracert in one critical way: traceroute sends UDP packets, whereas tracert on Windows sends ICMP packets.
+
+This means that you may receive different responses from hosts along the route.
+
+The basic functionality of each testing process is the same, however: a time-to-live value is set starting at 1 and increasing with each packet sent. Routers decrease the TTL by 1, drop packets with a TTL of 0, and send back ICMP time–exceeded messages for those packets. That tells traceroute which router is at each step in the path. You'll also notice latency information shown, which can be useful to identify whether there is a slow or problematic link.
+
+pathping is a Windows tool that also traces the route to a destination while providing information about latency and packet loss.
+
+pathping calculates data over a time, rather than a single traversal of a path, providing some additional insight into what may be occurring on a network, but it can be significantly slower because each hop is given 25 seconds to gather statistical data.
+
+In addition to path information, technologists often need DNS information. That's where nslookup and dig come in. Both can perform a lookup of an IP address to return a domain name, or a domain name to return an IP address. Both can also look up specific DNS information like MX (mail server), A, and other DNS records. Users can manually select a specific DNS server or configure other options.
+
+dig from a Linux system provides similar information but with more detail
+
+You may be wondering why you might choose to use dig over the simple, clean output from nslookup. dig provides more data, and you can use it to do things such as request all the name servers for a domain with a command like dig @server example.comns, or you can perform a zone transfer using dig @server example.comaxfr. That means that dig is frequently used when a more capable tool is desired.
+
+#
+
+### System-Level Network Information
+
+Gathering network information about a system is another common task for technologists. The Security+ exam focuses on four tools commonly run on a local system to gather information about its network configuration and status:
+
+- ipconfig (Windows) and ifconfig (Linux) show the current TCP/IP network configuration for the host they are run on. This will include the interfaces that exist on the system, the IPv4 and IPv6 IP addresses, the MAC addresses associated with those interfaces, connection speeds, network masks, broadcast domains, and other details about the connections. Both commands can also be used to enable and disable interfaces, refresh or drop DHCP addresses, and control the network interfaces.
+
+- netstat provides network statistics by protocol and includes information about the local address and the remote address for each connection, as well as the state of TCP connections. Other statistics like open ports by process ID, lists of network interfaces, and services vary in availability from version to version.
+
+- arp provides information about the local host's ARP cache. Using the -a flag will show the current ARP cache for each interface on a system on a Windows system, but the same flag will show an alternate formatting of the ARP information for Linux systems. arp can be used to add and remove hosts from the ARP table and as part of passive reconnaissance efforts.
+
+- route is used to display and modify a system's routing tables. As with many of the other tools listed here, route's functionality and flags are different between Windows and Linux. Both tools have similar underlying functionality for adding, displaying, and removing routes despite the command-line differences.
+
+
+#
+
+### Port and Vulnerability Scanning
+
+Scanning for systems, ports, and vulnerabilities is a common task for security practitioners and network administrators. Discovering devices and identifying the services they provide as well as any vulnerabilities that exist is necessary for defenders, penetration testing teams, and attackers.
+
+nmap is a very popular port scanning tool available for both Windows and Linux. It can scan for hosts, services, service versions, and operating systems, and it can provide additional functionality via scripts. Basic nmap usage is quite simple: nmap [ hostname or IP address ] will scan a system or a network range. Additional flags can control the type of scan, including TCP connect, SYN, and other scan types, the port range, and many other capabilities
+
+Nessus is a vulnerability scanning tool. Although nmap will simply identify the port, protocol, and version of a service that is running, Nessus will attempt to identify whether the service is vulnerable and will provide a full report of those vulnerabilities with useful information, including references to documentation and fixes.
+
+They all operate on similar principles: they attempt to connect systems, and then connect to each port on each IP address or system that they are configured to scan and report back what they find.
+
+#
+
+### Data Transfer and General-Purpose Tools
+
+netcat is often called a network Swiss army knife because it can be used for many purposes. It is also a very small program, meaning that it can be easily transferred to systems where a tool like netcat might be useful. netcat can be used for purposes as simple as banner grabbing to determine what a service is. It can provide a local or remote shell, allow raw connections to services, transfer files, and allow you to interact with web servers.
+
+Connecting to a service with netcat is as simple as this:
+
+    nc [hostname] [port]
+
+
+Commands like SMTP or HTTP can then be directly issued. netcat can act as both a listener and a client, allowing shells or file transfers to be performed. Using netcat for file transfer involves first setting up a listener:
+
+    nc -lvp [port]> /home/example/file.txt
+
+Then downloading it using netcat is simple:
+
+    nc [listener IP] [port] < /file/location/for/download/file.txt
+
+netcat 's wide variety of uses mean that it can be used for many purposes. You can even port scan with netcat ! The curl utility is found on Linux systems and is used to transfer data via URLs. That means it is frequently used to manually perform HTTP commands like HTTP get or to fetch HTTP headers. It can also be used for file transfer via FTP, FTPS, and SFTP, and for general purposes for a wide variety of protocols that use a URL. A sample curl command to retrieve a page using an HTTP get can be performed using this:
+
+    curl --request GET https://www.example.com
+
+The final general tool in this category is hping , a tool used to assemble and analyze TCP/IP packets. Penetration testers and security analysts sometimes need to build a custom packet to test for an issue or a vulnerability, or to see if a firewall will respond properly. Analysis using hping can also provide information like OS fingerprinting or help guess at how long a system has been online based on packet details. It is available for both Linux and Windows, making it a useful tool in a variety of circumstances.
+
+As you prepare for the exam, consider using netcat to open a remote shell; to transfer a file, try fetching a web page using curl ; or to follow a tutorial on building a packet using hping.
+
+#
+
+### OSINT and Data Gathering Tools
+
+theHarvester is an open source intelligence gathering tool that can retrieve information like email accounts, domains, usernames, and other details using LinkedIn; search engines like Google, Bing, and Baidu; PGP servers; and other sources. theHarvester can be run from a command line and provided with a domain or URL and a search engine to use.
+
+Another way to gather intelligence is to use scanless, a port scanner that uses third-party scanners to gather information. The scanless tool leverages port scanners like viewdns, yougetsignal, and spiderip.
+
+Scanless then uses those tools to run a port scan without exposing the system that you are running from as the source of the scans. The basic command line is simple and will return port scan data much like an nmap scan, with output depending on the scanning tool you have selected:
+
+    scanless -s [chosen scanning site] -t target
+
+It is important to note that scanless will run from outside of an organization, rather than inside, and that results will therefore look different than if you ran the scan from a workstation within trust or security boundaries.
+
+The next tool in this list is Sn1per, an automated scanning tool that combines multiple tools for penetration testers, including reconnaissance via WhoIs, DNS, and ping; port scanning and enumeration; Metasploit and nmap automation; and brute-forcing to attempt to automatically gain access to targets. Whereas theHarvester focuses on open source intelligence, Sn1per is intended to perform automated penetration testing.
+
+The final tool for information gathering in the Security+ exam outline is DNSEnum. This tool is used to find DNS servers and entries for a domain and can be directed to query a specific DNS server or default to the DNS server the system it is running on relies on.
+
+Information gathering tools like these can help network administrators and security professionals check the configuration of their own networks, as well as help penetration testers (or attackers) gather information about their targets. As a security professional, you should be aware of the tools and the types of information they provide so that you can pick the right tool to gather the information you need.
+
+#
+
+### Packet Capture and Replay
+
+The ability to capture and analyze network traffic is important for security professionals who need to identify attacks, perform passive reconnaissance, and document their own actions on a network during a penetration test.
+
+Many Linux and Unix systems have tcpdump, a command-line packet capture tool available by default. It can capture packets using a variety of filtering and output options. Since network traffic can be high volume, capturing to a file is often a good idea with tcpdump. 
+
+A typical tcpdump command line that captures TCP port 80 traffic from the primary network interface for a Linux system to a PCAP file looks like this:
+
+    tcpdump -w capture.pcap -i eth0 tcp port 80
+
+You can also capture packets by source and destination IP, read from a file, and perform other operations that can be useful for security practitioners.
+
+Note that nmap randomizes the ports in a scan to avoid scanning them in a linear fashion but that a capture file like this allows you to quickly notice that the system is receiving a series of connections that quickly test ports and then end without continuing traffic.
+
+Systems that are locked down for security reasons may remove common security tools and other utilities like tcpdump, compilers, and a wide range of other common system components to ensure that a successful attacker will have fewer options at their disposal
+
+This is one reason that netcat is popular among penetration testers—you can use it to perform many of these actions and it is small enough to be transferred quickly and easily without being noticed. Most general-purpose systems are likely to have some, if not all, of the common tools you will 
+learn about here.
+
+Wireshark provides a GUI and a wide range of filtering, protocol analysis, and inspection tools, allowing analysts to perform more complex analysis of network traffic in an automated or tool-assisted way.
+
+Wireshark presents a variety of tools, including analysis, statistical tools, and specialized capabilities for working with telephony (VoIP), wireless, and other packet captures.
+
+Packet captures from tools like tcpdump or Wireshark can be replayed using tcpreplay. By default, it will simply send the traffic back out at the speed it was captured at, but tcpreplay can be used to modify speed, split output, or apply filters or modifications. These are all useful for testing security devices. As an analyst, you might use tcpreplay to replay a known attack to check to see if a newly written IPS rule will trigger or if a firewall will stop a denial-of-service attack.
+
+#
+
+### Sandboxing
+
+Cuckoo, better known as Cuckoo Sandbox. Cuckoo Sandbox is an automated malware analysis tool that can analyze malware in a variety of advanced ways, from tracking calls to system components and APIs to capturing and analyzing network traffic sent by malware. Since Cuckoo Sandbox is an automated tool, once it is set up you can simply have it analyze potential malware
