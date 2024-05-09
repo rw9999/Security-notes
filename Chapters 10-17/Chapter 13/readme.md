@@ -491,3 +491,67 @@ Many higher education institutions provide a federated authentication service fo
 
 ## Managing Secure Mobile Devices
 
+Organizations use a wide variety of mobile devices, ranging from phones and tablets to more specialized devices. As you consider how your organization should handle them, you need to plan for your deployment and management model, whether you will use a mobile device management tool, and what 
+security options and settings you will put in place.
+
+### Mobile Device Deployment Methods
+
+When organizations use mobile devices, one important design decision is the deployment and management model that will be selected.
+
+The most common options are BYOD, or bring your own device; CYOD, or choose your own device; COPE, or corporate-owned, personally enabled; and fully corporate-owned.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/5e5fcadc-92d6-455d-8ca3-90fca04673fb)
+
+
+#
+
+### Mobile Device Management
+
+Mobile devices can be a challenge to manage, particularly due to operating system limitations, variability between hardware manufacturers, carrier settings, and operating system versions.
+
+Many mobile devices are intended to be used by individuals and don't have the broad set of built-in controls that more business-oriented devices and software typically have. When you add in the wide variety of device deployment models, security practitioners face real challenges in an increasingly mobile device–focused environment.
+
+Thus, when administrators and security professionals need to manage mobile devices, they frequently turn to mobile device management (MDM) or unified endpoint management (UEM) tools.
+
+MDM tools specifically target devices like Android and iOS phones, tablets, and other similar systems.
+
+UEM tools combine mobile devices, desktops and laptops, and many other types of devices in a single management platform.
+
+A third class of tools known as mobile application management (MAM) tools focuses specifically on the applications that are deployed to mobile devices.
+
+Common features include application delivery, configuration, update and version management, performance monitoring and analytics, logging, and data gathering, as well as various controls related to users and authentication. 
+
+Although MAM products are in use in some organizations, they are becoming less common as more full-featured MDM and UEM tools take over the market to provide more control of mobile devices.
+
+In addition to MDM, UEM, and MAM tools, you may encounter enterprise mobility management (EMM) tools. The Security+ exam doesn't cover those, but you should be aware you may encounter that acronym too. EMM tools tend to have a tighter focus on enterprise data, but their focus has changed from managing that data on mobile devices to allowing mobility as a business practice for users across a broad range of platforms while keeping enterprise data secure.
+
+Regardless of the type of tool you choose, there are a number of features your organization may use to ensure that your mobile devices and the data they contain are secure.
+
+Although the following list isn't a complete list of every feature available in MDM, UEM, and MAM tools, you need to know about each of them, and why you might want to have it, to be ready for the exam.
+
+- Application management features are important to allow enterprise control of applications. These features may include deploying specific applications to all devices; limiting which applications can be installed; remotely adding, removing, or changing applications and settings for them; or monitoring application usage.
+
+- Content management (sometimes called MCM, or mobile content management) ensures secure access and control of organizational files, including documents and media on mobile devices. A major concern for mobile device deployments is the combination of organizational data and personal data on BYOD and shared-use devices. Content management features lock away business data in a controlled space and then help manage access to that data. In many cases, this requires use of the MDM's application on the mobile device to access and use the data.
+
+- Remote-wipe capabilities are used when a device is lost or stolen, or when the owner is no longer employed by the organization. It is important to understand the difference between a full device wipe and wiping tools that can wipe only the organizational data and applications that have been deployed to the device. In environments where individuals own the devices, remote wipe can create liability and other issues if it is used and wipes the device. At the same time, remote wipe with a confirmation process that lets you know when it has succeeded is a big part of helping protect organizational data.
+
+Remote-wipe capabilities will work only if the device can receive the command to perform the wipe. This means that thieves and attackers who want to steal your data will immediately place the device in airplane mode or will isolate the phone using an RF-blocking bag or other container to ensure that the device can't send or receive Bluetooth, Wi-Fi, or cellular signals. A smart attacker can prevent remote wipes and may be able to gain access to your data. That's when device encryption, strong passcodes, and the underlying security of the operating system become even more important.
+
+- Geolocation and geofencing capabilities allow you to use the location of the phone to make decisions about its operation. Some organizations may only allow corporate tablets to be used inside corporate facilities to reduce the likelihood of theft or data access outside their buildings. Other organizations may want devices to wipe themselves if they leave a known area. Geolocation can also help locate lost devices, in addition to the many uses for geolocation that we are used to in our daily lives with mapping and similar tools.
+
+- Screen locks, passwords, and PINs are all part of normal device security models to prevent unauthorized access. Screen lock time settings are one of the most frequently set security options for basic mobile device security. Much like desktops and laptops, mobile device management tools also set things like password length, complexity, and how often passwords or PINs must be changed.
+
+- Biometrics are widely available on modern devices, with fingerprints and facial recognition the most broadly adopted and deployed. Biometrics can be integrated into mobile device management capabilities so that you can deploy biometric authentication for users to specific devices and leverage biometric factors for additional security or ease of use.
+
+- Context-aware authentication goes beyond PINs, passwords, and biometrics to better reflect user behavior. Context may include things like location, hours of use, and a wide range of other behavioral elements that can determine whether a user should be able to log in.
+
+- Containerization is an increasingly common solution to handling separation of work and personal-use contexts on devices. Using a secure container to run applications, store data, and otherwise keep the use of a device separate greatly reduces the risk of cross-contamination and exposure. In many MDM models, applications use wrappers to run them, helping keep them separate and secure. In others, a complete containerization environment is run as needed.
+
+- Storage segmentation can be used to keep personal and business data separate as well. This may be separate volumes or even separate encrypted volumes that require specific applications, wrappers, or containers to access them. In fact, storage segmentation and containerization or wrapper technology are often combined to better implement application and separation.
+
+- Full-device encryption (FDE) remains the best way to ensure that stolen or lost devices don't result in a data breach. When combined with remote-wipe capabilities and strong authentication requirements, FDE can provide the greatest chance of a device resisting data theft.
+
+- Push notifications may seem like an odd inclusion here, but sending messages to devices can be useful in a number of scenarios. You may need to alert a user to an issue or ask them to perform an action. Or you may want to communicate with someone who found a lost device or tell a thief that the device is being tracked. Thus, having the ability to send messages from a central location can be a useful tool in an MDM or UEM system.
+
+UEM and MDM tools may also include features like per-application VPN to keep application data secure when that application is used, onboarding tools to help with BYOD environments, and advanced threat detection and response capabilities.
+
