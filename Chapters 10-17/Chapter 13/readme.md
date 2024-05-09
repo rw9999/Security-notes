@@ -502,6 +502,49 @@ The most common options are BYOD, or bring your own device; CYOD, or choose your
 
 ![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/5e5fcadc-92d6-455d-8ca3-90fca04673fb)
 
+These options boil down to a few common questions. 
+
+First, who owns, chooses, and pays for the device and its connectivity plans? 
+
+Second, how is the device managed and supported? 
+
+Third, how are data and applications managed, secured, and protected?
+
+BYOD places the control in the hands of the end user, since they select and manage their own device.
+
+In some BYOD models, the organization may use limited management capabilities such as the ability to remotely wipe email or specific applications, but BYOD's control and management model is heavily based on the user.
+
+This option provides far less security and oversight for the organization.
+
+In CYOD models, the organization pays for the device and typically for the cellular plan or other connectivity. 
+
+The user selects the device, sometimes from a list of preferred options, rather than bringing whatever they would like to use.
+
+In a CYOD design of this type, support is easier since only a limited number of device types will be encountered, and that can make a security model easier to establish as well. 
+
+Since CYOD continues to leave the device in the hands of the user, security and management is likely to remain less standardized, although this can vary.
+
+In a COPE model, the device is company-owned and -managed. 
+
+COPE recognizes that users are unlikely to want to carry two phones and thus allows reasonable personal use on corporate devices. 
+
+This model allows the organization to control the device more fully while still allowing personal use
+
+A fully corporate-owned and -managed device is the most controlled environment and frequently more closely resembles corporate PCs with a complete control and management suite. 
+
+This is the least user-friendly of the options, since a corporate-chosen and -managed device will meet corporate needs but frequently lacks the flexibility one of the more end user–centric designs.
+
+Although these are common descriptions, real-world implementations vary significantly, and the lines between each of these solutions can be blurry.
+
+Instead of hard-and-fast rules, these are examples of starting places for organizational mobile device deployment models and can help drive security, management, and operational practices discussions. The best way to look at these practices in real-world use is as part of a spectrum based on organizational needs, capabilities, and actual usage.
+
+There's one more acronym you are likely to encounter that the Security+ exam outline doesn't use: COBO, or company-owned business only. COBO is most frequently used to describe company-owned devices used only for business work. Devices used to scan tickets at events, tablets used by maintenance supervisors for work tracking, or inventory control devices all fit the COBO description. COBO doesn't leave a carve-out for personal use at all, so you should think of these as organizationpurpose- specific mobile devices.
+
+One key technology that can help make mobile device deployments more secure is the use of **virtual desktop infrastructure (VDI)** to allow relatively low-security devices to access a secured, managed environment.
+
+Using VDI allows device users to connect to the remote environment, perform actions, and then return to normal use of their device.
+
+Containerization tools can also help split devices between work and personal-use environments, allowing a work container or a personal container to be run on a device without mixing data and access.
 
 #
 
@@ -555,3 +598,62 @@ Remote-wipe capabilities will work only if the device can receive the command to
 
 UEM and MDM tools may also include features like per-application VPN to keep application data secure when that application is used, onboarding tools to help with BYOD environments, and advanced threat detection and response capabilities.
 
+Much like other classes of tools, the capabilities of MDM and UEM tools are continuing to overlap more and more every day, broadening the market but also making it more confusing. 
+
+If you have to choose a tool in this space, it helps to focus on the specific requirements and features that your organization needs and to choose your tool based on how those are implemented, rather than the laundry list of features that many tools bring.
+
+MDM and UEM tools also provide a rich set of controls for user behaviors. 
+
+They can enable closed or managed third-party application stores or limit what your users can download and use from the application stores that are native to the operating system or device you have deployed. 
+
+They can also monitor for firmware updates and versions, including whether firmware over-the-air (OTA) updates have been applied to ensure that patching occurs.
+
+Of course, users may try to get around those controls by rooting their devices, or jailbreaking them so that they can sideload (manually install from a microSD card or via a USB cable) programs or even a custom firmware on the device.
+
+MDM and UEM tools will detect these activities by checking for known good firmware and software, and they can apply allow or block lists to the applications that the devices have installed.
+
+Controlling which services and device capabilities can be used, and even where they can be used, is also a feature that many organizations rely on. 
+
+Limiting or prohibiting use of cameras and microphones as well as SMS, MMS, and rich communication services (RCS) messages can help prevent data leakage from secure areas.
+
+Limiting the use of external media and USB on-the-go (OTG) functionality that allows devices to act as hosts for USB external devices like cameras or storage can also help limit the potential for misuse of devices.
+
+MDM and UEM tools also typically allow administrators to control GPS tagging for photos and other documents that may be able to embed GPS data about where they were taken or created. The ability to use location data can be a useful privacy control or may be required by the organization as part of documentation processes.
+
+Some organizations such as contractors for the U.S. Department of Defense ban cell phones with cameras from their facilities. Although it used to be easy to buy a phone without a camera, finding one now is very difficult. That's where MDM features that can block camera use can be handy. Although there may be workarounds, having a software package with the ability to block features like a camera may be an acceptable and handy control for some organizations.
+
+Administrators may also want to control how devices use their wireless connectivity. That can take the form of limiting which Wi-Fi networks devices can connect to, preventing them from forming or joining ad hoc wireless networks, and disabling tethering and the ability to become a wireless hotspot.
+
+Bluetooth and NFC controls can also help prevent the device from being used in ways that don't fit organizational security models, such as use as a payment method or access device.
+
+The final item listed in the Security+ outline for enforcement and monitoring is carrier unlocking.
+
+**Carrier unlocking** allows phones to be used with other cellular providers. Monitoring the carrier unlock status of a device is not a common MDM capability and is typically handled at the carrier level.
+
+#
+
+### Specialized Mobile Device Security Tools
+
+Securing mobile devices also involves operating system and hardware security. The Security+ exam lists two specific security technologies that are specific examples of mobile device security capabilities.
+
+The first is microSD hardware security modules (HSMs). 
+
+Like the hardware security modules we have talked about elsewhere in this book, a microSD HSM is a hardware key management and Public Key Infrastructure (PKI) tool in a very small form factor.
+
+In fact, HSMs like this are available as more than just microSD cards—they come in USB, SIM, and other form factors as well.
+
+Like other HSMs, these devices provide services for key creation, backup and restore, and management, and support public key authentication and other cryptographic tools. Of course, the devices aren't useful on their own and require an app to use them
+
+The second specific technology the exam considers is SEAndroid. 
+
+SEAndroid is a version of Security Enhanced Linux for Android devices.
+
+SEAndroid provides the ability to enforce mandatory access control on Android devices. 
+
+That means that Android processes of all types can be better compartmentalized, limiting exploits as well as helping to secure system services, system and application data, and logs.
+
+Like many security systems, any action that isn't explicitly allowed is denied—a default deny system.
+
+SEAndroid operates in an enforcement mode that logs any permission denials that occur in addition to enforcing them. 
+
+SEAndroid allows a broad range of policies to be implemented on Android devices.
