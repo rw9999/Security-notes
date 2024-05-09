@@ -277,3 +277,217 @@ Although BIAS attacks have not yet been seen in the wild, as of May 2020 informa
 
 Attackers who want to conduct evil twin attacks, or who want systems to disconnect from a wireless network for any reason, have two primary options to help with that goal: disassociation attacks and jamming.
 
+**Disassociation** describes what happens when a device disconnects from an access point.
+
+Many wireless attacks work better if the target system can be forced to disassociate from the access point that it is using when the attack starts. That will cause the system to attempt to reconnect, providing an attacker with a window of opportunity to set up a more powerful evil twin or to capture information as the system tries to reconnect.
+
+The best way for attackers to force a system to disassociate is typically to send a de-authentication frame, a specific wireless protocol element that can be sent to the access point by spoofing the victim's wireless MAC address.
+
+When the AP receives it, it will disassociate the device, requiring it to then reconnect to continue.
+
+Since management frames for networks that are using WPA2 are often not encrypted, this type of attack is relatively easy to conduct.
+
+WPA3, however, requires protected management frames and will prevent this type of deauthentication attack from working.
+
+Another means of attacking radio frequency networks like Wi-Fi and Bluetooth is to jam them.
+
+Jamming will block all the traffic in the range or frequency it is conducted against.
+
+Since jamming is essentially wireless interference, jamming may not always be intentional—in fact, running into devices that are sending out signals in the same frequency range as Wi-Fi devices isn't uncommon.
+
+Wi-Fi deauthers are often incorrectly called jammers. A deauther will send deauthentication frames, whereas a jammer sends out powerful traffic to drown out traffic.
+
+Jammers are generally prohibited in the United States by FCC regulations, whereas deauthers are not since they operate within typical wireless power and protocol norms.
+
+A final type of attack against Wi-Fi networks is an **initialization vector (IV)** attack.
+
+The original implementation of wireless security was WEP (Wired Equivalent Privacy).
+
+WEP used a 24-bit initialization vector, which could be reverse-engineered once enough traffic from a network was captured.
+
+After the traffic was analyzed, the initialization vector used to generate an RC4 key stream could be derived, and all traffic sent on the network could be decrypted.
+
+Fortunately, IV attacks are no longer a concern for modern networks.
+
+Both WPA2 and WPA3 do not use weak initialization vectors like this, making the IV attack historical knowledge.
+
+Although initialization vector attacks are listed on the Security+ exam outline, they're unlikely to show up on the test. Even the most out-of-date networks you encounter in the real world are likely to support WPA2 at a minimum. If you do encounter a network using WEP, you'll probably find a lot of other critical security flaws due to truly ancient devices and systems as well!
+
+#
+
+### Designing a Network
+
+Designing your Wi-Fi network for usability, performance, and security requires careful wireless access point (WAP) placement as well as configuration.
+
+Tuning and placement are critical, because wireless access points have a limited number of channels to operate within, and multiple wireless access points using the same channel within range of each other can decrease the performance and overall usability of the network.
+
+At the same time, organizations typically don't want to extend signal to places where they don't intend their network to reach. 
+
+That means your design may need to include AP placement options that limit how far wireless signal extends beyond your buildings or corporate premises.
+
+An important part of designing a wireless network is to conduct a site survey.
+
+**Site surveys** involve moving throughout the entire facility or space to determine what existing networks are in place and to look at the physical structure for the location options for your access points.
+
+In new construction, network design is often included in the overall design for the facility. Since most deployments are in existing structures, however, walking through a site to conduct a survey is critical.
+
+Site survey tools test wireless signal strength as you walk, allowing you to match location using GPS and physically marking your position on a floorplan or map as you go.
+
+They then show where wireless signal is, how strong it is, and what channel or channels each access point or device is on in the form of a **heatmap**.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/2e0b6bc4-65e9-437b-802c-3552ded254c3)
+
+Note that access points have a high signal area that drops off and that the heat maps aren't perfect circles. The building's construction and interference from other devices can influence how the wireless signal behaves.
+
+Determining which channels your access points will use is also part of this process.
+
+In the 2.4 GHz band, each channel is 20 MHz wide, with a 5 MHz space between. There are 11 channels for 2.4 GHz Wi- Fi deployments, resulting in overlap between channels in the 100 MHz of space allocated.
+
+
+
+In most use, this means that channels 1, 6, and 11 are used when it is possible to control channel usage in a space to ensure that there is no overlap and thus interference between channels.
+
+In dense urban areas or areas where other organizations may have existing Wi-Fi deployments, overlapping the channels in use onto your heatmap will help determine what channel each access point should use.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/ff528f09-dcc9-4c1a-810e-56c4e66b4a3a)
+
+The 2.4 GHz channels in use in North America. Additional channels are available in Japan, Indonesia, and outside of the U.S., with those areas supporting channels 12 and 13 in addition to the 11 channels U.S. networks use. 
+
+Note the overlap between the channels, which can cause interference if access points use overlapping channels within reach of each other.
+
+Many access points will automatically select the best channel when they are deployed.
+
+Wireless network management software can monitor for interference and overlap problems and adjust your network using the same capabilities that they use to determine if there are new rogue access points or other unexpected wireless devices in their coverage area.
+
+These more advanced enterprise Wi- Fi controllers and management tools can also adjust broadcast power to avoid interference or even to overpower an unwanted device.
+
+Figuring out what access points and other devices are already in place, and what networks may already be accessible in a building or space that you intend to deploy a wireless network into, can be a challenge.
+
+Fortunately, Wi-Fi analyzer software is used to gather all the data you need to survey and plan networks, create heatmaps, identify the best channel mapping to use in 2D and 3D models, conduct speed tests, and perform wireless client information, among other tasks. 
+
+Although each analyzer tool may have different functionality and features, they are a critical part of the toolkit that network engineers and security professionals use to assess wireless networks.
+
+#
+
+### Controller and Access Point Security
+
+Enterprise networks rely on wireless local area network (WLAN) controllers to help managed access points and the organization's wireless network.
+
+They offer additional intelligence and monitoring; allow for software-defined wireless networks; and can provide additional services, such as blended Wi-Fi and 5G wireless roaming.
+
+Wireless controllers can be deployed as hardware devices, as a cloud service, or as a virtual machine or software package.
+
+Not all organizations will deploy a wireless controller. 
+
+Small and even mid-sized organizations may choose to deploy standalone access points to provide wireless network access.
+
+In both of these scenarios, properly securing controllers and access points is an important part of wireless network security.
+
+Much like other network devices, both controllers and APs need to be configured to be secure by changing default settings, disabling insecure protocols and services, setting strong passwords, protecting their administrative interfaces by placing them on isolated VLANs or management networks, and by ensuring that they are regularly patched and updated.
+
+In addition, monitoring and logging should be turned on and tuned to ensure that important information and events are logged both to the wireless controller or access point and to central management software or systems.
+
+More advanced WLAN controllers and access points may also have advanced security features such as threat intelligence, intrusion prevention, or other capabilities integrated into them.
+
+Depending on your network architecture and security design, you may want to leverage these capabilities, or you may choose to disable them because your network infrastructure implements those capabilities in another location or with another tool, or they do not match the needs of the network where you have them deployed.
+
+#
+
+### Wi-Fi Security Standards
+
+Wi-Fi networks rely on security and certification standards to help keep them secure.
+
+In fact, modern wireless devices can't even display the Wi-Fi trademark without being certified to a current standard like WPA2 or WPA3.
+
+WPA2, or Wi-Fi Protected Access 2, is a widely deployed and used standard that provides two major usage modes:
+
+- WPA-Personal, which uses a preshared key and is thus often called WPA-PSK. This allows clients to authenticate without an authentication server infrastructure.
+
+- WPA-Enterprise relies on a RADIUS authentication server as part of an 802.1x implementation for authentication. Users can thus have unique credentials and be individually identified.
+
+WPA2 introduced the use of the Counter Mode **Cipher Block Chaining Message Authentication Code Protocol (CCMP)**.
+
+CCMP uses Advanced Encryption Standard (AES) encryption to provide confidentiality, delivering much stronger encryption than WEP or the wired equivalent privacy protocol used previously.
+
+In addition to confidentiality, CCMP provides authentication for the user and access control capabilities. 
+
+You'll note that user authentication is provided but not network authentication—that is an important addition in WPA3.
+
+WPA3, the replacement for WPA2, has been required to be supported in all Wi-Fi devices since the middle of 2018.
+
+WPA3 hasn't reached broad implementation in normal use due the numbers of unsupported devices in many organizations, but as devices are replaced, WPA3 deployments will become more common.
+
+WPA3 improves on WPA2 in a number of ways depending on whether it is used in Personal or Enterprise mode.
+
+WPA3-Personal provides additional protection for password-based authentication, using a process known as **Simultaneous Authentication of Equals (SAE)**.
+
+SAE replaces the preshared keys used in WPA2 and requires interaction between both the client and network to validate both sides.
+
+That interaction slows down brute-force attacks and makes them less likely to succeed.
+
+Since SAE means that users don't have to all use the same password, and in fact allows them to choose their own, it helps with usability as well.
+
+WPA3-Personal also implements perfect forward secrecy, which ensures that the traffic sent between the client and network is secure even if the client's password has been compromised.
+
+Perfect forward secrecy uses a process that changes the encryption keys on an ongoing basis so that a single exposed key won't result in the entire communication being exposed. Systems using perfect forward secrecy can refresh the keys they are using throughout a session at set intervals or every time a communication is sent.
+
+WPA3-Enterprise provides stronger encryption than WPA2, with an optional 192-bit mode, and adds authenticated encryption and additional controls for deriving and authenticating keys and encrypting network frames. WPA3 thus offers numerous security advantages over existing WPA2 networks.
+
+#
+
+### Wireless Authentication
+
+Although the security protocols and standards that a network uses are important, it is also critical to control access to the network itself. Organizations have a number of choices when it comes to choosing how they provide access to their networks.
+
+The Security+ exam outline includes three major types of authentication in modern Wi-Fi networks:
+
+- Open networks, which do not require authentication but that often use a **captive portal** to gather some information from users who want to use them.
+
+Captive portals redirect traffic to a website or registration page before allowing access to the network. Open networks do not provide encryption, leaving user data at risk unless the traffic is sent via secure protocols like HTTPS.
+
+- Use of preshared keys (PSKs) requires a passphrase or key that is shared with anybody who wants to use the network. This allows traffic to be encrypted but does not allow users to be uniquely identified.
+
+- Enterprise authentication relies on a RADIUS server and utilizes an Extensible Authentication Protocol (EAP) for authentication.
+
+You may have noticed that the authentication types on the exam outline match WPA2.
+
+WPA3-Personal replaces the WPA2-PSK authentication mode with password-based authentication, where users can choose passwords, and implements perfect forward secrecy to keep traffic secure.
+
+WPA3-Enterprise continues to use RADIUS but improves the encryption and key management features built into the protocol, and provides greater protection for wireless frames.
+
+Open Wi-Fi networks also get an upgrade with the Wi-Fi Enhanced Open certification, which uses opportunistic wireless encryption (OWE) to provide encrypted Wi-Fi on open networks when possible—a major upgrade from the unencrypted open networks used with WPA2.
+
+#
+
+### Wireless Authentication Protocols
+
+802.1x is an IEEE standard for access control and is used for both wired and wireless devices.
+
+In wireless networks, 802.1x is used to integrate with RADIUS servers, allowing enterprise users to authenticate and gain access to the network.
+
+Additional actions can be taken based on information about the users, such as placing them in groups or network zones, or taking other actions based on attributes once the user has been authenticated.
+
+Wi-Fi networks rely on IEEE 802.1x and various versions of EAP.
+
+EAP is used by 802.1x as part of the authentication process when devices are authenticating to a RADIUS server.
+
+There are many EAP variants because EAP was designed to be extended, as the name implies.
+
+Here are common EAP variants that you should be aware of:
+
+- **Protected Extensible Authentication Protocol (PEAP)** authenticates servers using a certificate and wraps EAP using a TLS tunnel to keep it secure. Devices on the network use unique encryption keys, and Temporal Key Integrity Protocol (TKIP) is implemented to replace keys on a regular basis.
+
+- **Flexible Authentication via Secure Tunneling Extensible Authentication Protocol (EAP-FAST)** is a Cisco-developed protocol that improved on vulnerabilities in the Lightweight Extensible Authentication Protocol (LEAP). EAP-FAST is focused on providing faster reauthentication while devices are roaming. EAP-FAST works around the public key exchanges that slow down PEAP and EAP-TLS by using a shared secret (symmetric) key for reauthentication. EAP-FAST can use either preshared keys or dynamic keys established using public key authentication.
+
+- **Extensible Authentication Protocol-Transport Layer Security (EAP-TLS)** implements certificate-based authentication as well as mutual authentication of the device and network. It uses certificates on both client and network device to generate keys that are then used for communication. EAP-TLS is used less frequently due to the certificate management challenges for deploying and managing certificates on large numbers of client devices.
+
+- **EAP Tunneled Transport Layer Security (EAP-TTLS)** extends EAP-TLS, and unlike EAP-TLS, it does not require that client devices have a certificate to create a secure session. This removes the overhead and management effort that EAP-TLS requires to distribute and manage endpoint certificates while still providing TLS support for devices. A concern for EAP-TTLS deployments is that EAP-TTLS can require additional software to be installed on some devices, whereas PEAP, which provides similar functionality, does not. EAP-TTLS does provide support for some less secure authentication mechanisms, meaning that there are times where it may be implemented due to specific requirements.
+
+When organizations want to work together, RADIUS servers can be federated to allow individuals from other organizations to authenticate to remote networks using their home organization's accounts and credentials.
+
+Federating RADIUS servers like this requires trust to be established between the RADIUS servers as part of a federation.
+
+Many higher education institutions provide a federated authentication service for wireless called eduroam, which allows students, faculty, and staff from any eduroam institution to authenticate and use the networks at any other eduroam supporting organization. Of course, RADIUS servers can be federated in a single organization as well if there are multiple RADIUS domains.
+
+## Managing Secure Mobile Devices
+
