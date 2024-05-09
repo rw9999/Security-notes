@@ -185,10 +185,52 @@ Attack frameworks are used to understand adversaries, document techniques, and t
 
 As you review frameworks like these, consider how you would apply them as part of an incident response process.
 
-For example, if you find an attack tool as part of an incident response effort, what would considering that tool via the Diamond model lead you to? What information might you seek next, and why?
+For example, if you find an attack tool as part of an incident response effort, what would consider that tool via the Diamond model lead you to? What information might you seek next, and why?
 
 #
 
 ### MITRE ATT&CK
+
+MITRE provides the ATT&CK, or Adversarial Tactics, Techniques, and Common Knowledge, a knowledgebase of adversary tactics and techniques.
+
+The ATT&CK matrices includes detailed descriptions, definitions, and examples for the complete threat lifecycle from initial access through execution, persistence, privilege escalation, and exfiltration. At each level, it lists techniques and components, allowing threat assessment modeling to leverage common descriptions and knowledge.
+
+ATT&CK matrices include pre-attack, enterprise matrices focusing on Windows, macOS, Linux, and cloud computing, as well as iOS and Android mobile platforms.
+
+It also includes details of mitigations,threat actor groups, software, and a host of other useful details. All of this adds up to make ATT&CK the most comprehensive freely available database of adversary techniques, tactics, and related information that the authors of this book are aware of.
+
+The ATT&CK framework is the most popular of the three models discussed here and has broad support in a variety of security tools, which means that analysts are most likely to find ATT&CK-related concepts, labels, and tools in their organizations.
+
+#
+
+### The Diamond Model of Intrusion Analysis
+
+The Diamond Model of Intrusion Analysis describes a sequence where an adversary deploys a capability targeted at an infrastructure against a victim.
+
+In this model, activities are called events, and analysts label the vertices as events are detected or discovered.
+
+The model is intended to help analysts discover more information by highlighting the relationship between elements by following the edges between the events.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/5559387d-4b16-4e27-ae9e-c6e596d8713d)
+
+The Diamond Model uses a number of specific terms:
+
+- **Core Features** for an event, which are the adversary, capability, infrastructure, and victim (the vertices of the diamond)
+
+- **The Meta-Features**, which are start and end timestamps, phase, result, direction, methodology, and resources, which are used to order events in a sequence known as an activity thread, as well as for grouping events based on their features
+
+- A **Confidence Value**, which is undefined by the model but that analysts are expected to determine based on their own work
+
+The Diamond Model focuses heavily on understanding the attacker and their motivations, and then uses relationships between these elements to allow defenders to both understand the threat and think about what other data or information they may need to obtain or may already have available.
+
+#
+
+### The Cyber Kill Chain
+
+Lockheed Martin's Cyber Kill Chain is a seven-step process.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/71db8b9c-60b2-4bdb-ad06-d5be61662c53)
+
+Here are the seven stages of the Cyber Kill Chain:
 
 
