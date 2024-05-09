@@ -233,4 +233,45 @@ Lockheed Martin's Cyber Kill Chain is a seven-step process.
 
 Here are the seven stages of the Cyber Kill Chain:
 
+**Reconnaissance**
+
+This stage identifies targets. Adversaries are planning their attacks and will gather intelligence about the target, including both open source intelligence and direct acquisition of target data via scanning.
+
+Defenders must gather data about reconnaissance activities and prioritize defenses based on that information.
+
+**Weaponization**
+
+This stage involves building or otherwise acquiring a weaponizer, which combines malware and an exploit into a payload that can be delivered to the target. This may require creating decoy documents, choosing the right  command-and-control (C2) tool, and other details. The model emphasizes the fact that defenders need to conduct full malware analysis in this stage to understand not only what payload is dropped but also how the weaponized exploit was made. 
+
+Defenders should also build detections for weaponizers, look at the timeline of when malware was created versus its use, and collect both files and metadata to help them see if the tools are widely shared or closely held and thus potentially very narrowly targeted.
+
+**Delivery**
+
+This stage occurs when the adversary deploys their tool either directly against targets or via a release that relies on staff at the target interacting with it, such as in an email payload, on a USB stick, or via websites that they visit. 
+
+Defenders in this stage must observe how the attack was delivered and what was targeted, and then infer what the adversary was intending to accomplish. Retention of logs is critical because it can help you determine what happened and aid in analysis of the attack.
+
+**Exploitation** 
+
+This stage uses a software, hardware, or human vulnerability to gain access. It can involve zero-day exploits and may use either adversary-triggered exploits or victim-triggered exploits.
+
+Defense against this stage focuses on user awareness, secure coding, vulnerability scanning, penetration testing, endpoint hardening, and similar activities to ensure that organizations have a strong security posture and very limited attack surface.
+
+**Installation**
+
+This stage focuses on persistent backdoor access for attackers. 
+
+Defenders must monitor for typical artifacts of a persistent remote shell or other remote access methodologies.
+
+**Command-and-Control (C2)**
+
+C2 access allows two-way communication and continued control of the remote system. 
+
+Defenders will seek to detect the C2 infrastructure by hardeningthe network, deploying detection capabilities, and conducting ongoing research to ensure they are aware of new C2 models and technology.
+
+**Actions on Objectives**
+
+The final stage occurs when the mission's goal is achieved. Adversaries will collect credentials, escalate privileges, pivot and move laterally through the environment, and gather and exfiltrate information. They may also cause damage to systems or data. 
+
+Defenders must establish their incident response playbook, detect the actions of the attackers and capture data about them, respond to alerts, and assess the damage the attackers have caused.
 
