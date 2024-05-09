@@ -61,4 +61,134 @@ Typical teams often include the following:
 
 - A member of management or organizational leadership. This individual will be responsible for making decisions for the team and will act as a primary conduit to senior management for the organization. Ideally, teams should have a leader with enough seniority to make decisions for the organization in an emergency.
 
-- 
+- Information security staff members are likely to make up the core of the team and will bring the specialized IR and analysis skills needed for the process. Since containment often requires immediate action using security tools like firewalls, intrusion prevention systems, and other security tools, the information security team can also help speed up the IR process.
+
+- The team will need technical experts such as systems administrators, developers, or others from disciplines throughout the organization. The composition of the IR team may vary depending on the nature of the incident, and not all technical experts may be pulled in for every incident. Knowing the systems, software, and architecture can make a huge difference in the IR process, and familiarity can also help responders find unexpected artifacts that might be missed by someone who does not work with a specific system every day.
+
+- Communications and public relations staff are important to help make sure that internal and external communications are handled well. Poor communications—or worse, no communications—can make incidents worse or severely damage an organization's reputation.
+
+- Legal and human relations (HR) staff may be involved in some, but not all, incidents. Legal counsel can advise on legal issues, contracts, and similar matters. HR may be needed if staff were involved, particularly if the incident involves an insider or is an HR-related investigation.
+
+- Law enforcement is sometimes added to a team, but in most cases only when specific issues or attacks require their involvement.
+
+Regardless of the specific composition of your organization's team, you will also need to ensure that team members have proper training. That may mean IR training for security professionals and technical staff, or it could include exercises and practice for the entire team as a group to ensure that they are ready to work together.
+
+#
+
+### Exercises
+
+There are three major types of exercises that incident response teams use to prepare:
+
+- **Tabletop exercises** are used to talk through processes. Team members are given a scenario and are asked questions about how they would respond, what issues might arise, and what they would need to do to accomplish the tasks they are assigned in the IR plan. Tabletop exercises can resemble a brainstorming session as team members think through a scenario and document improvements in their responses and the overall IR plan.
+
+- **Walk-throughs** take a team through an incident step by step. This exercise can help ensure that team members know their roles as well as the IR process, and that the tools, access, and other items needed to respond are available and accessible to them. A walk-through is an excellent way to ensure that teams respond as they should without the overhead of a full simulation.
+
+- **Simulations** can include a variety of types of event. Exercises may simulate individual functions or elements of the plan, or only target specific parts of an organization. They can also be done at full scale, involving the entire organization in the exercise. It is important to plan and execute simulations in a way that ensures that all participants know that they are engaged in an exercise so that no actions are taken outside of the exercise environment.
+
+When you conduct an exercise, start every call, text, or email with “This is an exercise” or a similar cue to let the person who is responding know that they should not take actual action. 
+
+Of course, doing so can lead to biases and incorrect estimates on what effort or time would be required to perform an action or response. 
+
+In most cases, keeping exercises properly under control is more important than detailed testing. 
+
+In those cases where specific performance is needed, you may want to ensure that the person has a script or can perform a task that is scoped and limited to the needs of the simulation without causing problems or issues with normal operations.
+
+#
+
+### Building Incident Response Plans
+
+Incident response plans can include several subplans to handle various stages of the response process.
+
+Your organization may choose to combine them all into a single larger document or may break them out to allow the response team to select the components that they need.
+
+Individual plans may also be managed or run by different teams.
+
+Regardless of the structure of your response plans, they need to be regularly reviewed and tested.
+
+A plan that is out of date, or that the team is not familiar with, can be just as much of a problem as not having a plan at all.
+
+- **Communication plans** are critical to incident response processes.
+
+A lack of communication, incorrect communication, or just poor communication can cause significant issues for an organization and its ability to conduct business. 
+
+At the same time, problematic communications can also make incidents worse, as individuals may not know what is going on or may take undesired actions, thinking they are doing the right thing due to a lack of information or with bad or partial information available to them. 
+
+Because of the importance of getting communication right, communication plans may also need to list roles, such as who should communicate with the press or media, who will handle specific stakeholders, and who makes the final call on the tone or content of the communications.
+
+- **Stakeholder management** plans are related to communication plans and focus on groups and individuals who have an interest or role in the systems, organizations, or services that are impacted by an incident.
+
+Stakeholders can be internal or external to an organization and may have different roles and expectations that need to be called out and addressed in the stakeholder management plan. 
+
+Many stakeholder management plans will help with prioritization of which stakeholders will receive communications, what support they may need, and how they will be provided, with options to offer input or otherwise interact with the IR process, communications and support staff, or others involved in the response process.
+
+- **Business continuity (BC)** plans focus on keeping an organization functional when misfortune or incidents occur.
+
+In the context of IR processes, BC plans may be used to ensure that systems or services that are impacted by an incident can continue to function despite any changes required by the IR process.
+
+That might involve ways to restore or offload the services or use of alternate systems.
+
+Business continuity plans have a significant role to play for larger incidents, whereas smaller incidents may not impact an organization's ability to conduct business in a significant way.
+
+- **Disaster recovery (DR)** plans define the processes and procedures that an organization will take when a disaster occurs.
+
+Unlike a business continuity plan, a DR plan focuses on natural and man-made disasters that may destroy facilities, infrastructure, or otherwise prevent an organization from functioning normally. 
+
+A DR plan focuses on restoration or continuation of services despite a disaster.
+
+In addition to these types of plans, **continuity of operation planning (COOP)** is a federally sponsored program in the United States that is part of the national continuity program. COOP defines the requirements that government agencies need to meet to ensure that continuity of operations can be ensured.
+
+Those requirements include how they will ensure their essential functions, the order of succession for the organization so that staff know who will be in charge and who will perform necessary functions, how authority will be delegated, how disaster recovery can function using continuity facilities, and a variety of other requirements.
+
+COOP defines how federal agencies build a complete disaster recovery and business continuity plan.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/36e2cd15-7529-4012-abb0-eea0b3deb461)
+
+The four phases of the Continuity of Operations as defined by the Federal Emergency Management Agency (FEMA) as part of COOP.
+
+#
+
+### Policies
+
+Organizations define policies as formal statements about organizational intent.
+
+In short, they explain why an organization wishes to operate in a certain way, and they define things like the purpose or objective of an activity or program.
+
+**Incident response policies** are commonly defined as part of building an IR capability. Well-written incident response policies will include important components of the IR process.
+
+They will identify the team and the authority that the team operates under.
+
+They will also require the creation and maintenance of incident handling and response procedures and practices, and they may define the overall IR process used by the organization.
+
+In some cases, they may also have specific communication or compliance requirements that are included in the overall policy based on organizational needs.
+
+It helps to bear in mind that a policy is a high-level statement of management intent that is used to convey the organization's expectations and direction for a topic.
+
+Standards will then point to a policy for their authority, while providing specific guidance about what should be done.
+
+Procedures are then used to implement standards or to guide how a task is done.
+
+Policies tend to be slow to change, whereas standards change more frequently, and procedures and guidelines may be updated frequently to handle organizational needs or technology change, or for other business-related reasons.
+
+An IR policy isn't the only policy that your organization may rely on to have a complete incident response capability. In fact, organizations often have many IT policies that can impact response.
+
+A **retention policy** determines how long you keep data and how it will be disposed of. 
+
+A retention policy is important to incident responders since it may determine how long the organization keeps incident data, how long logs will be available, and what data is likely to have been retained and thus may have been exposed if a system or data store is compromised or exposed.
+
+#
+
+### Attack Frameworks and Identifying Attacks
+
+Incident responders frequently need ways to describe attacks and incidents using common language and terminology.
+
+Attack frameworks are used to understand adversaries, document techniques, and to categorize tactics.
+
+As you review frameworks like these, consider how you would apply them as part of an incident response process.
+
+For example, if you find an attack tool as part of an incident response effort, what would considering that tool via the Diamond model lead you to? What information might you seek next, and why?
+
+#
+
+### MITRE ATT&CK
+
+
