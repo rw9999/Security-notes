@@ -100,3 +100,180 @@ RFID may be deployed using either active tags, which have their own power source
 
 RFID tags also use one of three frequency ranges.
 
+Low-frequency RFID is used for short-range, low-power tags and are commonly used for entry access and identification purposes, where they are scanned by a nearby reader. Low-frequency RFID is not consistent around the world, meaning that tags may not meet frequency or power requirements in other countries.
+
+High-frequency RFID tags have a longer readable range at up to a meter under normal circumstances and can communicate more quickly. 
+
+In fact, high-frequency RFID is used for near-field communication, and many tags support read-only, write-only, and rewritable tags.
+
+The final frequency range is ultra-high-frequency RFID, the fastest to read and with the longest range.
+
+This means that high frequency RFID tags are used in circumstances where readers need to be further away. Highfrequency tags have found broad implementation for inventory and antitheft purposes as well as a multitude of other uses where a tag that can be remotely queried from meters away can be useful.
+
+Because of their small size and flexible form factor, RFID tags can be embedded in stickers, small implantable chips like those used to identify pets, and in the form of devices like tollway tags. 
+
+RFID tags can be attacked in a multitude of ways, from simple destruction or damage of the tag so that it cannot be read, to modification of tags, some of which can be reprogrammed. Tags can be cloned, modified, or spoofed; readers can be impersonated; and traffic can be captured.
+
+#
+
+### Infrared
+
+Unlike the other wireless technologies in this chapter, infrared (IR) network connections only work in line of sight.
+
+IR networking specifications support everything from very low-bandwidth modes to gigabit speeds, including
+
+- SIR, 115 Kbit/s
+- MIR, 1.15 Mbit/s
+- FIR, 4 Mbit/s
+- VFIR, 16 Mbit/s
+- UFIR, 96 Mbit/s
+- GigaIR, 512 Mbit/s-1 Gbit/s
+
+Since IR traffic can be captured by anything with a line of sight to it, it can be captured if a device is in the area.
+
+Of course, this also means that unlike Wi-Fi and Bluetooth traffic, devices that are outside of the line of sight of the device typically won't be able to capture IR traffic.
+
+Infrared connections are most frequently used for point-to-point connections between individual devices, but IR technologies that exist to create networks and groups of devices do exist.
+
+Despite this, infrared connectivity is less frequently found in modern systems and devices, having largely been supplanted by Bluetooth and Wi-Fi.
+
+#
+
+### GPS
+
+Global Positioning System (GPS), unlike the other technologies described so far, is not used to create a network where devices transmit.
+
+Instead, it uses a constellation of satellites that send out GPS signals, which are received by a compatible GPS receiver.
+
+While the U.S. GPS system is most frequently referred to, other systems, including the Russian GLONASS system and smaller regional systems, also exist.
+
+GPS navigation can help position devices to within a foot of their actual position, allowing highly accurate placement for geofencing and other GPS uses.
+
+GPS also provides a consistent time signal, meaning that GPS receivers may be integrated into network time systems.
+
+Like other radio frequency–based systems, GPS signals can be jammed or spoofed, although attacks against GPS are uncommon in normal use. GPS jamming is illegal in the United States, but claims have been made that GPS spoofing has been used to target military drones, causing them to crash, and real-world proof-of-concept efforts have been demonstrated.
+
+#
+
+### USB
+
+Although this chapter is about wireless networks and mobile devices, USB is an important connectivity method for many mobile devices.
+
+Since USB is a direct cabled connection, it isn't subject to the same risks that a wireless network is, but it does come with its own concerns.
+
+
+One of the most significant risks that USB connectivity brings to mobile devices is that the device that is connected can then access the mobile device, often as a directly mounted filesystem, and may also be able to perform software or firmware updates or otherwise make changes or gather data from the mobile device.
+
+Some organizations ban connecting to USB chargers or using cables or systems to charge from that the organization has not preapproved or issued.
+
+Some organizations will issue charge-only USB cables that allow charging but do not have the data pins connected inside the USB cable.
+
+#
+
+### What About WiMAX?
+
+The Security+ exam doesn't cover WiMAX, a microwave-based wireless technology that is used for connectivity much like DSL or cable in areas where wireless options are desirable.
+
+Point-to point and point-to-multipoint wireless technologies beyond those listed earlier are outside the scope of the exam, but you may encounter them in your job. 
+
+If you do, you'll need to consider what makes those services or protocols different from those that you're used to, and plan security based on their specific needs. In the meantime, you'll continue to encounter cellular (LTE and 5G) and Wi-Fi networks far more often than WiMAX or other technologies.
+
+#
+
+
+### Wireless Network Models
+
+The wireless technologies we have described so far operate in one of three major models: point-to-point, point-to-multipoint, or broadcast.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/9f5246c2-797c-4361-b492-09feb465d756)
+
+A point-to-point network connects two nodes, and transmissions between them can only be received by the endpoints.
+
+Point-to-multipoint networks like Wi-Fi have many nodes receiving the information sent by a node. 
+
+Broadcast designs send out information on many nodes and typically do not care about receiving a response. GPS and radio are both examples of broadcast models.
+
+## Attacks Against Wireless Networks
+
+One of the first things you need to consider when designing a secure network is how it could be attacked.
+
+Attackers may pose as legitimate wireless networks, add their own wireless devices to your network, interfere with the network, use protocol flaws or attacks, or take other steps to attack your network.
+
+### Rogue Access Points and Evil Twins
+
+The first of these attacks that you need to know about is the evil twin attack.
+
+An evil twin is a malicious fake access point that is set up to appear to be a legitimate, trusted network.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/cb14ec41-fa52-444e-89ea-ef382cac87a3)
+
+An evil twin attack where the client wireless device has opted for the evil twin access point (AP) instead of the legitimate access point. The attacker may have used a more powerful AP, placed the evil twin closer to the target, or used another technique to make the AP more likely to be the one the target will associate with.
+
+Once a client connects to the evil twin, the attacker will typically provide Internet connectivity so that the victim does not realize that something has gone wrong.
+
+The attacker will then capture all of the victim's network traffic and look for sensitive data, passwords, or other information that they can use.
+
+Presenting false versions of websites, particularly login screens, can provide attackers who have successfully implemented an evil twin with a quick way to capture credentials.
+
+Rogue access points are APs added to your network either intentionally or unintentionally.
+
+Once they are connected to your network, they can offer a point of entry to attackers or other unwanted users. 
+
+Since many devices have built-in wireless connectivity and may show up as an accessible network, it is important to monitor your network and facilities for rogue access points.
+
+Most modern enterprise wireless controller systems have built-in functionality that allows them to detect new access points in areas where they are deployed.
+
+In addition, wireless intrusion detection systems or features can continuously scan for unknown access points and then determine if they are connected to your network by combining wireless network testing with wired network logs and traffic information.
+
+This helps separate out devices like mobile phones set up as hotspots and devices that may advertise a setup Wi-Fi network from devices that are plugged into your network and that may thus create a real threat.
+
+#
+
+### Attacking Wi-Fi
+
+WPA2 preshared keys can be attacked if they are weak, and WPA passphrase hashes are generated using the SSID and its length.
+
+Rainbow tables exist for these SSIDs matched with frequently used passwords, meaning that common network names and weak passwords can be easily leveraged.
+
+WPA2 doesn't ensure that encrypted communications cannot be read by an attacker who acquires the preshared key. In other words, WPA2 doesn't implement perfect forward secrecy.
+
+Other attacks exist, including attacks on authentication via MSCHAPv2, attacks on WPS, the quick single-button setup capability that many home Wi-Fi devices have built-in, flaws in the WPA2 protocol's handling of handshakes for reestablishing dropped connections, and even flaws in the newest WPA3 protocol that result in the potential for successful downgrade attacks and handshake protocol issues.
+
+#
+
+### Bluetooth Attacks
+
+You need to be familiar with two types of Bluetooth attacks for the Security+ exam: **bluejacking** and **bluesnarfing**.
+
+Bluejacking simply sends unsolicited messages to Bluetooth-enabled devices.
+
+Bluesnarfing is unauthorized access to a Bluetooth device, typically aimed at gathering information like contact lists or other details the device contains.
+
+Unfortunately, there aren't many security steps that can be put in place for most Bluetooth devices.
+
+Many simply require pairing using an easily guessed code (often 0000), and then proceed to establish a long-term key that is used to secure their communications.
+
+Unfortunately, that long-term key is used to generate session keys when combined with other public factors, thus making attacks against them possible.
+
+Despite years of use of Bluetooth in everything from mobile devices to medical devices, wearables, and cars, the security model for Bluetooth has not significantly improved.
+
+Therefore, your best option to secure Bluetooth devices is to turn off Bluetooth if it is not absolutely needed and to leave it off except when in use.
+
+In addition, if devices allow a pairing code to be set, change it from the defaultpairing code and install all patches for Bluetooth devices. Unfortunately, this will leave many vulnerable devices, particularly those that are embedded or no longer supported by the software or hardware manufacturer.
+
+#
+
+### Bluetooth Impersonation Attacks
+
+Bluetooth impersonation attacks (BIAS) take advantages of weaknesses in the Bluetooth specification, which means that all devices that implement Bluetooth as expected are likely to be vulnerable to them.
+
+They exploit a lack of mutual authentication, authentication procedure downgrade options, and the ability to switch roles.
+
+Although BIAS attacks have not yet been seen in the wild, as of May 2020 information about them had been published, leading to widespread warnings that exploits were likely to be developed.
+
+#
+
+### RF and Protocol Attacks
+
+Attackers who want to conduct evil twin attacks, or who want systems to disconnect from a wireless network for any reason, have two primary options to help with that goal: disassociation attacks and jamming.
+
