@@ -275,3 +275,31 @@ The final stage occurs when the mission's goal is achieved. Adversaries will col
 
 Defenders must establish their incident response playbook, detect the actions of the attackers and capture data about them, respond to alerts, and assess the damage the attackers have caused.
 
+## Incident Response Data and Tools
+
+Incident responders rely on a wide range of data for their efforts. As a security professional, you need to be aware of the types of data you may need to conduct an investigation and to determine both what occurred and how to prevent it from happening again.
+
+### Security Information and Event Management Systems
+
+In many organizations, the central security monitoring tool is a security information and event management (SIEM) tool.
+
+SIEM devices and software have broad security capabilities, which are typically based on the ability to collect and aggregate log data from a variety of sources and then to perform correlation and analysis activities with that data.
+
+This means that organizations will send data inputs—including logs and other useful information from systems, network security devices, network infrastructure, and many other sources—to a SIEM for it to ingest, compare to the other data it has, and then to apply rules, analytical techniques, and machine learning or artificial intelligence to the data.
+
+SIEM systems may include the ability to review and alert on user behavior or to perform sentiment analysis, a process by which they look at text using natural language processing and other text analysis tools to determine emotions from textual data.
+
+Another data input for SIEM devices is packet capture.
+
+The ability to capture and analyze raw packet data from network traffic, or to receive packet captures from other data sources, can be useful for incident analysis, particularly when specific information is needed about a network event.
+
+Correlating raw packet data with IDS or IPS events, firewall and WAF logs, and other security events provides a powerful tool for security practitioners.
+
+SIEM devices also provide alerting, reporting, and response capabilities, allowing organizations to see when an issue needs to be addressed and to track the response to that issue through its lifecycle. 
+
+This may include forensic capabilities, or it may be more focused on a ticketing and workflow process to handle issues and events.
+
+#
+
+### SIEM Dashboards
+
