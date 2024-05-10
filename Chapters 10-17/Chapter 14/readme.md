@@ -303,3 +303,211 @@ This may include forensic capabilities, or it may be more focused on a ticketing
 
 ### SIEM Dashboards
 
+The first part of a SIEM that many security practitioners see is a dashboard like the AlienVault SIEM dashboard shown. 
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/5512ce97-8ff8-4a3a-8651-28d18881d150)
+
+Dashboards can be configured to show the information considered most useful and critical to an organization or to the individual analyst, and multiple dashboards can be configured to show specific views and information.
+
+The key to dashboards is understanding that they provide a high-level, visual representation of the information they contain. 
+
+That helps security analysts to quickly identify likely problems, abnormal patterns, and new trends that may be of interest or concern.
+
+SIEM dashboards have a number of important components that provide elements of their display. These include sensors that gather and send information to the SIEM, trending and alerting capabilities, correlation engines and rules, and methods to set sensitivity and levels.
+
+#
+
+### Sensors
+
+Although devices can send data directly to a SIEM, sensors are often deployed to gather additional data.
+
+Sensors are typically software agents, although they can be a virtual machine or even a dedicated device.
+
+Sensors are often placed in environments like a cloud infrastructure, a remote datacenter, or other locations where volumes of unique data are being generated, or where a specialized device is needed because data acquisition needs are not being met by existing capabilities. 
+
+Sensors gather useful data for the SIEM and may either forward it in its original form or do some preprocessing to optimize the data before the SIEM ingests it.
+
+Choosing where to deploy sensors is part of network and security architecture and design efforts, and sensors must be secured and protected from attack and compromise just like other network security components.
+
+#
+
+### Sensitivity and Thresholds
+
+Organizations can create a massive amount of data, and security data is no exception to that rule.
+
+Analysts need to understand how to control and limit the alerts that a SIEM can generate.
+
+To do that, they set thresholds, filter rules, and use other methods of managing the sensitivity of the SIEM. 
+
+Alerts may be set to activate only when an event has happened a certain number of times, or when it impacts specific high-value systems. Or, an alert may be set to activate once instead of hundreds or thousands of times.
+
+Regardless of how your SIEM handles sensitivity and thresholds, configuring and managing them so that alerts are sent only on items that need to be alerted on helps avoid alert fatigue and false positives.
+
+One of the biggest threats to SIEM deployments is **alert fatigue**. Alert fatigue occurs when alerts are sent so often, for so many events, that analysts stop responding to them.
+
+In most cases, these alerts aren't critical, high urgency, or high impact and are in essence just creating noise. Or, there may be a very high proportion of false positives, causing the analyst to spend hours chasing ghosts. 
+
+In either case, alert fatigue means that when an actual event occurs it may be missed or simply disregarded, resulting in a much worse security incident than if analysts had been ready and willing to handle it sooner.
+
+#
+
+### Trends
+
+A trend can point to a new problem that is starting to crop up, an exploit that is occurring and taking over, or simply which malware is most prevalent in your organization.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/4ecade0a-6529-404f-841c-f4c5ff38c003)
+
+You can see an example of categorizing malware activity, identifying which signatures have been detected the most frequently, which malware family is most prevalent, and where it sends traffic to. This can help organizations identify new threats as they rise to the top.
+
+#
+
+### Alerts and Alarms
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/ed160c61-b47b-4ba3-a5fd-98e04202d0c0)
+
+Note that the alarms are categorized by their time and severity, and then provide detailed information that can be drilled down into. 
+
+Events like malware beaconing and infection are automatically categorized, prioritized, marked by source and destination, and matched to an investigation by an analyst as appropriate. 
+
+They also show things like which sensor is reporting the issue.
+
+#
+
+### Correlation and Analysis
+
+Individual data points can be useful when investigating an incident, but matching data points to other data points is a key part of most investigations.
+
+Correlation requires having data such as the time that an event occurred, what system or systems it occurred on, what user accounts were involved, and other details that can help with the analysis process.
+
+A SIEM can allow you to search and filter data based on multiple data points like these to narrow down the information related to an incident.
+
+Automated correlation and analysis is designed to match known events and indicators of compromise to build a complete dataset for an incident or event that can then be reviewed and analyzed.
+
+As you can see in the screenshots from the AlienVault SIEM, you can add tags and investigations to data. Although each SIEM tool may refer to these by slightly different terms, the basic concepts and capabilities remain the same.
+
+#
+
+### Rules
+
+The heart of alarms, alerts, and correlation engines for a SIEM is the set of rules that drive those components.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/24ee5c7d-35ac-436b-a504-3fcf76f52e38)
+
+An example of how an alarm rule can be built using information the SIEM gathers.
+
+Rule conditions can use logic to determine if and  when a rule will be activated, and then actions can trigger based on the rule.
+
+Results may be as simple as an alert or as complex as a programmatic action that changes infrastructure, enables or disables firewall rules, or triggers other defenses.
+
+Rules are important but can also cause issues.
+
+Poorly constructed rule logic may miss events or cause false positives or overly broad detections.
+
+If the rule has an active response component, a mistriggered rule can cause an outage or other infrastructure issue. Thus, rules need to be carefully built, tested, and reviewed on a regular basis.
+
+Although SIEM vendors often provide default rules and detection capabilities, the custom-built rules that organizations design for their environments and systems are key to a successful SIEM deployment.
+
+The Security+ exam does not specifically call out SIEM rules, but underneath correlation, alerting, and trending capabilities, rules are often what is driving detections and alerts.
+
+Finally, SIEM devices also follow the entire lifecycle for data. That means most have the ability to set retention and data lifespan for each type of data and have support for compliance requirements. 
+
+In fact, most SIEM devices have prebuilt rules or modules designed to meet specific compliance requirements based on the standards they require.
+
+SIEM devices frequently have built-in integrations for cloud services like Google, ServiceNow, Office 365, Okta, Sophos, and others. That means you can import data directly from those services to get a better view of your security environment.
+
+#
+
+### Log Files
+
+Log files provide incident responders with information about what has occurred.
+
+Of course, that makes log files a target for attackers as well, so incident responders need to make sure that the logs they are using have not been tampered with and that they have timestamps and other data that is correct.
+
+Once you're sure the data you are working with is good, logs can provide a treasure trove of incident-related information.
+
+In many enterprise environments, specific logs or critical log entries will be sent to a secure logging infrastructure to ensure a trustworthy replica of the logs collected at endpoint systems exists.
+
+Security practitioners will still review local logs, particularly because the volume of log data at endpoints throughout an organization means that complete copies of all logs for every system are not typically maintained.
+
+Common logs used by incident responders that are covered in the Security+ exam outline include the following:
+
+- **System logs** include everything from service changes to permission issues. The Windows system log tracks information generated by the system while it is running.
+
+- **Application logs** for Windows include information like installer information for applications, errors generated by applications, license checks, and any other logs that applications generate and send to the application log.
+
+- **Security logs** for Windows systems store information about failed and successful logins, as well as other authentication log information. Authentication and security logs for Linux systems are stored in /var/log/auth.log and /var/log/secure.
+
+- **Vulnerability scan output** is another form of data that can be pulled into incident analysis activities. Scans can provide clues about what attackers may have targeted, changes in services, or even suddenly patched issues due to attackers closing a hole behind them
+
+- **Network and security device logs** can include logs for routers and switches with configuration changes, traffic information, network flows, and data captured by packet analyzers like Wireshark.
+
+- **Web logs**, like those from Apache and Internet Information Services (IIS), track requests to the web server and related events. These logs can help track what was accessed, when it was accessed, and what IP address sent the request. Since requests are logged, these logs can also help identify attacks, including SQL injection and other web server and web application– specific attacks.
+
+- **DNS logs** provide details about DNS queries. This may seem less useful, but DNS logs can show attackers gathering information, provide information that shows what systems may be compromised based on their DNS requests, and show whether internal users are misusing organizational resources.
+
+- **Authentication logs** are useful to determine when an account was logged into and may also show privilege use, login system or location, incorrect password attempts, and other details of logins and usage that can be correlated to intrusions and misuse.
+
+- **Dump files**, like the memory dump created when Windows experiences a blue screen of death, may not seem as if they'd be useful for incident response, but they can contain information that shows the state of memory and the system at the time of a crash. If the crash occurred because of an attacker or exploit, or if malware or attack tools were on the system, the dump file may contain those artifacts.
+
+- **VoIP (Voice over IP)**, **call manager logs**, and **Session Initiation Protocol (SIP) logs** can provide information about calls that were placed as well as other events on a VoIP system.
+
+Security practitioners will use SIEM tools as well as manual search tools like grep and tail to review logs for specific log entries that may be relevant to an event or incident. Lists of important Windows event IDs are commonly available, and many Linux log entries can be easily identified by the text they contain.
+
+#
+
+### Going With the Flow
+
+Tracking your bandwidth utilization using a bandwidth monitor can provide trend information that can help spot both current problems and new behaviors
+
+Network flows, either using Cisco's proprietary NetFlow protocol, which is a software-driven capability, or SFlow, which is broadly implemented on devices from many vendors, are an  important tool in an incident responder's toolkit.
+
+In addition to NetFlow and SFlow, you may encounter IPFIX, an open standard based on NetFlow 9 that many vendors support.
+
+The hardware deployed in your environment is likely to drive the decision about which to use, with each option having advantages and disadvantages.
+
+Network flows are incredibly helpful when you are attempting to determine what traffic was sent on your network, where it went, or where it came from.
+
+Flows contain information such as the source and destination of traffic, how  much traffic was sent, and when the traffic occurred.
+
+You can think of flow information like phone records—you know what number was called and how long the conversation took, but not what was said. Thus, although flows like those shown in the following graphic are useful hints, they may not contain all the information about an event.
+
+Flows may not show all the traffic for another reason too: keeping track of high-volume traffic flows can consume a large amount of network device processing power and storage, and thus many flows are sampled at rates like 10:1 or even 1000:1
+
+That means flows may not capture all traffic, and you may lose some resolution and detail in your flow analysis.
+
+Even though flows may only show part of the picture, they are a very useful diagnostic and incident response tool. If you're tasked with providing network security for an organization, you may want to consider setting up flows as part of your instrumentation efforts.
+
+#
+
+### Logging Protocols and Tools
+
+In addition to knowing how to find and search through logs, you need to know how logs are sent to remote systems, what tools are used to collect and manage logs, and how they are acquired.
+
+Traditional Linux logs are sent via **syslog**, with clients sending messages to servers that collect and store the logs. Over time, other syslog replacements have been created to improve upon the basic functionality and capabilities of syslog.
+
+When speed is necessary, the rocket-fast system for log processing, or **rsyslog**, is an option. It supports extremely high message rates, secure logging via TLS, and TCP-based messages as well as multiple backend database options.
+
+Another alternative is **syslog-ng**, which provides enhanced filtering, direct logging to databases, and support for sending logs via TCP protected by TLS.
+
+The enhanced features of syslog replacements like rsyslog and syslog-ng mean that many organizations replace their syslog infrastructure with one of these options.
+
+A final option for log collection is NXLog, an open source and commercially supported syslog centralization and aggregation tool that can parse and generate log files in many common formats while also sending logs to analysis tools and SIEM solutions.
+
+Regardless of the logging system you use, you will have to make decisions about retention on both local systems and central logging and monitoring infrastructure.
+
+Take into account operational needs; likely scenarios where you may need the logs you collect; and legal, compliance, or other requirements that you need to meet.
+
+In many cases organizations choose to keep logs for 30, 45, 90, or 180 days depending on their needs, but some cases may even result in some logs being kept for a year or more. Retention comes with both hardware costs and potential legal challenges if you retain logs that you may not wish to disclose in court.
+
+#
+
+### Digging in to systemd's Journal in Linux
+
+The Security+ exam outline includes a large number of types of logging systems and software, logs, analysis tools, and other data sources. You should focus on thinking about why you might need each of them, and where a specific tool is named, you should make sure you know its basic usage and functions.
+
+Most Linux distributions rely on systemd to manage services and processes and, in general, manage the system itself.
+
+Accessing the systemd journal that records what systemd is doing using the journald daemon can be accomplished using journalctl.
+
+This tool allows you to review kernel, services, and initrd messages as well as many others that systemd generates. Simply issuing the journalctl command will display all the journal entries, but additional modes can be useful. If you need to see what happened since the last boot, the -b flag will show only those entries. Filtering by time can be accomplished with the –since flag and a time/date entry in the format “year-month-day hour:minute:seconds.”
+
