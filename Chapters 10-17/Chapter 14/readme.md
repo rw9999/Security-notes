@@ -509,5 +509,128 @@ Most Linux distributions rely on systemd to manage services and processes and, i
 
 Accessing the systemd journal that records what systemd is doing using the journald daemon can be accomplished using journalctl.
 
-This tool allows you to review kernel, services, and initrd messages as well as many others that systemd generates. Simply issuing the journalctl command will display all the journal entries, but additional modes can be useful. If you need to see what happened since the last boot, the -b flag will show only those entries. Filtering by time can be accomplished with the –since flag and a time/date entry in the format “year-month-day hour:minute:seconds.”
+This tool allows you to review kernel, services, and initrd messages as well as many others that systemd generates.
 
+Simply issuing the journalctl command will display all the journal entries, but additional modes can be useful. If you need to see what happened since the last boot, the -b flag will show only those entries. Filtering by time can be accomplished with the –since flag and a time/date entry in the format “year-month-day hour:minute:seconds.”
+
+#
+
+### Going Beyond Logs: Using Metadata
+
+Metadata generated as a normal part of system operations, communications, and other activities can also be used for incident response.
+
+Metadata is data about other data—in the case of systemsand services, metadata is created as part of files, embedded in documents, used to define structured data, and included in transactions and network communications, among many other places you can find it.
+
+The Security+ exam outline focuses on four types of metadata, but the techniques behind metadata analysis can be used for other data types in many cases as well. The four types of metadata you will need to consider for the exam are as follows:
+
+- **Email metadata** includes headers and other information found in an email. Email headers provide details about the sender, the recipient, the date and time the message was sent, whether the email had an attachment, which systems the email traveled through, and other header markup that systems may have added, including antispam and other information.
+
+- **Mobile metadata** is collected by phones and other mobiledevices as they are used. It can include call logs, SMS and other message data, data usage, GPS location tracking, cellular tower information, and other details found in call data records. Mobile metadata is incredibly powerful because of the amount of geospatial information that is recorded about where the phone is at any point during each day.
+
+- **Web metadata** is embedded into websites as part of the code of the website but is often invisible to everyday users. It can include metatags, headers, cookies, and other information that help with search engine optimization, website functionality, advertising, and tracking, or that may support specific functionality.
+
+- **File metadata** can be a powerful tool when reviewing when a file was created, how it was created, if and when it was modified, who modified it, the GPS location of the device that created it, and many other details. Mobile devices may also include the GPS location of the photo if they are not set to remove that information from photos, resulting in even more information leakage.
+
+Metadata is commonly used for forensic and other investigations, and most forensic tools have built-in metadata-viewing capabilities.
+
+## Mitigation and Recovery
+
+An active incident can cause disruptions throughout an organization. The organization must act to mitigate the incident and then work to recover from it without creating new risks or vulnerabilities.
+
+At the same time, the organization may want to preserve incident data and artifacts to allow forensic analysis by internal responders or law enforcement.
+
+### Playbooks
+
+Playbooks are step-by-step guides intended to help incident response teams take the right actions in a given scenario.
+
+Organizations build playbooks for each type of incident or event that they believe they are likely to handle, with examples ranging from advanced persistent threats to phishing attacks.
+
+A playbook will often have stages with steps at each stage of the incident response cycle, as well as a set of guidelines about when to activate the playbook and who should be involved to run through the playbook.
+
+A playbook for a malware infection's identification stage might include identifying indicators of compromise using antimalware and antivirus software, packet captures, and network traffic analysis, and then a path forward to a containment stage with steps for that stage as well.
+
+Playbooks take into account factors like industry best practices, organizational policies, laws, regulation, and compliance requirements, and the organizational structure and staffing.
+
+They also define when they are complete, allowing organizations to resume normal operations.
+
+A well-written, tested set of playbooks for the incident types your organization is most likely to encounter is one of the best ways to ensure that responses happen appropriately in a stressful situation. The ability to refer to steps and processes that were created with forethought and care can make an immense difference in the quality of an incident response process.
+
+#
+
+### Runbooks
+
+Runbooks are the operational procedures guides that organizations use to perform actions.
+
+Since they are procedural guides, runbooks simplify the decision process for common operations that may support incident response, and they can help guide and build automation for tasks like communications, malware removal, or scanning. 
+
+Runbooks are typically action-oriented and thus may be paired with a playbook as elements of the playbook's process.
+
+#
+
+### Secure Orchestration, Automation, and Response (SOAR)
+
+Managing multiple security technologies can be challenging, and using the information from those platforms and systems to determine your organization's security posture and status requires integrating different data sources.
+
+At the same time, managing security operations and remediating issues you identify is also an important part of security work. SOAR platforms seek to address these needs.
+
+As a mitigation and recovery tool, SOAR platforms allow you to quickly assess the attack surface of an organization, the state of systems, and where issues may exist. They also allow automation of remediation and restoration workflows.
+
+#
+
+### Containment, Mitigation, and Recovery Techniques
+
+In many cases, one of the first mitigation techniques will be to quickly block the cause of the incident on the impacted systems or devices.
+
+That means you may need to reconfigure endpoint security solutions:
+
+- Application allow listing (sometimes referred to as whitelisting), which lists the applications and files that are allowed to be on a system and prevents anything that is not on the list from being installed or run.
+
+- Application deny lists or block lists (sometimes referred to as blacklists), which list applications or files that are not allowed on a system and will prevent them from being installed or copied to the system.
+
+- Quarantine solutions, which can place files in a specific safe zone. Antimalware and antivirus often provide an option to quarantine suspect or infected files rather than deleting them, which can help with investigations.
+
+Understanding the settings you are using and the situations where they may apply is critical. Quarantine can be a great way to ensure that you still have access to the files, but it does run the danger of allowing the malicious files to still be on the system, even if they should be in a safe location.
+
+Configuration changes are also a common remediation and containment.
+
+They may be required to address a security vulnerability that allowed the incident to occur, or they may be needed to isolate a system or network.
+
+In fact, configuration changes are one of the most frequently used tools in containment and remediation efforts.
+
+They need to be carefully tracked and recorded, since responders can still make mistakes, and changes may have to be rolled back after the incident response process to allow a return to normal function.
+
+The specific configuration changes you should consider for the Security+ exam are as follows:
+
+- Firewall rule changes, either to add new firewall rules, modify existing firewall rules, or in some cases, to remove firewall rules.
+
+- Mobile device management (MDM) changes, including applying new policies or changing policies; responding by remotely wiping devices; locating devices; or using other MDM capabilities to assist in the IR process.
+
+- Data loss prevention (DLP) tool changes, which may focus on preventing data from leaving the organization or detecting new types or classifications of data from being sent or shared. DLP changes are likely to be reactive in most IR processes, but DLP can be used to help ensure that an ongoing incident has a lower chance of creating more data exposure.
+
+- Content filter and URL filtering capabilities, which can be used to ensure that specific sites are not able to be browsed or accessed. Content filter and URL filtering can help prevent malware from phoning home or connecting to C2 sites, and it can also prevent users from responding to phishing attacks and similar threats.
+
+- Updating or revoking certificates, which may be required if the certificates were compromised, particularly if attackers had access to the private keys for the certificates. At the same time, removing certificates from trust lists can also be a useful tool, particularly if an upstream service provider is not responding promptly and there are security concerns with their services or systems
+
+When you're faced with an incident response scenario, you should consider what was targeted; how it was targeted; what the impact was; and what controls, configuration changes, and tools you can apply to first contain and then remediate the issue.
+
+It is important to bear in mind the operational impact and additional risks that the changes you are considering may result in, and to ensure that stakeholders are made aware of the changes or are involved in the decision, depending on the urgency of the situation.
+
+Although they aren't directly mentioned in the Security+ exam outline, there are a number of other common configuration changes used for incident response. Among them are patching, disabling services, changing permissions, and other common system hardening practices. As you prepare for the exam, remember that many of the techniques used for system hardening are also frequently used in incident response scenarios.
+
+At times, broader action may also be necessary. Removing systems, devices, or even entire network segments or zones may be required to stop further spread of an incident or when the source of the incident cannot be quickly identified. 
+
+The following techniques support this type of activity:
+
+- **Isolation** moves a system into a protected space or network where it can be kept away from other systems. Isolation can be as simple as removing a system from the network or as technically complex as moving it to an isolation VLAN, or in the case of virtual machines or cloud infrastructure, it may require moving the system to an environment with security rules that will keep it isolated while allowing inspection and investigation.
+
+- **Containment** leaves the system in place but works to prevent further malicious actions or attacks.
+
+Network-level containment is frequently accomplished using firewall rules or similar capabilities to limit the traffic that the system can send or receive. 
+
+System and application-level containment can be more difficult without shutting down the system or interfering with the functionality and state of the system, which can have an impact on forensic data. 
+
+Therefore, the decisions you make about containment actions can have an impact on your future investigative work. Incident responders may have different goals than forensic analysts, and organizations may have to make quick choices about whether rapid response or forensic data is more important in some situations.
+
+- **Segmentation** is often employed before an incident occurs to place systems with different functions or data security levels in different zones or segments of a network. Segmentation can also be done in virtual and cloud environments.
+
+In essence, segmentation is the process of using security, network, or physical machine boundaries to build separation between environments, systems, networks, or other components. Incident responders may choose to use segmentation techniques as part of a response process to move groups of systems or services so that they can focus on other areas. You might choose to segment infected systems away from the rest of your network or to move crucial systems to a more protected segment to help protect them during an active incident.
