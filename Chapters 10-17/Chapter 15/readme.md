@@ -202,10 +202,214 @@ Therefore, organizations that use cloud services must have a plan to handle pote
 
 Although they aren't directly covered on the exam, regulatory and jurisdictional issues also come into play with two other legal concepts. 
 
-The first is venue, which is the location where a case is heard. Many contracts will specify venue for cases, typically in a way that is beneficial to the service provider. If you sign a  contract and don't pay attention to venue, legal cases might haveto be handled far away in another state. 
+The first is venue, which is the location where a case is heard. Many contracts will specify venue for cases, typically in a way that is beneficial to the service provider. If you sign a contract and don't pay attention to venue, legal cases might have to be handled far away in another state. 
 
-At the same time, nexus is the concept of connection. A common example of nexus is found in the decision of whether a company has nexus in a state or locality and must charge tax there. For years, nexus was decided on whether the company had a physical location, distribution center, or otherwise did business physically in a state. Understanding how and why nexus may be decided can be important when you are considering laws and regulations that may impact your organization.
+At the same time, nexus is the concept of connection. A common example of nexus is found in the decision of whether a company has nexus in a state or locality and must charge tax there. For years, nexus was decided on whether the company had a physical location, distribution center, or otherwise did business physically in a state.
+
+Understanding how and why nexus may be decided can be important when you are considering laws and regulations that may impact your organization.
 
 #
 
 ### Acquisition Tools
+
+Acquiring a forensic copy of a drive or device requires a tool that can create a complete copy of the device at a bit-for-bit level. The Security+ exam considers a number of tools that can acquire disk images, including dd, FTK Imager, and WinHex.
+
+In Linux, dd is a command-line utility that allows you to create images for forensic or other purposes. The dd command line takes input such as an input location ( if ), an output location ( of ), and flags that describe what you want to do, such as create a complete copy despite errors.
+
+To copy a drive mounded as /dev/sda to a file called example.img, you can execute a command like the following:
+
+    dd if=/dev/sda of=example.img conv=noerror,sync
+
+Additional settings are frequently useful to get better performance, such as setting the block size appropriate for the drive.
+
+If you want to use dd for forensic purposes, it is worth investing additional time to learn how to adjust its performance using block size settings for the devices and interfaces that you use for your forensic workstation.
+
+If you are creating a forensic image, you will likely want to create an MD5sum hash of the image as well. 
+
+To do that, you can run use pipes, the tee command, and md5sum :
+
+    dd if=/dev/sda bs=4k conv=sync,noerror | tee example.img | md5sum> example.md5
+
+FTK Imager is a free tool for creating forensic images. 
+
+It supports raw (dd)-style format as well as SMART (ASR Data's format for their SMART forensic tool), E01 (EnCase), and AFF (Advanced Forensics Format) formats commonly used for forensic tools. 
+
+Understanding what format you need to produce for your analysis tool and whether you may want to have copies in more than one format is important when designing your forensic process.
+
+Physical drives, logical drives, image files, and folders, as well as multi-CD/DVD volumes are all supported by FTK Imager. In most cases, forensic capture is likely to come from a physical or logical drive.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/afce5e43-23df-46e2-9d5c-771bd98575ae)
+
+Note the matching and validated MD5 and SHA1 hashes, as well as confirmation that there were no bad blocks which would indicate potential data loss or problems with the drive.
+
+In addition to drive imaging tools, forensic analysts are sometimes asked to capture live memory on a system.
+
+In addition to FTK Imager and similar forensic imaging tools, the Security+ exam includes memdump, part of the Volatility framework for Linux memory forensics. 
+
+Memdump is a command-line tool thatcan capture Linux memory using a simple command based on the process ID.
+
+The final tool that the exam outline lists is WinHex, a disk editing tool that can also acquire disk images in raw format, as well as its own dedicated WinHex format.
+
+WinHex is useful for directly reading and modifying data from a drive, memory, RAID arrays, and other filesystems.
+
+If you have experience performing forensic analysis, you've likely noted that this set of tools is lacking major common tools, like EnCase, FTK, and the Volatility framework, as well as common open source forensic tools like the SANS SIFT distribution. You'll also notice a lack of network forensic access toolkits and information about containers and virtual machine capture in the exam outline. The Security+ exam focuses on broad concepts more than on specific tools except for a few examples like those just listed.
+
+#
+
+### Acquiring Network Forensic Data
+
+Network forensics have an increasingly large role to play, whether they are for traditional wired and wireless networks, cellular networks, or others.
+
+Since network traffic is ephemeral, capturing traffic for forensic investigation often requires a direct effort to capture and log the data in advance.
+
+If network traffic isn't actively being logged, forensic artifacts like firewall logs, IDS and IPS logs, email server logs, authentication logs, and other secondary sources may provide information about when a device was on a network, what traffic it sent, and where it sent the traffic.
+
+When forensic examiners do work with network traffic information, they will frequently use a packet analyzer like Wireshark to review captured network traffic.
+
+In-depth analysis of packets, traffic flows, and metadata can provide detailed information about network behaviors and content.
+
+The same taps, span ports, and port mirrors used for network security devices can also be useful for network forensics, allowing copies of network traffic to be sent to collection servers.
+
+Although this can be useful, it can also result in massive amounts of data. Capturing all or selected network traffic is a process that most organizations reserve for specific purposes rather than a general practice.
+
+Instead, most organizations end up relying on logs, metadata, traffic flow information, and other commonly collected network information to support forensic activities.
+
+#
+
+### Acquiring Forensic Information from Other Sources
+
+In addition to the forensic acquisition types you have learned abou so far, two other specific types of acquisition are increasingly common.
+
+Acquisition from virtual machines requires additional planning. 
+
+Unlike a server, desktop, or laptop, a virtual machine is often running in a shared environment where removal of the system would cause disruption to multiple other servers and services. At the same time, imaging the entire underlying virtualization host would include more data and systems than may be needed or appropriate for the forensic investigation that is in progress. 
+
+Fortunately, a virtual machine snapshot will provide the information that forensic analysts need and can be captured and then imported into forensic tools using available tools.
+
+Containers have grown significantly in use and create new challenges for forensic examiners.
+
+Since containers are designed to be ephemeral, and their resources are often shared, they create fewer forensic artifacts than a virtual or physical machine. 
+
+In fact, though containers can be paused, capturing them and returning them to a forensically sound state can be challenging. Container forensics require additional planning, and forensic and incident response tools are becoming available to support these needs.
+
+#
+
+### Validating Forensic Data Integrity
+
+Once you've acquired your forensic data, you need to make sure that you have a complete, accurate copy before you begin forensic analysis.
+
+At the same time, documenting the **provenance** of the data and ensuring that the data and process cannot be repudiated (nonrepudiation) are also important.
+
+The most common way to validate that a forensic copy matches an original copy is to create a hash of the copy and to create a hash of the original drive, and then compare them. If the hashes match, the forensic copy is identical to the original.
+
+Although MD5 and SHA1 are both largely outmoded for purposes where attackers might be involved, they remain useful for quickly hashing forensic images. Providing an MD5 or SHA1 hash of both drives, along with documentation of the process and procedures used, is a common part of building the provenance of the copy. The hashes and other related information will be stored as part of the chain-of-custody and forensic documentation for the case.
+
+Manually creating a hash of an image file or drive is as simple aspointing the hashing tool to it. Here are examples of a hash for a drive mounted as /dev/sdb on a Linux system and an image file in the current directory. The filename selected for output is drive1.hash, but it could be any filename you choose.
+
+    md5sum /dev/sdb> drive1.hash
+
+or
+                    
+    md5sum image_file.img> drive1.hash
+
+The hash value for a drive or image can also be used as a checksum to ensure that it has not changed. Simply re-hashing the drive or image and comparing the value produced will tell you if changes have occurred because the hash will be different.
+
+Documenting the provenance, or where an image or drive came from and what happened with it, is critical to the presentation of a forensic analysis.
+
+Forensic suites have built-in documentation processes to help with this, but manual processes that include pictures, written notes, and documentation about the chain of custody, processes, and steps made in the creation and analysis of forensic images can yield a strong set of documentation to provide appropriate provenance information. With documentation like this, you can help ensure that inappropriate handling or processes do not result in the repudiation of the images or process, resulting in the loss of a legal case or an inability to support criminal or civil charges.
+
+#
+
+### Forensic Copies vs. Logical Copies
+
+Simply copying a file, folder, or drive will result in a logical copy.
+
+The data will be preserved, but it will not exactly match the state of the drive or device it was copied from.
+
+When you conduct forensic analysis, it is important to preserve the full content of the drive at a bit-by-bit level, preserving the exact structure of the drive with deleted file remnants, metadata, and timestamps.
+
+Forensic copies are therefore done differently than logical copies. 
+
+Hashing a file may match, but hashing a logical copy and a forensic copy will provide different values, thus making logical copies inadmissible in many situations where forensic analysis may involve legal action, or unusable when changes to the drive or metadata and deleted files are critical to the investigation.
+
+#
+
+### Making Sure the Data Doesn't Change
+
+The Security+ exam outline doesn't require you to know about write blockers, but forensic practitioners who need to be able to create legally admissible forensic images and reports must ensure that their work doesn't alter the drives and images they work with. That's the role of a hardware or software write blocker. Write blockers allow a drive or image to be read and accessed without allowing any writes to it. That way, no matter what you do, you cannot alter the contents of the drive in any way while conducting a forensic examination. If you show up in court and the opposing counsel asks you how you did your work and you don't mention a write blocker, your entire set of forensic findings could be at risk.
+
+#
+
+### Data Recovery
+
+In addition to forensic analysis, forensic techniques may be used to recover data from drives and devices. In fact, file recovery is a common need for organizations due to inadvertent deletions and system problems or errors.
+
+The ability to recover data in many cases relies on the fact that deleting a file from a drive or device is nondestructive.
+
+In other words, when a file is deleted, the fastest way to make the space available is to simply delete the file's information from the drive's file index and allow the space to be reused when it is needed.
+
+Quick formatting a drive in Windows only deletes the file index instead of overwriting or wiping the drive, and other operating systems behave similarly. So, recovering files with a recovery tool or by manual means requires reviewing the drive, finding files based on headers or metadata, and then recovering those files and file fragments.
+
+In cases where a file has been partially overwritten, it can still be possible to recover fragments of the files.
+
+Files are stored in blocks, with block sizes depending on the drive and operating system. If a file that is 100 megabytes long is deleted, then partially overwritten by a 25 megabyte file, 75 megabytes of the original file could potentially be recovered.
+
+Forensic analysts rely on this when files have been intentionally deleted to try to hide evidence, and they refer to the open space on a drive as **slack space**. 
+
+Slack space analysis is critical to forensic analysis because of the wealth of data about what has previously occurred on a drive that it can provide.
+
+Antiforensic techniques and data security best practices are the same in this circumstance and suggest overwriting deleted data. Secure delete tools are built into many operating systems or are available as standalone tools. If a file has been deleted securely and thus overwritten, there is very little chance of recovery if the tool was successful.
+
+#
+
+### Forensic Suites
+
+The Security+ exam considers a single forensic suite: Autopsy.
+
+Autopsy is an open source forensic suite with broad capabilities.
+
+Forensic activities with a tool like Autopsy will typically start creating a new case with information about the investigators, the case, and other details that are important to tracking investigations, and then import files into the case.
+
+Timelining capabilities like these rely on accurate time data, and inaccurate time settings can cause problems for forensic timelines.
+
+Incorrect time settings, particularly in machines in the same environment, can cause one machine to appear to have been impacted an hour earlier than others, leading practitioners down an incorrect path. 
+
+Always check to make sure that the timestamps for files and time settings for machines are what you expect them to be before jumping to conclusions about what happened at a specific time.
+
+Forensic suites have many other useful features, from distributed cracking of encryption to hash cracking, steganographic encoding detection to find data hidden in images, and a host of other capabilities that are beyond the scope of the Security+ exam.
+
+Although the Security+ exam only deals with one computer forensic suite, there are two major commercial forensic packages that security professionals need to be aware of: FTK, the Forensic Toolkit from AccessData, and EnCase from Guidance Software. Both are complete forensic tools, including acquisition, analysis, automation and investigation tools, and reporting capabilities. Although some organizations use Autopsy, and open source tools are heavily used by analysts who need forensic capabilities for incident response, these commercial packages see heavy use in police, legal, and similar investigations. If you're interested in forensics as a path forward in your security career, you should expect to become familiar with one or both tools.
+
+#
+
+### Reporting
+
+Although the analysis of digital artifacts and evidence is important to the forensic process, the report that is produced at the end is the key product.
+
+Reports need to be useful and contain the relevant information without delving into every technical nuance and detail that the analyst may have found during the investigation.
+
+A typical forensic report will include
+
+- A summary of the forensic investigation and findings.
+
+- An outline of the forensic process, including tools used and any assumptions that were made about the tools or process.
+
+- A series of sections detailing the findings for each device or drive. Accuracy is critical when findings are shared, and conclusions must be backed up with evidence and appropriate detail.
+
+- Recommendations or conclusions in more detail than the summary included.
+
+Forensic practitioners may also provide a report with full detail of the analysis as part of their documentation package.
+
+#
+
+### Digital Forensics and Intelligence
+
+Although digital forensics work in most organizations is primarily used for legal cases, internal investigations, and incident response, digital forensics also plays a role in both strategic intelligence and counterintelligence efforts.
+
+The ability to analyze adversary actions and technology, including components and behaviors of advanced persistent threat tools and processes, has become a key tool in the arsenal for national defense and intelligence groups. 
+
+At the same time, forensic capabilities can be used for intelligence operations when systems and devices are recovered or acquired, allowing forensic practitioners to recover data and provide it for analysis by intelligence organizations.
+
+Many of the tools that are used by traditional forensic practitioners are also part of the toolset used by intelligence and counterintelligence organizations.
+
+In addition to those capabilities, they require advanced methods of breaking encryption, analyzing software and hardware, and recovering data from systems and devices that are designed to resist or entirely prevent tampering that would be part of a typical forensic process.
