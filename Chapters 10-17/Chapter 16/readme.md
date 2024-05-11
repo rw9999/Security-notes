@@ -416,3 +416,165 @@ Vendor agreements should also include NDA terms, and organizations should ensure
 
 ### Complying with Laws and Regulations
 
+Legislators and regulators around the world take an interest in Cybersecurity due to the potential impact of cybersecurity shortcomings on individuals, government, and society.
+
+Whereas the European Union (EU) has a broad-ranging data protection regulation, cybersecurity analysts in the United States are forced to deal with a patchwork of security regulations covering different industries and information categories.
+
+Some of the major information security regulations facing organizations include the following:
+
+- The **Health Insurance Portability and Accountability Act (HIPAA)** includes security and privacy rules that affect healthcare providers, health insurers, and health information clearinghouses in the United States.
+
+- The **Payment Card Industry Data Security Standard (PCI DSS)** provides detailed rules about the storage, processing, and transmission of credit and debit card information. PCI DSS is not a law but rather a contractual obligation that applies to credit card merchants and service providers worldwide.
+
+- The **Gramm–Leach–Bliley Act (GLBA)** covers U.S. financial institutions, broadly defined. It requires that those institutions have a formal security program and designate an individual as having overall responsibility for that program.
+
+- The **Sarbanes–Oxley (SOX)** Act applies to the financial records of U.S. publicly traded companies and requires that those companies have a strong degree of assurance for the IT systems that store and process those records.
+
+- The **General Data Protection Regulation (GDPR)** implements security and privacy requirements for the personal information of European Union residents worldwide.
+
+- The **Family Educational Rights and Privacy Act (FERPA)** requires that U.S. educational institutions implement security and privacy controls for student educational records.
+
+- Various **data breach notification laws** describe the requirements that individual states place on organizations that suffer data breaches regarding notification of individuals affected by the breach.
+
+Remember that this is only a brief listing of security regulations. There are many other laws and obligations that apply to specific industries and data types.
+
+You should always consult your organization's legal counsel and subject matter experts when designing a compliance strategy for your organization. 
+
+You'll need to understand the various national, territory, and state laws that apply to your operations, and the advice of a well-versed attorney is crucial when interpreting and applying cybersecurity regulations to your specific business and technical environment.
+
+#
+
+### Adopting Standard Frameworks
+
+Developing a cybersecurity program from scratch is a formidable undertaking. 
+
+Organizations will have a wide variety of control objectives and tools at their disposal to meet those objectives. Teams facing the task of developing a new security program or evaluating an existing program may find it challenging to cover a large amount of ground without a roadmap.
+
+Fortunately, several standard security frameworks are available to assist with this task and provide a standardized approach to developing cybersecurity programs.
+
+#
+
+### NIST Cybersecurity Framework
+
+The National Institute for Standards and Technology (NIST) is responsible for developing cybersecurity standards across the U.S. federal government.
+
+The guidance and standard documents they produce in this process often have wide applicability across the private sector and are commonly referred to by nongovernmental security analysts due to the fact that they are available in the public domain and are typically of very high quality.
+
+In 2018, NIST released version 1.1 of a Cybersecurity Framework (CSF) designed to assist organizations attempting to meet one or more of the following five objectives:
+
+- Describe their current cybersecurity posture.
+
+- Describe their target state for cybersecurity.
+
+- Identify and prioritize opportunities for improvement within the context of a continuous and repeatable process.
+
+- Assess progress toward the target state.
+
+- Communicate among internal and external stakeholders about cybersecurity risk.
+
+The NIST framework includes three components:
+- The Framework Core is a set of five security functions that apply across all industries and sectors: identify, protect, detect, respond, and recover. The framework then divides these functions into categories, subcategories, and informative references. A small excerpt of this matrix in completed form, looking specifically at the Identify(ID) function and the Asset Management category.
+
+- The Framework Implementation assesses how an organization is positioned to meet cybersecurity objectives. This approach is an example of a maturity model that describes the current and desired positioning of an organization along a continuum of progress. In the case of the NIST maturity model, organizations are assigned to one of four maturity model tiers.
+
+- Framework profiles describe how a specific organization might approach the security functions covered by the Framework Core. An organization might use a framework profile to describe its current state and then a separate profile to describe its desired future state.
+
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/98157327-0ee1-4c9a-b3d9-2eb5f2945055)
+
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/0ab92ee6-012e-4733-a2fb-8d78b9d2e04c)
+
+NIST Cybersecurity Framework implementation tiers
+
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/874483ad-5a2f-4010-bd06-7e955aa14cfe)
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/eac720eb-57c5-433a-9c1e-ada18cfcbd1f)
+
+The NIST Cybersecurity Framework provides organizations with a sound approach to developing and evaluating the state of their cybersecurity programs.
+
+#
+
+### NIST Risk Management Framework
+
+In addition to the CSF, NIST publishes a Risk Management Framework (RMF).
+
+The RMF is a mandatory standard for federal agencies that provides a formalized process that federal agencies must follow to select, implement, and assess risk-based security and privacy controls.
+
+![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/bc9aeb3f-cce0-403b-99ce-b36df57c87ad)
+
+The Security+ exam covers both the NIST CSF and RMF, and it can be a little confusing to keep them straight.
+
+The RMF is a formal process for implementing security controls and authorizing system use, whereas the CSF provides a broad structure for cybersecurity controls.
+
+It's important to understand that, although both the CSF and RMF are mandatory for government agencies, only the CSF is commonly used in private industry.
+
+#
+
+### ISO Standards
+
+The International Organization for Standardization (ISO) publishes a series of standards that offer best practices for cybersecurity and privacy.
+
+As you prepare for the Security+ exam, you should be familiar with four specific ISO standards: ISO 27001, ISO 27002, ISO 27701, and ISO 31000.
+
+#
+
+### ISO 27001
+
+ISO 27001 is a standard document titled “Information technology— Security techniques—Information security management systems— Requirements.” 
+
+This standard includes control objectives covering 14 categories:
+
+- Information security policies
+- Organization of information security
+- Human resource security
+- Asset management
+- Access control
+- Cryptography
+- Physical and environmental security
+- Operations security
+- Communications security
+- System acquisition, development, and maintenance
+- Supplier relationships
+- Information security incident management
+- Information security aspects of business continuity management
+- Compliance with internal requirements, such as policies, and with external requirements, such as laws
+
+The ISO 27001 standard was once the most commonly used information security standards, but it is declining in popularity outside of highly regulated industries that require ISO compliance.
+
+Organizations in those industries may choose to formally adopt ISO 27001 and pursue **certification** programs, where an external assessor validates their compliance with the standard and certifies them as operating in accordance with ISO 27001.
+
+#
+
+### ISO 27002
+
+The ISO 27002 standard goes beyond control objectives and describes the actual controls that an organization may implement to meet cybersecurity objectives.
+
+ISO designed this supplementary document for organizations that wish to
+
+- Select information security controls
+- Implement information security controls
+- Develop information security management guidelines
+
+#
+
+### ISO 27701
+
+Whereas ISO 27001 and ISO 27002 focus on cybersecurity controls, ISO 27701 contains standard guidance for managing privacy controls.
+
+ISO views this document as an extension to their ISO 27001 and ISO 27002 security standards.
+
+Be careful with the numbering of the ISO standards, particularly ISO 27001 and ISO 27701. They look nearly identical, but it is important to remember that ISO 27001 covers cybersecurity and ISO 27701 covers privacy.
+
+#
+
+### ISO 31000
+
+ISO 31000 provides guidelines for risk management programs.
+
+This document is not specific to cybersecurity or privacy but covers risk management in a general way so that it may be applied to any risk.
+
+#
+
+### Benchmarks and Secure Configuration Guides
+
