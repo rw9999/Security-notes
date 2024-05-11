@@ -578,3 +578,38 @@ This document is not specific to cybersecurity or privacy but covers risk manage
 
 ### Benchmarks and Secure Configuration Guides
 
+Quality control procedures verify that an organization has sufficient security controls in place and that those security controls are functioning properly.
+
+Every security program should include procedures for conducting regular internal tests of security controls and supplement those informal tests with formal evaluations of the organization's security program. 
+
+Those evaluations may come in two different forms: audits and assessments.
+
+Audits are formal reviews of an organization's security program or specific compliance issues conducted on behalf of a third party.
+
+Audits require rigorous, formal testing of controls and result in a formal statement from the auditor regarding the entity's compliance. 
+
+Audits may be conducted by internal audit groups at the request of management or by external audit firms, typically at the request of an organization's governing body or a regulator.
+
+Organizations providing services to other organizations often hire an independent assessor to perform a service organization controls (SOC) audit under the American Institute for Certified Public Accountants (AICPA) Statement on Standards for Attestation Engagements 18 (SSAE 18).
+
+There are three different categories of SOC assessment:
+
+- **SOC 1 engagements** assess the organization's controls that might impact the accuracy of financial reporting.
+
+- **SOC 2 engagements** assess the organization's controls that affect the security (confidentiality, integrity, and availability) and privacy of information stored in a system. SOC 2 audit results are confidential and are normally only shared outside the organization under an NDA.
+
+- **SOC 3 engagements** also assess the organization's controls that affect the security (confidentiality, integrity, and availability) and privacy of information stored in a system. However, SOC 3 audit results are intended for public disclosure.
+
+In addition to the three categories of SOC assessment, there are two different types of SOC report.
+
+Both reports begin with providing a description by management of the controls put in place. T
+
+hey differ in the scope of the opinion provided by the auditor:
+
+- **Type 1 reports** provide the auditor's opinion on the description provided by management and the suitability of the design of the controls.
+
+- **Type 2 reports** go further and also provide the auditor's opinion on the operating effectiveness of the controls. That is, the auditor actually confirms that the controls are functioning properly.
+
+Assessments are less formal reviews of security controls that are typically requested by the security organization itself in an effort to engage in process improvement. 
+
+During an assessment, the assessor typically gathers information by interviewing employees and taking them at their word, rather than preforming the rigorous independent testing associated with an audit.
