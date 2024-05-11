@@ -189,3 +189,230 @@ Of course, cybersecurity teams may decide to include many other types of procedu
 
 ### Guidelines
 
+Guidelines provide best practices and recommendations related to a given concept, technology, or task.
+
+Compliance with guidelines is not mandatory, and guidelines are offered in the spirit of providing helpful advice. That said, the “optionality” of guidelines may vary significantly depending on the organization's culture.
+
+In April 2016, the chief information officer (CIO) of the state of Washington published a 25-page document providing guidelines on the use of electronic signatures by state agencies.
+
+The document is not designed to be obligatory but, rather, offers advice to agencies seeking to adopt electronic signature technology.
+
+The document begins with a purpose section that outlines three goals of guideline:
+
+1. Help agencies determine if, and to what extent, their agency will implement and rely on electronic records and electronic signatures.
+
+2. Provide agencies with information they can use to establish policy or rules governing their use and acceptance of digital signatures.
+
+3. Provide direction to agencies for sharing of their policies with the Office of the Chief Information Officer (OCIO) pursuant to state law.
+
+The first two stated objectives line up completely with the function of a guideline. Phrases like “help agencies determine” and “provide agencies with information” are common in guideline documents.
+
+There is nothing mandatory about them, and in fact, the guidelines explicitly state that Washington state law “does not mandate that any state agency accept or require electronic signatures or records.”
+
+The third objective might seem a little strange to include in a guideline. Phrases like “provide direction” are more commonly found in policies and procedures.
+
+Browsing through the document, the text relating to this objective is only a single paragraph within a 25-page document:
+
+"The Office of the Chief Information Officer maintains a page on the OCIO.wa.gov website listing links to individual agency electronic signature and record submission policies. As agencies publish their policies, the link and agency contact information should be emailed to the OCIO Policy Mailbox. The information will be added to the page within 5 working days. Agencies are responsible for notifying the OCIO if the information changes."
+
+Reading this paragraph, the text does appear to clearly outline a mandatory procedure and would not be appropriate in a guideline document that fits within the strict definition of the term.
+
+However, it is likely that the committee drafting this document thought it would be much more convenient to the reader to include this explanatory text in the related guideline rather than drafting a separate procedure document for a fairly mundane and simple task.
+
+#
+
+### Exceptions and Compensating Controls
+
+When adopting new security policies, standards, and procedures, organizations should also provide a mechanism for exceptions to those rules.
+
+Inevitably, unforeseen circumstances will arise that require a deviation from the requirements.
+
+The policy framework should lay out the specific requirements for receiving an exception and the individual or committee with the authority to approve exceptions.
+
+The state of Washington uses an exception process that requires the requestor document the following information:
+
+- Standard/requirement that requires an exception
+- Reason for noncompliance with the requirement
+- Business and/or technical justification for the exception
+- Scope and duration of the exception
+- Risks associated with the exception
+- Description of any supplemental controls that mitigate the risks associated with the exception
+- Plan for achieving compliance
+- Identification of any unmitigated risks
+
+Many exception processes require the use of **compensating controls**to mitigate the risk associated with exceptions to security standards.
+
+The Payment Card Industry Data Security Standard (PCI DSS) includes one of the most formal compensating control processes in use today. 
+
+It sets out three criteria that must be met for a compensating control to be satisfactory:
+
+1. The control must meet the intent and rigor of the original requirement.
+
+2. The control must provide a similar level of defense as the original requirement, such that the compensating control sufficiently offsets the risk that the original PCI DSS requirement was designed to defend against.
+
+3. The control must be “above and beyond” other PCI DSS requirements.
+
+For example, an organization might find that it needs to run an outdated version of an operating system on a specific machine because software necessary to run the business will only function on that operating system version. Most security policies would prohibit using the outdated operating system because it might be susceptible to security vulnerabilities.
+
+The organization could choose to run this system on an isolated network with either very little or no access to other systems as a compensating control.
+
+The general idea is that a compensating control finds alternative means to achieve an objective when the organization cannot meet the original control requirement.
+
+Although PCI DSS offers a very formal process for compensating controls, the use of compensating controls is a common strategy in many different organizations, even those not subject to PCI DSS.
+
+Compensating controls balance the fact that it simply isn't possible to implement every required security control in every circumstance with the desire to manage risk to the greatest feasible degree.
+
+In many cases, organizations adopt compensating controls to address a temporary exception to a security requirement. In those cases, the organization should also develop remediation plans designed to bring the organization back into compliance with the letter and intent of the original control.
+
+## Personnel Management
+
+An organization's employees require access to information and systems to carry out their assigned job functions. 
+
+With this access comes the risk that an employee will, through intentional or accidental action, become the source of a cybersecurity incident. 
+
+Organizations that follow personnel management best practices can reduce the likelihood and impact of employee-centered security risks.
+
+### Least Privilege
+
+The principle of least privilege says that individuals should be granted only the minimum set of permissions necessary to carry out their job functions.
+
+Least privilege is simple in concept but sometimes challenging to implement in practice.
+
+It requires careful attention to the privileges necessary to perform specific jobs and ongoing attention to avoid security issues. 
+
+Privilege creep, one of these issues, occurs when an employee moves from job to job within the organization, accumulating new privileges, but never has the privileges associated with past duties revoked.
+
+#
+
+### Separation of Duties
+
+Organizations may implement separation of duties for extremely sensitive job functions.
+
+Separation of duties takes two different tasks that, when combined, have great sensitivity and creates a rule that no single person may have the privileges required to perform both tasks.
+
+The most common example of separation of duties comes in the world of accounting.
+
+Individuals working in accounting teams pose a risk to the organization should they decide to steal funds. They might carry out this theft by creating a new vendor in the accounting system with the name of a company that they control and then issuing checks to that vendor through the normal check-writing process.
+
+An organization might manage this risk by recognizing that the ability to create a new vendor and issue a check is sensitive when used in combination and implement separation of duties for them.
+
+In that situation, no single individual would have the permission to both create a new vendor and issue a check. 
+
+An accounting employee seeking to steal funds in this manner would now need to solicit the collusion of at least one other employee, reducing the risk of fraudulent activity.
+
+**Two-person control** is a concept that is similar to separation of duties but with an important difference: instead of preventing the same person from holding two different privileges that are sensitive when used together, two-person control requires the participation of two people to perform a single sensitive action.
+
+#
+
+### Job Rotation and Mandatory Vacations
+
+Organizations also take other measures to reduce the risk of fraudulent activity by a single employee. 
+
+Two of these practices focus on uncovering fraudulent actions after they occur by exposing them to other employees.
+
+Job rotation practices take employees with sensitive roles and move them periodically to other positions in the organization.
+
+The motivating force behind these efforts is that many types of fraud require ongoing concealment activities. 
+
+If an individual commits fraud and is then rotated out of their existing assignment, they may not be able to continue those concealment activities due to changes in privileges and their replacement may discover the fraud themselves.
+
+Mandatory vacations serve a similar purpose by forcing employees to take annual vacations of a week or more consecutive time and revoking their access privileges during that vacation period.
+
+#
+
+### Clean Desk Space
+
+Clean desk policies are designed to protect the confidentiality of sensitive information by limiting the amount of paper left exposed on unattended employee desks.
+
+Organizations implementing a clean desk policy require that all papers and other materials be secured before an employee leaves their desk.
+
+#
+
+### Onboarding and Offboarding
+
+Organizations should have standardized processes for onboarding new employees upon hire and offboarding employees who are terminated or resign.
+
+These processes ensure that the organization retains control of its assets and handles the granting and revocation of credentials and privileges in an orderly manner.
+
+New hire processes should also include background checks designed to uncover any criminal activity or other past behavior that may indicate that a potential employee poses an undetected risk to the organization.
+
+#
+
+### Nondisclosure Agreements
+
+Nondisclosure agreements (NDAs) require that employees protect any confidential information that they gain access to in the course of their employment.
+
+Organizations normally ask new employees to sign an NDA upon hire and periodically remind employees of their responsibilities under the NDA.
+
+Offboarding processes often involve exit interviews that include a final reminder of the employee's responsibility to abide by the terms of the NDA even after the end of their affiliation with the organization.
+
+#
+
+### Social Media
+
+Organizations may choose to adopt social media policies that constrain the behavior of employees on social media.
+
+Social media analysis performed by the organization may include assessments of both personal and professional accounts, because that activity may reflect positively or negatively upon the organization. 
+
+Organizations should make their expectations and practices clear in a social media policy
+
+#
+
+### User Training
+
+Users within your organization should receive regular security awareness training to ensure that they understand the risks associated with your computing environment and their role in minimizing those risks.
+
+Strong training programs take advantage of a diversity of training techniques, including the use of computer-based training (CBT).
+
+Not every user requires the same level of training.
+
+Organizations should use role-based training to make sure that individuals receive the appropriate level of training based on their job responsibilities.
+
+For example, a systems administrator should receive detailed and highly technical training, whereas a customer service representative requires less technical training with a greater focus on social engineering and pretexting attacks that they may encounter in their work.
+
+Phishing attacks often target users at all levels of the organization, and every security awareness program should include specific antiphishing campaigns designed to help users recognize suspicious requests and respond appropriately.
+
+These campaigns often involve the use of phishing simulations, which send users fake phishing messages to test their skills. Users who click on the simulated phishing message are sent to a training program designed to help them better recognize fraudulent messages.
+
+Security awareness training also commonly incorporates elements of **gamification**, designed to make training more enjoyable and help users retain the message of the campaign.
+
+Capture the flag (CTF) exercises are a great example of this. CTF programs pit technologists against one another in an attempt to attack a system and achieve a specific goal, such as stealing a sensitive file. Participants in the CTF exercise gain an appreciation for attacker techniques and learn how to better defend their own systems against similar attacks.
+
+## Third-Party Risk Management
+
+Many risks facing an organization come from third-party organizations with whom the organization does business. 
+
+These risks may be the result of a vendor relationship that arises somewhere along the organization's supply chain or they may be the result of other business partnerships. 
+
+Organizations may deploy some standard agreements and practices to manage these risks.
+
+Commonly used agreements include the following:
+
+- **Master service agreements (MSA)** provide an umbrella contract for the work that a vendor does with an organization over an extended period of time. The MSA typically includes detailed security and privacy requirements. Each time the organization enters into a new project with the vendor, they may then create a statement of work (SOW) that contains project-specific details and references the MSA.
+
+- **Service level agreements (SLA)** are written contracts that specify the conditions of service that will be provided by the vendor and the remedies available to the customer if the vendor fails to meet the SLA. SLAs commonly cover issues such as system availability, data durability, and response time.
+
+- A **memorandum of understanding (MOU)** is a letter written to document aspects of the relationship. MOUs are an informal mechanism that allows the parties to document their relationship to avoid future misunderstandings. MOUs are commonly used in cases where an internal service provider is offering a service to a customer that is in a different business unit of the same company.
+
+- **Business partnership agreements (BPAs)** exist when two organizations agree to do business with each other in a partnership. For example, if two companies jointly develop and market a product, the BPA might specify each partner's responsibilities and the division of profits.
+
+Organizations will need to select the agreement type(s) most appropriate for their specific circumstances. 
+
+#
+
+### Winding Down Vendor Relationships
+
+All things come to an end, and third-party relationships are no exception. 
+
+Organizations should take steps to ensure that they have an orderly transition when a vendor relationship ends or the vendor is discontinuing a product or service on which the organization depends. 
+
+This should include specific steps that both parties will follow to have an orderly transition when the vendor announces a product's end of life (EOL) or a service's end of service life (EOSL).
+
+These same steps may be followed if the organization chooses to stop using the product or service on its own.
+
+Vendor agreements should also include NDA terms, and organizations should ensure that vendors ask their own employees to sign NDAs if they will have access to your sensitive information.
+
+#
+
+### Complying with Laws and Regulations
+
