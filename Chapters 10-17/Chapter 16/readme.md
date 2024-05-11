@@ -66,9 +66,23 @@ This approach may meet the needs of CMS, but it is hard to imagine the long-term
 Organizations commonly include the following documents in their information security policy library:
 
 - **Information security policy** that provides high-level authority and guidance for the security program.
+
 - **Acceptable use policy (AUP)** that provides network and system users with clear direction on permissible uses of information resources
+
 - **Data governance policy** that clearly states the ownership of information created or used by the organization.
+
 - **Data classification policy** that describes the classification structure used by the organization and the process used to properly assign classifications to data.
+
 - **Data retention policy** that outlines what information the organization will maintain and the length of time different categories of work product will be retained prior to destruction.
+
 - **Credential management policy** that describes the account lifecycle from provisioning through active use and decommissioning. This policy should include specific requirements for personnel who are employees of the organization as well as third-party contractors. It should also include requirements for credentials used by devices, service accounts, and administrator/root accounts.
-- 
+
+- **Password policy** that sets forth requirements for password length, complexity, reuse, and similar issues.
+
+- **Continuous monitoring policy** that describes the organization's approach to monitoring and informs employees that their activity is subject to monitoring in the workplace.
+
+- **Code of conduct/ethics** that describes expected behavior of employees and affiliates and covers situations not specifically addressed in policy.
+
+- **Change management and change control policies** that describe how the organization will review, approve, and implement proposed changes to information systems in a manner that manages both cybersecurity and operational risk.
+
+- **Asset management** that describes the process that the organization will follow for accepting new assets (such as computers and mobile devices) into inventory, tracking those assets over their lifetime, and properly disposing of them at the end of their useful life.
