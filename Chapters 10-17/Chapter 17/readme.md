@@ -21,3 +21,4 @@ Before we move too deeply into the risk assessment process, let's define a few i
 -  **Risks** occur at the intersection of a vulnerability and a threat that might exploit that vulnerability. A threat without a corresponding vulnerability does not pose a risk, nor does a vulnerability without a corresponding threat.
 
 ![image](https://github.com/rw9999/Security-plus-notes/assets/134976895/c7ed76f3-99d6-497f-99fb-81d26d638085)
+
