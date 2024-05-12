@@ -380,5 +380,136 @@ The goal of these plans is to help the organization recover normal operations as
 
 Disasters of any type may strike an organization.
 
+When we first hear the word “disaster,” we often immediately conjure up images of hurricanes, floods, and other natural environmental disasters.
 
+However, disasters may be of man-made origin and may come as a result of forces external to the organization, as well as internal risks. 
+
+From a disaster recovery planning perspective, a disaster is any event that has the potential to disrupt an organization's business. 
+
+The occurrence of a disaster triggers the activation of the organization's disaster recovery plan.
+
+As part of the DRP process, organizations should conduct site risk assessments for each of their facilities.
+
+These risk assessments should seek to identify and prioritize the risks posed to the facilitate by a disaster, including both internal and external risks from both environmental and man-made disasters
+
+#
+
+### Business Impact Analysis
+
+The business impact analysis (BIA) is a formal process designed to identify the mission essential functions within an organization and facilitate the identification of the critical systems that support those functions.
+
+There are four key metrics used in the BIA process that you should understand when preparing for the Security+ exam:
+
+- **The Mean Time Between Failures (MTBF)** is a measure of the reliability of a system. It is the expected amount of time that will elapse between system failures. For example, if the MTBF is six months, you can expect that the system will fail once every six months, on average.
+
+-  **The Mean Time to Repair (MTTR)** is the average amount of time to restore a system to its normal operating state after a failure.
+
+-  **The Recovery Time Objective (RTO)** is the amount of time that the organization can tolerate a system being down before it is repaired. The service team is meeting expectations when the time to repair is less than the RTO.
+
+-  **The Recovery Point Objective (RPO)** is the amount of data that the organization can tolerate losing during an outage.
+
+Each of these metrics allows the organization to evaluate the impact of different risks on its operations and the acceptability of the state of its disaster recovery controls.
+
+As organizations evaluate the state of their environment, they should pay particular attention to **single points of failure**.
+
+These are systems, devices, or other components that, if they fail, would cause an outage. 
+
+For example, if a server only has one power supply, the failure of that power supply would bring down the server, making it a single point of failure. 
+
+Adding a redundant power supply to the server resolves that single point of failure. Similarly, if that server is the only server providing the organization's web page, the server then becomes a single point of failure.
+
+Adding a second server to a cluster resolves that single point of failure.
+
+#
+
+### Privacy
+
+Cybersecurity professionals are responsible for protecting the confidentiality, integrity, and availability of all information under their care. This includes personally identifiable information (PII) that, if improperly disclosed, would jeopardize the privacy of one or more individuals.
+
+When privacy breaches occur, they clearly have a negative impact on the individuals whose information was lost in the breach. Those individuals may find themselves exposed to identity theft and other personal risks. 
+
+Privacy breaches also have organizational consequences for the business that loses control of personal information. 
+
+These consequences may include reputational damage, fines, and the loss of important intellectual property (IP) that may now fall into the hands of a competitor.
+
+Organizations seeking to codify their privacy practices may adopt a privacy notice that outlines their privacy commitments. 
+
+In some cases, laws or regulations may require that the organization adopt a **privacy notice**. In addition, organizations may include privacy statements in their terms of agreement with customers and other stakeholders.
+
+#
+
+### Sensitive Information Inventory
+
+Organizations often deal with many different types of sensitive and personal information. 
+
+The first step in managing this sensitive data is developing an inventory of the types of data maintained by the organization and the places where it is stored, processed, and transmitted.
+
+Organizations should include the following types of information in their inventory:
+
+- **Personally identifiable information (PII)** includes any information that uniquely identifies an individual person, including customers, employees, and third parties.
+
+- **Protected health information (PHI)** includes medical records maintained by healthcare providers and other organizations that are subject to the Health Insurance Portability and Accountability Act (HIPAA).
+
+- **Financial information** includes any personal financial records maintained by the organization.
+
+- **Government information** maintained by the organization may be subject to other rules, including the data classification requirements discussed in the next section
+
+Once the organization has an inventory of this sensitive information, it can begin to take steps to ensure that it is appropriately protected from loss or theft.
+
+#
+
+### Information Classification
+
+Information classification programs organize data into categories based on the sensitivity of the information and the impact on the organization should the information be inadvertently disclosed.
+
+For example, the U.S. government uses the following four major classification categories:
+
+- **Top Secret** information requires the highest degree of protection. The unauthorized disclosure of Top Secret information could reasonably be expected to cause exceptionally grave damage to national security.
+
+- **Secret** information requires a substantial degree of protection. The unauthorized disclosure of Secret information could reasonably be expected to cause serious damage to national security.
+
+- **Confidential** information requires some protection. The unauthorized disclosure of Confidential information could reasonably be expected to cause identifiable damage to national security.
+
+- **Unclassified** information is information that does not meet the standards for classification under the other categories. Information in this category is still not publicly releasable without authorization.
+
+Businesses generally don't use the same terminology for their levels of classified information. 
+
+Instead, they might use more friendly terms, such as Highly Sensitive, Sensitive, Internal, and Public.
+
+CompTIA includes a listing of classification levels in the Security+ exam objectives. As you prepare for the exam, become familiar with these examples that are commonly used in business:
+
+- Public
+- Private
+- Sensitive
+- Confidential
+- Critical
+- Proprietary
+
+It's important to understand that there are no “official” classification levels in business. Each of these terms may be used differently between organizations and it is likely that different firms may use these terms for different purposes. It's very important to review your organization's classification policy and understand the different levels in use and their meanings.
+
+Data classification allows organizations to clearly specify the security controls required to protect information with different levels of sensitivity.
+
+#
+
+### Data Roles and Responsibilities
+
+One of the most important things that we can do to protect our data is to create clear **data ownership** policies and procedures.
+
+Using this approach, the organization designates specific senior executives as the data owners for different data types. 
+
+For example, the vice president of Human Resources might be the data owner for employment and payroll data, whereas the vice president for Sales might be the data owner for customer information.
+
+Clear lines of data ownership place responsibility for data in the hands of executives who best understand the impact of decisions about that data on the business.
+
+They don't make all of these decisions in isolation, however. Data owners delegate some of their responsibilities to others in the organization and also rely on advice from subject matter experts, such as cybersecurity analysts and data protection specialists.
+
+As you prepare for the Security+ exam, you should be familiar with other important data privacy roles:
+
+- **Data controllers** are the entities who determine the reasons for processing personal information and direct the methods of processing that data. This term is used primarily in European law and it serves as a substitute for the term data owner to avoid a presumption that anyone who collects data has an ownership interest in that data.
+
+- **Data stewards** are individuals who carry out the intent of the data controller and are delegated responsibility from the controller.
+
+- **Data custodians** are individuals or teams who do not have controller or stewardship responsibility but are responsible for the secure safekeeping of information. For example, a data controller might delegate responsibility for securing PII to an information security team. In that case, the information security team serves as a data custodian.
+
+- **Data processors** are service providers that process personal information on behalf of a data controller. For example, a credit card processing service might be a data processor for a retailer. The retailer retains responsibility as the data controller but uses the service as a data processor.
 
