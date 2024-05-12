@@ -602,9 +602,9 @@ There are three different categories of SOC assessment:
 
 In addition to the three categories of SOC assessment, there are two different types of SOC report.
 
-Both reports begin with providing a description by management of the controls put in place. T
+Both reports begin with providing a description by management of the controls put in place.
 
-hey differ in the scope of the opinion provided by the auditor:
+They differ in the scope of the opinion provided by the auditor:
 
 - **Type 1 reports** provide the auditor's opinion on the description provided by management and the suitability of the design of the controls.
 
