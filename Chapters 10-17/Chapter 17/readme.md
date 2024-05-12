@@ -513,3 +513,64 @@ As you prepare for the Security+ exam, you should be familiar with other importa
 
 - **Data processors** are service providers that process personal information on behalf of a data controller. For example, a credit card processing service might be a data processor for a retailer. The retailer retains responsibility as the data controller but uses the service as a data processor.
 
+#
+
+### Data Protection Officers
+
+Organizations should identify a specific individual who bears overall responsibility for carrying out the organization's data privacy efforts. 
+
+This person, often given the title of chief privacy officer, bears the ultimate responsibility for data privacy and must coordinate across functional teams to achieve the organization's privacy objectives.
+
+The European Union's General Data Protection Regulation (GDPR) formalizes this role, requiring that every data controller designate a data protection officer (DPO) and grant that individual the autonomy to carry out their responsibilities without undue oversight.
+
+#
+
+### Information Lifecycle
+
+Data protection should continue at all stages of the information lifecycle, from the time the data is originally collected until the time it is eventually disposed.
+
+At the early stages of the data lifecycle, organizations should practice **data minimization**, where they collect the smallest possible amount of information necessary to meet their business requirements. Information that is not necessary should either be immediately discarded or, better yet, not collected in the first place.
+
+Although information remains within the care of the organization, the organization should practice **purpose limitation**. This means that information should be used only for the purpose that it was originally collected and that was consented to by the data subjects.
+
+At the end of the lifecycle, the organization should implement **data retention** standards that guide the end of the data lifecycle. Data should only be kept for as long as it remains necessary to fulfill the purpose for which it was originally collected. At the conclusion of its lifecycle, data should be securely destroyed.
+
+Reducing the amount of data that you retain is a great way to minimize your security risk. Remember this as you answer exam questions that ask you to identify the best or most effective strategy for reducing risk.
+
+#
+
+### Privacy Enhancing Technologies
+
+If we can't completely remove data from a dataset, we can often transform it into a format where the original sensitive information is anonymized. Although true anonymization may be quite difficult to achieve, we can often use pseudo-anonymization techniques, such as de-identification. 
+
+The de-identification process removes the ability to link data back to an individual, reducing its sensitivity.
+
+An alternative to de-identifying data is transforming it into a format where the original information can't be retrieved.
+
+This is a process called **data obfuscation** and we have several tools at our disposal to assist with it.
+
+- **Hashing** uses a hash function to transform a value in our dataset to a corresponding hash value. If we apply a strong hash function to a data element, we may replace the value in our file with the hashed value.
+
+- **Tokenization** replaces sensitive values with a unique identifier using a lookup table. For example, we might replace a widely known value, such as a student ID, with a randomly generated 10-digit number. We'd then maintain a lookup table that allows us to convert those back to student IDs if we need to determine someone's identity. Of course, if you use this approach, you need to keep the lookup table secure!
+
+- **Data masking** partially redacts sensitive information by replacing some or all of sensitive fields with blank characters. For example, we might replace all but the last four digits of a credit card number with X's or *'s to render the card number unreadable.
+
+Although it isn't possible to retrieve the original value directly from the hashed value, there is one major flaw to this approach. If someone has a list of possible values for a field, they can conduct something called a rainbow table attack. In this attack, the attacker computes the hashes of those candidate values and then checks to see if those hashes exist in your data file.
+
+For example, imagine that we have a file listing all the students at our college who have failed courses but we hash their student IDs. If an attacker has a list of all students, they can compute the hash values of all student IDs and then check to see which hash values are on the list. For this reason, hashing should only be used with caution.
+
+#
+
+### Privacy and Data Breach Notification
+
+In the unfortunate event of a data breach, the organization should immediately activate its cybersecurity incident response plan.
+
+Organizations may also have a responsibility under national and regional laws to make public notifications and disclosures in the wake of a data breach.
+
+This responsibility may be limited to notifying the individuals involved or, in some cases, may require notification of government regulators and/or the news media.
+
+In the United States, every state has a data breach notification law with different requirements for triggering notifications. The European Union's GDPR also includes a breach notification requirement. The U.S. lacks a federal law requiring broad notification for all security breaches but does have industry-specific laws and requirements that require notification in some circumstances.
+
+The bottom line is that breach notification requirements vary by industry and jurisdiction and an organization experiencing a breach may be required to untangle many overlapping requirements. 
+
+For this reason, organizations experiencing a data breach should consult with an attorney who is well versed in this field.
